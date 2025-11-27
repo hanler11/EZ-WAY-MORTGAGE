@@ -1,0 +1,27 @@
+{
+  "name": "yva",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanler11/YVA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanler11/YVA/issues"
+  },
+  "homepage": "https://github.com/hanler11/YVA#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "mysql2": "^3.14.2",
+    "nodemailer": "^7.0.5",
+    "socket.io": "^4.8.1"
+  }
+}

@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17604243227"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      // Google Analytics 4 (para análisis web)
+      gtag("config", "G-GR54EXMBTD");
+
+      // Google Ads (para conversiones de anuncios)
+      gtag("config", "AW-17604243227");
+
+      // Enhanced ecommerce and conversion tracking
+      function trackConversion(action, service = "") {
+        gtag("event", action, {
+          event_category: "conversion",
+          event_label: service,
+          value: 1,
+        });
+        console.log("Conversion tracked:", action, service);
+      }
+
+      function trackEngagement(action, element = "") {
+        gtag("event", action, {
+          event_category: "engagement",
+          event_label: element,
+        });
+      }
+
+      // Debugging - eliminar en producción
+      console.log(
+        "Google Analytics initialized with IDs: G-GR54EXMBTD, AW-17604243227"
+      );
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EZ Way Mortgage - Fast, Trusted & Transparent Home Financing</title>
+
+    <!-- Preload critical resources -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Hoja de estilos personalizada con paleta azul / dorado / blanco -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Prevenir desbordamiento horizontal en toda la página */
+      html,
+      body {
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+
+      header {
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+
+      /* LOADING SCREEN - MEJORADO */
+      #loading-screen {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: linear-gradient(
+          135deg,
+          #0f3a63,
+          #15527f 60%,
+          #b68c2f
+        ) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        z-index: 999999 !important;
+        color: white !important;
+        font-family: "Poppins", sans-serif !important;
+      }
+
+      #loading-screen.fade-out {
+        opacity: 0 !important;
+        transition: opacity 0.8s ease-out !important;
+        pointer-events: none !important;
+      }
+
+      #loading-screen.hidden {
+        display: none !important;
+      }
+
+      /* CONTROL COMPLETO DEL BODY */
+      body.loading {
+        overflow: hidden !important;
+        height: 100vh !important;
+      }
+
+      body.loading #main-content {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+      }
+
+      body.loaded #main-content {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transition: opacity 0.5s ease-in !important;
+      }
+
+      body.loaded {
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        height: auto !important;
+      }
+
+      .logo-circle {
+        width: 150px !important;
+        height: 150px !important;
+        background: white !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 3rem !important;
+        font-weight: 900 !important;
+        color: #3b82f6 !important;
+        margin-bottom: 2rem !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+        animation: bounce 2s infinite !important;
+      }
+
+      .logo-text {
+        font-size: 2.5rem !important;
+        font-weight: 800 !important;
+        margin-bottom: 1rem !important;
+        animation: pulse 1.5s infinite !important;
+      }
+
+      .loading-message {
+        font-size: 1.2rem !important;
+        margin-bottom: 2rem !important;
+        opacity: 0.9 !important;
+      }
+
+      .spinner {
+        width: 50px !important;
+        height: 50px !important;
+        border: 4px solid rgba(255, 255, 255, 0.3) !important;
+        border-top: 4px solid white !important;
+        border-radius: 50% !important;
+        animation: spin 1s linear infinite !important;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-20px);
+        }
+        60% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.7;
+          transform: scale(1.1);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      main {
+        padding-top: 90px;
+        margin: 0;
+        overflow-x: hidden;
+        width: 100%;
+      }
+
+      header {
+        height: auto;
+        min-height: 80px;
+      }
+
+      @media (max-width: 767px) {
+        main {
+          padding-top: 80px;
+        }
+      }
+
+      .hero-section {
+        padding-top: 4rem !important;
+        margin-top: 0 !important;
+        background: linear-gradient(
+            120deg,
+            rgba(15, 58, 99, 0.85) 0%,
+            rgba(21, 82, 127, 0.85) 55%,
+            rgba(182, 140, 47, 0.85) 130%
+          ),
+          url("assets/1.jpg") !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-attachment: fixed !important;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-section:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 75% 35%,
+          rgba(255, 255, 255, 0.15),
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+      .btn-gold-primary {
+        background: var(--color-brand-gold, #b68c2f);
+        color: #fff;
+        border: 2px solid var(--color-brand-gold, #b68c2f);
+        transition: all 0.25s ease;
+      }
+      .btn-gold-primary:hover {
+        background: var(--color-brand-blue, #0f3a63);
+        border-color: var(--color-brand-blue, #0f3a63);
+        transform: translateY(-2px);
+      }
+      .btn-outline-light {
+        border: 2px solid #fff;
+        color: #fff;
+        transition: all 0.25s ease;
+      }
+      .btn-outline-light:hover {
+        background: #fff;
+        color: var(--color-brand-blue, #0f3a63);
+      }
+      .gold-accent-bar {
+        height: 4px;
+        background: linear-gradient(90deg, #b68c2f, #e7c77b, #b68c2f);
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .animate-float {
+        animation: float 5s ease-in-out infinite;
+      }
+
+      .sticky-nav-active {
+        background-color: white;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .partners-scroll {
+        animation: scroll 20s linear infinite;
+      }
+
+      .partners-container {
+        overflow: hidden;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+
+      .partners-track {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        height: 100%;
+        white-space: nowrap;
+        width: calc(100% * 2); /* Doble ancho para el loop */
+      }
+
+      .partners-track img {
+        height: 40px;
+        width: auto;
+        max-width: 80px;
+        object-fit: contain;
+        flex-shrink: 0;
+        filter: grayscale(100%);
+        opacity: 0.6;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .partners-track img:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+        transform: scale(1.1);
+      }
+
+      /* Pausar animación al hover */
+      .partners-container:hover .partners-track {
+        animation-play-state: paused;
+      }
+
+      @media (min-width: 768px) {
+        .partners-container {
+          height: 80px;
+        }
+        .partners-track {
+          gap: 4rem;
+        }
+        .partners-track img {
+          height: 60px;
+          max-width: 100px;
+        }
+      }
+
+      .hero-image {
+        max-width: 100%;
+        height: auto;
+        width: 280px;
+      }
+
+      @media (min-width: 768px) {
+        .hero-image {
+          width: 400px;
+        }
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      @media (min-width: 768px) {
+        .service-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .service-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        scroll-padding-top: 80px;
+      }
+
+      section {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+
+      .mobile-menu-hidden {
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+      }
+
+      .mobile-menu-visible {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      .nav-menu-mobile {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        z-index: 1000; /* ensure menu overlays hero/images */
+        max-height: 100vh;
+        overflow-y: auto;
+      }
+
+      .hamburger-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .hamburger-icon.active {
+        transform: rotate(90deg);
+      }
+
+      /* Optimización para mobile */
+      @media (max-width: 767px) {
+        /* Make mobile nav fixed and above content */
+        .nav-menu-mobile {
+          position: fixed;
+          top: 64px; /* below fixed header */
+          left: 0;
+          right: 0;
+          z-index: 1000;
+        }
+
+        .logo-circle {
+          width: 120px !important;
+          height: 120px !important;
+          font-size: 2.5rem !important;
+        }
+        .logo-text {
+          font-size: 2rem !important;
+        }
+        .loading-message {
+          font-size: 1rem !important;
+        }
+
+        /* Header responsive fixes */
+        header {
+          height: auto !important;
+          min-height: 70px !important;
+        }
+
+        .nav-logo-container {
+          max-width: calc(100vw - 100px) !important;
+          overflow: hidden !important;
+        }
+
+        /* NMLS info mobile adjustments - Más restrictivo */
+        .nmls-info-mobile {
+          font-size: 9px !important;
+          margin-left: 40px !important;
+          white-space: nowrap !important;
+          overflow: hidden !important;
+          text-overflow: ellipsis !important;
+          max-width: calc(100vw - 280px) !important;
+          position: relative !important;
+          z-index: 5 !important;
+          margin-top: 2px !important;
+        }
+
+        /* Logo y texto responsive */
+        .logo-responsive {
+          font-size: 12px !important;
+          max-width: calc(100vw - 260px) !important;
+        }
+
+        /* Asegurar que la navegación desktop esté encima */
+        nav[data-nav] {
+          z-index: 60 !important;
+          position: relative !important;
+        }
+      }
+
+      /* Para tablets - navegación visible */
+      @media (min-width: 768px) and (max-width: 1024px) {
+        .nmls-info-mobile {
+          max-width: calc(100vw - 350px) !important;
+        }
+
+        .logo-responsive {
+          max-width: calc(100vw - 330px) !important;
+        }
+      }
+
+      /* Para ventanas de tamaño medio - el problema principal */
+      @media (min-width: 1025px) and (max-width: 1400px) {
+        .nmls-info-mobile {
+          max-width: calc(100vw - 400px) !important;
+        }
+
+        .logo-responsive {
+          max-width: calc(100vw - 380px) !important;
+        }
+      }
+
+      /* Para pantallas extra pequeñas */
+      @media (max-width: 480px) {
+        .nmls-info-mobile {
+          margin-left: 35px !important;
+          font-size: 8px !important;
+          max-width: calc(100vw - 200px) !important;
+          margin-top: 3px !important;
+        }
+
+        .nav-logo-container {
+          max-width: calc(100vw - 160px) !important;
+        }
+
+        .logo-responsive {
+          font-size: 11px !important;
+          max-width: calc(100vw - 180px) !important;
+        }
+
+        /* Ocultar completamente el texto NMLS en pantallas muy pequeñas */
+        .nmls-hide-xs {
+          display: none !important;
+        }
+      }
+
+      /* Para pantallas de menos de 360px */
+      @media (max-width: 360px) {
+        .nmls-info-mobile {
+          display: none !important;
+        }
+
+        .nav-logo-container {
+          max-width: calc(100vw - 70px) !important;
+        }
+      }
+
+      /* Asegurar que el contenido no interfiera durante la carga */
+      body.loading * {
+        pointer-events: none !important;
+      }
+
+      body.loaded * {
+        pointer-events: auto !important;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Poppins", "sans-serif"] },
+            colors: {
+              "brand-blue": "#0f3a63",
+              "brand-gold": "#b68c2f",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Google Analytics - AMBOS IDs CORRECTOS AL FINAL DEL HEAD -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GR54EXMBTD"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      // Google Analytics 4 (para análisis web)
+      gtag("config", "G-GR54EXMBTD");
+
+      // Google Ads (para conversiones de anuncios)
+      gtag("config", "AW-17604243227");
+
+      // Enhanced ecommerce and conversion tracking
+      function trackConversion(action, service = "") {
+        gtag("event", action, {
+          event_category: "conversion",
+          event_label: service,
+          value: 1,
+        });
+        console.log("Conversion tracked:", action, service);
+      }
+
+      function trackEngagement(action, element = "") {
+        gtag("event", action, {
+          event_category: "engagement",
+          event_label: element,
+        });
+      }
+
+      console.log(
+        "Google Analytics initialized with IDs: G-GR54EXMBTD, AW-17604243227"
+      );
+    </script>
+  </head>
+  <body class="font-sans text-gray-800 loading">
+    <!-- PANTALLA DE CARGA MEJORADA -->
+    <div id="loading-screen">
+      <div class="logo-circle flex items-center justify-center p-2">
+        <img
+          src="assets/logoEZ.png"
+          alt="EZ Way Mortgage Logo"
+          class="h-24 w-auto"
+        />
+      </div>
+      <div class="logo-text">EZ Way Mortgage</div>
+      <div class="loading-message">Loading your virtual assistant...</div>
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+      <header
+        id="navbar"
+        class="fixed top-0 left-0 w-full z-50 transition-all bg-white shadow"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <!-- Logo y Navegación -->
+          <div class="flex items-center justify-between w-full h-20">
+            <div class="flex flex-col min-w-0 flex-1 nav-logo-container">
+              <a
+                href="index.html"
+                class="flex items-center gap-2 sm:gap-3 group"
+              >
+                <img
+                  src="assets/logoEZ.png"
+                  alt="EZ Way Mortgage Logo"
+                  class="h-10 sm:h-14 w-auto flex-shrink-0"
+                />
+                <span
+                  class="text-xs sm:text-lg font-bold text-brand-gold group-hover:text-black transition truncate logo-responsive"
+                  >EZ Way Mortgage Corporation</span
+                >
+              </a>
+              <!-- NMLS Info debajo del logo - Responsive -->
+              <div
+                class="text-xs text-gray-600 ml-12 sm:ml-20 mt-1 nmls-info-mobile"
+              >
+                <span class="font-medium">NMLS #2679112</span>
+                <span class="mx-1 hidden md:inline nmls-hide-xs">•</span>
+                <span class="hidden md:inline nmls-hide-xs"
+                  >Licensed Mortgage Brokerage</span
+                >
+              </div>
+            </div>
+
+            <button
+              id="nav-toggle"
+              class="md:hidden text-2xl text-brand-gold focus:outline-none relative z-50"
+              aria-label="Abrir menú de navegación"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 transition-transform duration-300 hamburger-icon text-brand-gold"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 8h16M4 16h16"
+                  class="hamburger-line"
+                />
+              </svg>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <nav
+              class="hidden md:flex md:space-x-8 text-lg font-bold md:items-center"
+              data-nav
+            >
+              <a
+                href="index.html"
+                data-link="home"
+                class="hover:text-black transition"
+                >Home</a
+              >
+              <a
+                href="about.html"
+                data-link="about"
+                class="hover:text-black transition"
+                >About</a
+              >
+              <a
+                href="services.html"
+                data-link="programs"
+                class="hover:text-black transition"
+                >Programs</a
+              >
+              <a
+                href="index.html#how-it-works"
+                data-link="process"
+                class="hover:text-black transition"
+                >Process</a
+              >
+              <a
+                href="contact.html"
+                data-link="contact"
+                class="bg-brand-gold text-white font-semibold px-5 py-2 rounded hover:bg-black transition"
+                >Get Pre-Approved</a
+              >
+            </nav>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav id="nav-menu" class="nav-menu-mobile mobile-menu-hidden md:hidden">
+          <div class="flex flex-col p-4 space-y-2" data-nav-mobile>
+            <a
+              href="index.html"
+              data-link="home"
+              class="px-4 py-3 block hover:bg-black/5 rounded transition"
+              >Home</a
+            >
+            <a
+              href="about.html"
+              data-link="about"
+              class="px-4 py-3 block hover:bg-black/5 rounded transition"
+              >About</a
+            >
+            <a
+              href="services.html"
+              data-link="programs"
+              class="px-4 py-3 block hover:bg-black/5 rounded transition"
+              >Programs</a
+            >
+            <a
+              href="index.html#how-it-works"
+              data-link="process"
+              class="px-4 py-3 block hover:bg-black/5 rounded transition"
+              >Process</a
+            >
+            <a
+              href="contact.html"
+              data-link="contact"
+              class="bg-brand-gold text-white font-semibold px-4 py-3 rounded hover:bg-black transition text-center mx-4 mt-2"
+              >Get Pre-Approved</a
+            >
+          </div>
+        </nav>
+      </header>
+
+      <main class="pt-24">
+        <!-- Hero Section con imagen de fondo -->
+        <section
+          class="hero-section text-white py-16 sm:py-24 px-4 sm:px-6 md:px-20 relative overflow-hidden min-h-screen flex items-center"
+          data-aos="fade-down"
+          data-aos-duration="600"
+          data-aos-once="true"
+        >
+          <!-- Overlay decorativo adicional -->
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-brand-blue/60 via-transparent to-brand-gold/20 pointer-events-none"
+          ></div>
+
+          <div class="max-w-7xl mx-auto relative z-10">
+            <div class="max-w-xl text-center md:text-left">
+              <h1
+                class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6 drop-shadow-lg"
+              >
+                Your Path to Homeownership
+              </h1>
+              <p class="text-base sm:text-lg mb-8 drop-shadow-sm">
+                At EZ Way Mortgage Corporation, we believe everyone deserves the
+                chance to own a home—without the stress, confusion, or red tape.
+                You bring the dream. We’ll bring the roadmap.
+              </p>
+              <div
+                class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+              >
+                <a
+                  href="contact.html"
+                  onclick="trackConversion('hero_cta_click', 'book_free_call')"
+                  class="btn-gold-primary font-semibold px-6 py-3 rounded-lg shadow-md hover:scale-[1.02] text-center"
+                  >Get Pre-Approved</a
+                >
+                <a
+                  href="about.html"
+                  onclick="trackEngagement('hero_secondary_click', 'learn_more')"
+                  class="btn-outline-light px-6 py-3 rounded-lg text-center"
+                  >Explore Loan Options</a
+                >
+              </div>
+              <p class="mt-4 text-sm text-white/90 drop-shadow-sm">
+                EZ Way Mortgage — The EZ way to your new home.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Problem / Solution: From Confusion to Confidence -->
+        <section
+          class="py-12 sm:py-16 px-4 sm:px-6 md:px-20 bg-white"
+          data-aos="fade-up"
+          data-aos-once="true"
+        >
+          <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-bold text-brand-blue mb-2">
+                From Confusion to Confidence
+              </h2>
+              <div class="gold-accent-bar w-24 mb-5"></div>
+              <p class="text-gray-700 mb-3">
+                <strong>Mortgages can feel complicated.</strong>
+              </p>
+              <ul class="list-disc list-inside text-gray-700 space-y-1 mb-5">
+                <li>Endless options</li>
+                <li>Financial jargon</li>
+                <li>Hidden fees</li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-gray-700 mb-3">
+                <strong>We cut through the noise.</strong>
+              </p>
+              <p class="text-gray-700 mb-3">
+                We explain every step in plain English and find the best loan
+                for your budget, goals, and timeline.
+              </p>
+              <p class="text-gray-700">
+                Whether you’re self‑employed, buying your first home, or
+                refinancing—we’ve helped thousands just like you.
+                <span class="font-semibold">We make mortgages make sense.</span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Services Overview -->
+        <section
+          id="services"
+          class="py-16 sm:py-20 bg-white px-4 sm:px-6 md:px-20"
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-once="true"
+        >
+          <h2 class="text-2xl font-bold text-center mb-8">What We Offer</h2>
+          <div class="service-grid max-w-6xl mx-auto">
+            <div
+              class="group text-center transition-all duration-300 transform hover:scale-105 bg-white p-6 rounded-lg shadow-md relative overflow-hidden"
+              data-aos="zoom-in"
+              data-aos-delay="50"
+              data-aos-duration="400"
+              data-aos-once="true"
+            >
+              <div
+                class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 flex items-center justify-center rounded-full bg-gradient-to-br from-[#0f3a63] to-black shadow-inner"
+              >
+                <svg
+                  viewBox="0 0 48 48"
+                  class="w-14 h-14 text-brand-gold"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M8 22 24 10l16 12" />
+                  <path d="M14 26v12h20V26" />
+                  <path d="M21 38V30h6v8" />
+                </svg>
+              </div>
+              <h3 class="font-semibold text-lg">Purchase Loans</h3>
+              <p class="text-sm text-gray-600">
+                Flexible lending solutions for first-time and repeat homebuyers.
+              </p>
+              <div
+                class="absolute inset-0 bg-white bg-opacity-95 opacity-0 group-hover:opacity-100 p-4 flex items-center justify-center transition-opacity duration-500"
+              >
+                <p class="text-sm text-gray-700">
+                  Compare conventional, FHA, VA and USDA programs with expert
+                  guidance from initial qualification to final closing.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="group text-center transition-all duration-300 transform hover:scale-105 bg-white p-6 rounded-lg shadow-md relative overflow-hidden"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+              data-aos-duration="400"
+              data-aos-once="true"
+            >
+              <div
+                class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 flex items-center justify-center rounded-full bg-gradient-to-br from-[#0f3a63] to-black shadow-inner"
+              >
+                <svg
+                  viewBox="0 0 48 48"
+                  class="w-14 h-14 text-brand-gold"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="20" cy="20" r="10" />
+                  <path d="M17 16h3a2 2 0 0 1 0 4h-2a2 2 0 0 0 0 4h3" />
+                  <path d="M42 42 30 30" />
+                </svg>
+              </div>
+              <h3 class="font-semibold text-lg">Refinancing Strategies</h3>
+              <p class="text-sm text-gray-600">
+                Reduce your payment, shorten your term or tap equity.
+              </p>
+              <div
+                class="absolute inset-0 bg-white bg-opacity-95 opacity-0 group-hover:opacity-100 p-4 flex items-center justify-center transition-opacity duration-500"
+              >
+                <p class="text-sm text-gray-700">
+                  We evaluate rate/term, cash-out and streamline
+                  options—delivering transparent savings scenarios so you decide
+                  with clarity.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="group text-center transition-all duration-300 transform hover:scale-105 bg-white p-6 rounded-lg shadow-md relative overflow-hidden"
+              data-aos="zoom-in"
+              data-aos-delay="150"
+              data-aos-duration="400"
+              data-aos-once="true"
+            >
+              <div
+                class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 flex items-center justify-center rounded-full bg-gradient-to-br from-[#0f3a63] to-black shadow-inner"
+              >
+                <svg
+                  viewBox="0 0 48 48"
+                  class="w-14 h-14 text-brand-gold"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="10" y="14" width="28" height="22" rx="3" />
+                  <path d="M18 20h12" />
+                  <path d="M18 26h8" />
+                  <path d="M18 32h6" />
+                </svg>
+              </div>
+              <h3 class="font-semibold text-lg">Loan Program Guidance</h3>
+              <p class="text-sm text-gray-600">
+                Clear explanations of each product you qualify for.
+              </p>
+              <div
+                class="absolute inset-0 bg-white bg-opacity-95 opacity-0 group-hover:opacity-100 p-4 flex items-center justify-center transition-opacity duration-500"
+              >
+                <p class="text-sm text-gray-700">
+                  From credit optimization to documentation, we structure your
+                  file for smooth underwriting and faster approvals.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="group text-center transition-all duration-300 transform hover:scale-105 bg-white p-6 rounded-lg shadow-md relative overflow-hidden"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+              data-aos-duration="400"
+              data-aos-once="true"
+            >
+              <div
+                class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 flex items-center justify-center rounded-full bg-gradient-to-br from-[#0f3a63] to-black shadow-inner"
+              >
+                <svg
+                  viewBox="0 0 48 48"
+                  class="w-14 h-14 text-brand-gold"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8 12h22a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V16a4 4 0 0 1 4-4Z"
+                  />
+                  <path d="M30 20 42 14v20l-12-6" />
+                  <path d="M14 24h8" />
+                  <path d="M14 19h12" />
+                  <path d="M14 29h6" />
+                </svg>
+              </div>
+              <h3 class="font-semibold text-lg">Loan Processing Support</h3>
+              <p class="text-sm text-gray-600">
+                Proactive coordination through every milestone.
+              </p>
+              <div
+                class="absolute inset-0 bg-white bg-opacity-95 opacity-0 group-hover:opacity-100 p-4 flex items-center justify-center transition-opacity duration-500"
+              >
+                <p class="text-sm text-gray-700">
+                  Status tracking, condition clearing and responsive
+                  communication—keeping you and your agent fully informed.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Mortgages for Life’s Big Moments -->
+        <section
+          class="py-16 sm:py-20 px-4 sm:px-6 md:px-20 bg-gray-50 border-y border-[#b68c2f22]"
+          data-aos="fade-up"
+          data-aos-once="true"
+        >
+          <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl sm:text-3xl font-bold text-brand-blue mb-2">
+              Mortgages for Life’s Big Moments
+            </h2>
+            <div class="gold-accent-bar w-28 mb-6"></div>
+            <ul class="grid sm:grid-cols-2 gap-4 text-gray-700">
+              <li>
+                🏠
+                <span class="font-semibold">First-time homebuyer?</span> We’ll
+                walk you through everything, step‑by‑step.
+              </li>
+              <li>
+                👨‍👩‍👧‍👦 <span class="font-semibold">Growing family?</span> Let’s
+                upsize smartly.
+              </li>
+              <li>
+                👩‍💼
+                <span class="font-semibold">Self‑employed or investor?</span> We
+                know how to make your numbers work.
+              </li>
+              <li>
+                🧳 <span class="font-semibold">Downsizing?</span> Let’s simplify
+                and save.
+              </li>
+            </ul>
+            <p class="text-gray-700 mt-6">
+              We scan hundreds of loan products from dozens of lenders to make
+              sure you’re getting the best rate, terms, and fit for your
+              financial goals. With EZ Way, you’re not just applying.
+              <span class="font-semibold">You’re strategizing.</span>
+            </p>
+          </div>
+        </section>
+
+        <!-- Testimonials Carousel -->
+        <section
+          class="py-16 sm:py-20 px-4 sm:px-6 md:px-20 bg-gray-50 border-y border-[#b68c2f22]"
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-once="true"
+        >
+          <h2
+            class="text-2xl sm:text-3xl font-bold text-center text-brand-blue mb-2"
+          >
+            What Our Clients Say
+          </h2>
+          <div class="gold-accent-bar mx-auto w-32 mb-10"></div>
+          <div class="relative max-w-4xl mx-auto">
+            <div
+              id="testimonial-slider"
+              class="min-h-[160px] text-center text-base sm:text-lg italic text-gray-700 transition-opacity duration-700"
+            >
+              <div class="testimonial active">
+                “Clear, responsive and fast—my pre-approval came in the same
+                day.”
+                <div class="mt-4 font-semibold text-brand-gold">
+                  – Homebuyer in NJ
+                </div>
+              </div>
+              <div class="testimonial hidden">
+                “They explained every option and helped me lock a better rate.”
+                <div class="mt-4 font-semibold text-brand-gold">
+                  – Refinancing Client
+                </div>
+              </div>
+              <div class="testimonial hidden">
+                “Professional follow-up kept our closing on track.”
+                <div class="mt-4 font-semibold text-brand-gold">
+                  – Real Estate Partner
+                </div>
+              </div>
+              <div class="testimonial hidden">
+                “A stress-free experience from application to clear-to-close.”
+                <div class="mt-4 font-semibold text-brand-gold">
+                  – Investor Borrower
+                </div>
+              </div>
+              <div class="testimonial hidden">
+                “EZ Way made it easy when no one else could.”
+                <div class="mt-4 font-semibold text-brand-gold">
+                  – Homeowner
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-center mt-6 space-x-2">
+              <button
+                onclick="changeSlide(0)"
+                aria-label="Mostrar testimonio 1"
+                class="w-3 h-3 rounded-full bg-blue-300 dot-indicator transition-colors duration-300"
+              ></button>
+              <button
+                onclick="changeSlide(1)"
+                aria-label="Mostrar testimonio 2"
+                class="w-3 h-3 rounded-full bg-blue-100 dot-indicator transition-colors duration-300"
+              ></button>
+              <button
+                onclick="changeSlide(2)"
+                aria-label="Mostrar testimonio 3"
+                class="w-3 h-3 rounded-full bg-blue-100 dot-indicator transition-colors duration-300"
+              ></button>
+              <button
+                onclick="changeSlide(3)"
+                aria-label="Mostrar testimonio 4"
+                class="w-3 h-3 rounded-full bg-blue-100 dot-indicator transition-colors duration-300"
+              ></button>
+              <button
+                onclick="changeSlide(4)"
+                aria-label="Mostrar testimonio 5"
+                class="w-3 h-3 rounded-full bg-blue-100 dot-indicator transition-colors duration-300"
+              ></button>
+            </div>
+          </div>
+        </section>
+
+        <!-- How It Works -->
+        <section
+          id="how-it-works"
+          class="py-16 sm:py-20 px-4 sm:px-6 md:px-20 bg-white text-center"
+          data-aos="fade-left"
+          data-aos-duration="500"
+          data-aos-once="true"
+        >
+          <h2 class="text-2xl sm:text-3xl font-bold text-brand-blue mb-2">
+            How It Works
+          </h2>
+          <div class="gold-accent-bar mx-auto w-28 mb-8"></div>
+          <div
+            class="max-w-4xl mx-auto grid sm:grid-cols-3 gap-10 text-gray-700"
+          >
+            <div
+              data-aos="flip-up"
+              data-aos-delay="50"
+              data-aos-duration="300"
+              data-aos-once="true"
+            >
+              <div class="text-4xl mb-2">📝</div>
+              <h3 class="font-semibold text-lg">Pre-Qualify</h3>
+              <p class="text-sm">Share your goals & basic info.</p>
+            </div>
+            <div
+              data-aos="flip-up"
+              data-aos-delay="100"
+              data-aos-duration="300"
+              data-aos-once="true"
+            >
+              <div class="text-4xl mb-2">🤝</div>
+              <h3 class="font-semibold text-lg">Compare Options</h3>
+              <p class="text-sm">We review rates and programs.</p>
+            </div>
+            <div
+              data-aos="flip-up"
+              data-aos-delay="150"
+              data-aos-duration="300"
+              data-aos-once="true"
+            >
+              <div class="text-4xl mb-2">🚀</div>
+              <h3 class="font-semibold text-lg">Close Confidently</h3>
+              <p class="text-sm">We guide you through funding.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section
+          id="about"
+          class="bg-blue-50 py-16 sm:py-20 px-4 sm:px-6 md:px-20"
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-once="true"
+        >
+          <div
+            class="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12"
+          >
+            <div
+              class="md:w-1/2 flex items-center justify-center"
+              data-aos="fade-right"
+              data-aos-duration="400"
+              data-aos-once="true"
+            >
+              <figure
+                class="relative w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden shadow-lg"
+              >
+                <img
+                  src="assets/whychooseus.jpg"
+                  alt="Why Choose Us"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </div>
+            <div
+              class="md:w-1/2"
+              data-aos="fade-left"
+              data-aos-duration="500"
+              data-aos-once="true"
+            >
+              <h2 class="text-2xl sm:text-3xl font-bold text-brand-blue mb-2">
+                Why Choose Us?
+              </h2>
+              <div class="gold-accent-bar w-24 mb-6"></div>
+              <ul class="space-y-4 text-base sm:text-lg text-gray-700">
+                <li
+                  class="flex items-start gap-3"
+                  data-aos="fade-up"
+                  data-aos-delay="50"
+                  data-aos-duration="300"
+                  data-aos-once="true"
+                >
+                  <span class="text-green-600 text-xl mt-1">✔️</span>
+                  <span
+                    >Transparent rates and fee breakdowns—no surprises.</span
+                  >
+                </li>
+                <li
+                  class="flex items-start gap-3"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  data-aos-duration="300"
+                  data-aos-once="true"
+                >
+                  <span class="text-green-600 text-xl mt-1">✔️</span>
+                  <span
+                    >Personal guidance from licensed mortgage specialists.</span
+                  >
+                </li>
+                <li
+                  class="flex items-start gap-3"
+                  data-aos="fade-up"
+                  data-aos-delay="150"
+                  data-aos-duration="300"
+                  data-aos-once="true"
+                >
+                  <span class="text-green-600 text-xl mt-1">✔️</span>
+                  <span>Fast pre-approvals and consistent follow-up.</span>
+                </li>
+                <li
+                  class="flex items-start gap-3"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                  data-aos-duration="300"
+                  data-aos-once="true"
+                >
+                  <span class="text-green-600 text-xl mt-1">✔️</span>
+                  <span>Compliance-focused, client-first process.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA: Book a Call -->
+        <section
+          class="bg-white py-16 px-4 sm:px-6 md:px-20"
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-once="true"
+        >
+          <div
+            class="max-w-3xl mx-auto bg-gray-50 p-6 sm:p-10 rounded-2xl text-center shadow-md"
+          >
+            <h2
+              class="text-xl sm:text-2xl md:text-3xl font-bold text-brand-blue mb-2"
+            >
+              Ready to Start Your Mortgage Journey?
+            </h2>
+            <div class="gold-accent-bar mx-auto w-24 mb-4"></div>
+            <p class="text-gray-700 text-sm sm:text-base md:text-lg mb-6">
+              Get a fast pre-approval or speak with a licensed loan originator
+              today.
+            </p>
+            <a
+              href="contact.html"
+              onclick="trackConversion('consultation_click', 'home_page_cta')"
+              class="inline-block btn-gold-primary font-semibold px-6 py-3 rounded-md transition"
+              >Start Now</a
+            >
+          </div>
+        </section>
+
+        <!-- Partners Section -->
+        <!-- Removed Platforms & Lender Tools section per user request -->
+      </main>
+
+      <footer
+        class="bg-[#0f3a63] text-gray-200 px-4 sm:px-6 py-12 border-t-4 border-[#b68c2f]"
+      >
+        <div
+          class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-5 gap-10 text-sm"
+        >
+          <div
+            class="flex flex-col items-center md:items-start text-center md:text-left"
+          >
+            <div class="mb-6 flex flex-col items-center gap-5">
+              <a
+                href="index.html"
+                aria-label="Go to homepage"
+                class="flex items-center gap-4 group"
+              >
+                <img
+                  src="assets/logoEZ.png"
+                  alt="EZ Way Mortgage Logo"
+                  class="h-14 w-auto group-hover:opacity-90 transition"
+                  loading="lazy"
+                />
+                <img
+                  src="assets/HE2.PNG"
+                  alt="Housing Equality"
+                  class="h-20 w-auto group-hover:opacity-90 transition"
+                  loading="lazy"
+                />
+              </a>
+              <p
+                class="text-gray-300 text-sm leading-relaxed max-w-xs text-center"
+              >
+                Licensed Mortgage Brokerage • Equal Housing Opportunity
+              </p>
+            </div>
+            <p class="mt-4 text-xs text-gray-400">
+              272 High St. Suite #7 Perth Amboy, NJ 08861
+            </p>
+            <p class="mt-1 text-xs text-gray-400">
+              Phone:
+              <a href="tel:7322774547" class="hover:text-brand-gold"
+                >732-277-4547</a
+              >
+            </p>
+            <p class="mt-1 text-xs text-gray-400">
+              Email:
+              <a
+                href="mailto:luis@ezwaymortgages.com"
+                class="hover:text-brand-gold"
+                >Luis@ezwaymortgages.com</a
+              >
+            </p>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold mb-3 tracking-wide">
+              Navigate
+            </h4>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link">About</a></li>
+              <li><a href="services.html" class="footer-link">Programs</a></li>
+              <li><a href="contact.html" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold mb-3 tracking-wide">
+              Programs
+            </h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="footer-link">Purchase (Conventional)</a>
+              </li>
+              <li><a href="#" class="footer-link">FHA / VA / USDA</a></li>
+              <li><a href="#" class="footer-link">Jumbo Loans</a></li>
+              <li><a href="#" class="footer-link">Refinance Options</a></li>
+              <li><a href="#" class="footer-link">HELOC & Equity</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold mb-3 tracking-wide">Why Us</h4>
+            <ul class="space-y-2">
+              <li class="text-gray-300 text-sm">Same-day pre-approvals</li>
+              <li class="text-gray-300 text-sm">Transparent rates & fees</li>
+              <li class="text-gray-300 text-sm">Bilingual support (EN/ES)</li>
+              <li class="text-gray-300 text-sm">Client-first strategy</li>
+              <li class="text-gray-300 text-sm">Trusted lender network</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold mb-3 tracking-wide">Connect</h4>
+            <div class="space-y-3">
+              <a
+                href="contact.html"
+                class="w-full inline-block btn-gold-primary text-center"
+                >Get Pre-Approved</a
+              >
+              <a
+                href="contact.html"
+                class="w-full inline-block btn-gold-outline text-center"
+                >Schedule Call</a
+              >
+            </div>
+            <div class="mt-4 flex justify-center space-x-4">
+              <a
+                href="https://www.instagram.com/ezwaymortgage?utm_source=qr&igsh=MTY5ZXM3M3R2Z2txeg=="
+                class="text-brand-gold hover:text-yellow-300 transition-colors duration-300 bg-[#0f3a63] p-3 rounded-full hover:bg-brand-gold border-2 border-brand-gold hover:border-yellow-300 social-link"
+                aria-label="Instagram"
+                onclick="window.open(this.href, '_blank'); return false;"
+              >
+                <img
+                  src="assets/instagram.png.avif"
+                  alt="Instagram"
+                  class="h-5 w-5 hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                  style="pointer-events: none"
+                />
+              </a>
+            </div>
+            <div class="mt-6 text-xs text-gray-400 space-y-1">
+              <p>Company NMLS #2679112</p>
+              <p>Loan Originator NMLS #226951</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-center text-gray-400 text-sm mt-8">
+          <div class="space-y-1">
+            <div>
+              &copy; 2025 EZ Way Mortgage Corporation. All rights reserved.
+            </div>
+            <div>NMLS # 2679112 | Loan Originator NMLS # 226951</div>
+            <div class="text-xs max-w-3xl mx-auto px-4 leading-snug">
+              EZ Way Mortgage Corporation is a Mortgage Broker licensed by the
+              NJ Department of Banking and Insurance. This is not a commitment
+              to lend. All loans subject to credit approval, underwriting
+              guidelines and program availability. Equal Housing Opportunity.
+            </div>
+            <div class="text-xs italic">
+              EZ Way Mortgage Corporation es un corredor hipotecario autorizado
+              por el Departamento de Banca y Seguros de NJ.
+            </div>
+            <div class="text-xs">
+              Office: 272 High St. Suite #7 Perth Amboy, NJ 08861 | Tel:
+              732-277-4547 | Email: Luis@ezwaymortgages.com
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- JAVASCRIPT MEJORADO -->
+    <script>
+      // Suprimir errores de terceros no críticos
+      window.addEventListener("error", function (e) {
+        if (
+          e.filename &&
+          (e.filename.includes("tawk.to") ||
+            e.filename.includes("calendly.com") ||
+            e.filename.includes("recaptcha") ||
+            e.filename.includes("gstatic.com") ||
+            e.filename.includes("googleapis.com"))
+        ) {
+          e.preventDefault();
+          return true;
+        }
+      });
+
+      let current = 0;
+      let isScrolling = false;
+      let isPageVisible = true;
+      let loadingComplete = false;
+
+      // === NAV ACTIVE HIGHLIGHT ===
+      function highlightActiveNav() {
+        const path = window.location.pathname.split("/").pop() || "index.html";
+        const hash = window.location.hash;
+        const map = {
+          "index.html": "home",
+          "about.html": "about",
+          "services.html": "programs",
+          "contact.html": "contact",
+        };
+        let key = map[path] || "home";
+        if (path === "index.html" && hash && hash.includes("how-it-works")) {
+          key = "process";
+        }
+        const desktop = document.querySelectorAll("[data-nav] [data-link]");
+        const mobile = document.querySelectorAll(
+          "[data-nav-mobile] [data-link]"
+        );
+        [...desktop, ...mobile].forEach((a) => {
+          a.classList.remove("text-brand-gold");
+          a.classList.remove("font-extrabold");
+        });
+        const active = document.querySelectorAll(`[data-link="${key}"]`);
+        active.forEach((a) => {
+          if (!a.classList.contains("bg-brand-gold")) {
+            a.classList.add("text-brand-gold", "font-extrabold");
+          }
+        });
+      }
+      document.addEventListener("DOMContentLoaded", highlightActiveNav);
+      window.addEventListener("hashchange", highlightActiveNav);
+
+      // Control de carga más robusto - SOLO UNA VEZ
+      function initializePage() {
+        console.log("Inicializando página...");
+
+        // Verificar si ya se mostró la pantalla de carga
+        const hasShownLoading = sessionStorage.getItem("yva_loading_shown");
+
+        const loadingScreen = document.getElementById("loading-screen");
+        const body = document.body;
+        const mainContent = document.getElementById("main-content");
+
+        if (hasShownLoading === "true") {
+          // Ya se mostró antes, mostrar contenido inmediatamente
+          console.log(
+            "Loading ya mostrado anteriormente, mostrando contenido..."
+          );
+
+          if (loadingScreen) {
+            loadingScreen.style.display = "none";
+            loadingScreen.classList.add("hidden");
+          }
+
+          if (mainContent) {
+            mainContent.style.display = "block";
+          }
+
+          body.classList.remove("loading");
+          body.classList.add("loaded");
+          loadingComplete = true;
+
+          // Inicializar AOS inmediatamente
+          if (typeof AOS !== "undefined") {
+            AOS.init({
+              duration: 400,
+              offset: 0,
+              delay: 25,
+              once: true,
+              mirror: false,
+            });
+          }
+
+          return; // Salir de la función
+        }
+
+        // Primera vez - mostrar loading screen
+        if (loadingScreen) {
+          loadingScreen.style.display = "flex";
+          loadingScreen.classList.remove("hidden", "fade-out");
+        }
+
+        if (mainContent) {
+          mainContent.style.display = "none";
+        }
+
+        body.classList.add("loading");
+        body.classList.remove("loaded");
+
+        // Timer de 3 segundos para mostrar contenido
+        setTimeout(() => {
+          console.log("Mostrando contenido por primera vez...");
+
+          // Marcar que ya se mostró la pantalla de carga
+          sessionStorage.setItem("yva_loading_shown", "true");
+
+          // Fade out del loading screen
+          if (loadingScreen) {
+            loadingScreen.classList.add("fade-out");
+
+            setTimeout(() => {
+              loadingScreen.classList.add("hidden");
+              loadingScreen.style.display = "none";
+
+              if (mainContent) {
+                mainContent.style.display = "block";
+              }
+
+              body.classList.remove("loading");
+              body.classList.add("loaded");
+              loadingComplete = true;
+
+              // Inicializar AOS
+              if (typeof AOS !== "undefined") {
+                AOS.init({
+                  duration: 400,
+                  offset: 0,
+                  delay: 25,
+                  once: true,
+                  mirror: false,
+                });
+              }
+
+              console.log("Página completamente cargada");
+            }, 800);
+          }
+        }, 3000);
+      }
+
+      // Inicializar inmediatamente
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializePage);
+      } else {
+        initializePage();
+      }
+
+      // Funciones del menú móvil y otros componentes
+      document.addEventListener("DOMContentLoaded", function () {
+        // Track page view
+        gtag("event", "page_view", {
+          page_title: "Home - YVA Virtual Assistant Services",
+          page_location: window.location.href,
+        });
+
+        // Track service section views
+        const serviceObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const sectionId = entry.target.id || "unknown";
+                trackEngagement("section_view", sectionId);
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        // Observe main sections
+        document.querySelectorAll("section[id]").forEach((section) => {
+          serviceObserver.observe(section);
+        });
+
+        // Track CTA button clicks
+        document.querySelectorAll('a[href="contact.html"]').forEach((link) => {
+          link.addEventListener("click", () => {
+            trackConversion("contact_click", "home_cta");
+          });
+        });
+
+        // Track navigation clicks
+        document.querySelectorAll("nav a").forEach((link) => {
+          link.addEventListener("click", () => {
+            trackEngagement("navigation_click", link.textContent.trim());
+          });
+        });
+
+        // Track service card interactions
+        document
+          .querySelectorAll(".service-grid .group")
+          .forEach((card, index) => {
+            card.addEventListener("mouseenter", () => {
+              const serviceNames = [
+                "Virtual Executive Assistance",
+                "FHA / VA / USDA",
+                "Web and Software Solutions",
+                "Refinance & Equity",
+              ];
+              trackEngagement(
+                "service_card_hover",
+                serviceNames[index] || "service_" + index
+              );
+            });
+          });
+
+        // Mobile menu
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+        const hamburgerIcon = navToggle?.querySelector("svg");
+
+        if (navToggle && navMenu) {
+          navToggle.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const isHidden = navMenu.classList.contains("mobile-menu-hidden");
+
+            if (isHidden) {
+              navMenu.classList.remove("mobile-menu-hidden");
+              navMenu.classList.add("mobile-menu-visible");
+              hamburgerIcon?.classList.add("active");
+            } else {
+              navMenu.classList.remove("mobile-menu-visible");
+              navMenu.classList.add("mobile-menu-hidden");
+              hamburgerIcon?.classList.remove("active");
+            }
+          });
+
+          // Cerrar menú al hacer click en un enlace
+          navMenu.addEventListener("click", (e) => {
+            if (
+              e.target.tagName === "A" &&
+              !e.target.classList.contains("social-link")
+            ) {
+              navMenu.classList.remove("mobile-menu-visible");
+              navMenu.classList.add("mobile-menu-hidden");
+              hamburgerIcon?.classList.remove("active");
+            }
+          });
+
+          // Cerrar menú al hacer click fuera
+          document.addEventListener("click", (e) => {
+            if (
+              !navToggle.contains(e.target) &&
+              !navMenu.contains(e.target) &&
+              !e.target.classList.contains("social-link")
+            ) {
+              navMenu.classList.remove("mobile-menu-visible");
+              navMenu.classList.add("mobile-menu-hidden");
+              hamburgerIcon?.classList.remove("active");
+            }
+          });
+        }
+
+        // Sticky navbar
+        let ticking = false;
+        function updateNavbar() {
+          const nav = document.getElementById("navbar");
+          if (nav) {
+            if (window.scrollY > 10) {
+              nav.classList.add("sticky-nav-active");
+            } else {
+              nav.classList.remove("sticky-nav-active");
+            }
+          }
+          ticking = false;
+        }
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              requestAnimationFrame(updateNavbar);
+              ticking = true;
+            }
+          },
+          { passive: true }
+        );
+
+        // Smooth scroll solo para enlaces internos (que empiezan con #)
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+        });
+
+        // Contact form handler - remover si no se usa
+        // const contactForm = document.getElementById("contact-form");
+        // if (contactForm) {
+        //   contactForm.addEventListener("submit", function(e) {
+        //     e.preventDefault();
+        //     alert("Thank you for your interest! We'll contact you soon.");
+        //   });
+        // }
+
+        // Testimonial slider - iniciar después de que se muestre el contenido
+        setTimeout(() => {
+          if (loadingComplete) {
+            const testimonials = document.querySelectorAll(
+              "#testimonial-slider .testimonial"
+            );
+            if (testimonials.length > 0) {
+              setInterval(() => {
+                if (!isScrolling && isPageVisible) {
+                  changeSlide((current + 1) % testimonials.length);
+                }
+              }, 4000);
+            }
+          }
+        }, 4000); // Esperar 4 segundos después de DOMContentLoaded
+      });
+
+      function changeSlide(idx) {
+        const testimonials = document.querySelectorAll(
+          "#testimonial-slider .testimonial"
+        );
+        const dots = document.querySelectorAll(".dot-indicator");
+
+        if (testimonials.length === 0) return;
+
+        isScrolling = true;
+
+        if (testimonials[current]) {
+          testimonials[current].classList.add("hidden");
+          testimonials[current].classList.remove("active");
+        }
+        if (dots[current]) {
+          dots[current].classList.remove("bg-blue-300");
+          dots[current].classList.add("bg-blue-100");
+        }
+
+        current = idx;
+
+        if (testimonials[current]) {
+          testimonials[current].classList.remove("hidden");
+          testimonials[current].classList.add("active");
+        }
+        if (dots[current]) {
+          dots[current].classList.add("bg-blue-300");
+          dots[current].classList.remove("bg-blue-100");
+        }
+
+        setTimeout(() => {
+          isScrolling = false;
+        }, 700);
+      }
+
+      document.addEventListener("visibilitychange", () => {
+        isPageVisible = !document.hidden;
+      });
+    </script>
+
+    <!-- Chat oculto vía styles.css (regla global) -->
+    <!-- Bloqueo preventivo agresivo del widget Tawk (override de APIs DOM antes de cargar script) -->
+    <script>
+      (function () {
+        const blockedPatterns = [/tawk\.to/i];
+        function isBlocked(src) {
+          return !!src && blockedPatterns.some((r) => r.test(src));
+        }
+        // Override createElement
+        const _create = Document.prototype.createElement;
+        Document.prototype.createElement = function (tag) {
+          const el = _create.call(this, tag);
+          if (
+            tag.toLowerCase() === "script" ||
+            tag.toLowerCase() === "iframe"
+          ) {
+            Object.defineProperty(el, "src", {
+              set(v) {
+                if (isBlocked(v)) {
+                  console.debug("Blocked injection:", v);
+                } else {
+                  el.setAttribute("src", v);
+                }
+              },
+              get() {
+                return el.getAttribute("src");
+              },
+            });
+          }
+          return el;
+        };
+        // Override appendChild / insertBefore
+        ["appendChild", "insertBefore"].forEach((fn) => {
+          const orig = Node.prototype[fn];
+          Node.prototype[fn] = function (node) {
+            try {
+              const s = node.getAttribute && (node.getAttribute("src") || "");
+              if (isBlocked(s)) {
+                console.debug("Prevented node insertion", s);
+                return node;
+              }
+            } catch (e) {}
+            return orig.call(this, node, arguments[1]);
+          };
+        });
+        // Style kill fallback
+        const style = document.createElement("style");
+        style.textContent =
+          '[id*="tawk"], [class*="tawk"], iframe[src*="tawk.to"]{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;}';
+        document.documentElement.appendChild(style);
+      })();
+    </script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      // Solo cargar Tawk.to si no hay errores de CSP
+      try {
+        var Tawk_API = Tawk_API || {},
+          Tawk_LoadStart = new Date();
+        (function () {
+          var s1 = document.createElement("script"),
+            s0 = document.getElementsByTagName("script")[0];
+          s1.async = true;
+          s1.src = "https://embed.tawk.to/689be045609b391925b4cb51/1j2ge83q3";
+          s1.charset = "UTF-8";
+          s1.setAttribute("crossorigin", "*");
+          s0.parentNode.insertBefore(s1, s0);
+        })();
+      } catch (e) {
+        console.log("Tawk.to blocked by CSP - normal in development");
+      }
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <!-- AOS JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Ocultación dinámica adicional del chat (redundante con CSS por seguridad)
+      (function () {
+        const killChat = () => {
+          document
+            .querySelectorAll(
+              '[src*="tawk.to"], [href*="tawk.to"], div[id*="tawk"], iframe[id*="tawk"], div[class*="tawk"]'
+            )
+            .forEach((n) => {
+              n.remove();
+            });
+        };
+        killChat();
+        const mo = new MutationObserver(killChat);
+        mo.observe(document.documentElement, {
+          subtree: true,
+          childList: true,
+        });
+        window.addEventListener("load", killChat);
+      })();
+    </script>
+  </body>
+</html>

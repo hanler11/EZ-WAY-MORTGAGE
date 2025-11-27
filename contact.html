@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17604243227"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "AW-17604243227");
+
+      // Enhanced ecommerce and conversion tracking
+      function trackConversion(action, service = "") {
+        gtag("event", action, {
+          event_category: "conversion",
+          event_label: service,
+          value: 1,
+        });
+        console.log("Conversion tracked:", action, service);
+      }
+
+      function trackEngagement(action, element = "") {
+        gtag("event", action, {
+          event_category: "engagement",
+          event_label: element,
+        });
+      }
+
+      function trackFormProgress(step, field = "") {
+        gtag("event", "form_progress", {
+          event_category: "form",
+          event_label: step + "_" + field,
+          step: step,
+        });
+      }
+
+      // Debugging - eliminar en producción
+      console.log("Google Analytics initialized with ID: AW-17604243227");
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact EZ Way Mortgage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Calendly CSS -->
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Poppins", "sans-serif"] },
+            colors: {
+              'brand-blue': '#0f3a63',
+              'brand-gold': '#b68c2f',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .sticky-nav-active {
+        background-color: white;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        scroll-padding-top: 80px;
+      }
+
+      /* Mobile menu optimization */
+      .mobile-menu-hidden {
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+      }
+
+      .mobile-menu-visible {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      .nav-menu-mobile {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        z-index: 40;
+        max-height: 100vh;
+        overflow-y: auto;
+      }
+
+      .hamburger-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .hamburger-icon.active {
+        transform: rotate(90deg);
+      }
+
+      .calendly-iframe {
+        min-height: 600px;
+        width: 100%;
+        border: none;
+        border-radius: 1rem;
+        background: #f8fafc;
+      }
+
+      /* Estilos para la transición */
+      .form-section,
+      .calendly-section {
+        transition: all 0.5s ease-in-out;
+      }
+      .hidden-section {
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
+      }
+      .visible-section {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      /* Estilos para Calendly */
+      #calendly-section {
+        display: none;
+      }
+      .calendly-inline-widget {
+        min-width: 320px;
+        height: 600px;
+      }
+    </style>
+
+    <!-- Google tag (gtag.js) - COLOCADO CORRECTAMENTE AL FINAL DEL HEAD -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17604243227"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "AW-17604243227");
+
+      // Enhanced ecommerce and conversion tracking
+      function trackConversion(action, service = "") {
+        gtag("event", action, {
+          event_category: "conversion",
+          event_label: service,
+          value: 1,
+        });
+        console.log("Conversion tracked:", action, service);
+      }
+
+      function trackEngagement(action, element = "") {
+        gtag("event", action, {
+          event_category: "engagement",
+          event_label: element,
+        });
+      }
+
+      function trackFormProgress(step, field = "") {
+        gtag("event", "form_progress", {
+          event_category: "form",
+          event_label: step + "_" + field,
+          step: step,
+        });
+      }
+
+      // Debugging - eliminar en producción
+      console.log("Google Analytics initialized with ID: AW-17604243227");
+    </script>
+  </head>
+  <body class="font-sans text-gray-800 bg-gray-50">
+    <!-- Responsive Navbar -->
+    <header
+      id="navbar"
+      class="fixed top-0 left-0 w-full z-50 transition-all bg-white shadow"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <!-- Logo y Navegación -->
+        <div class="flex items-center justify-between w-full h-20">
+          <div
+            class="flex flex-col min-w-0 flex-1"
+            style="max-width: calc(100vw - 280px)"
+          >
+            <a href="index.html" class="flex items-center gap-2 sm:gap-3 group">
+            <img
+              src="assets/logoEZ.png"
+              alt="EZ Way Mortgage Logo"
+              class="h-10 sm:h-14 w-auto flex-shrink-0"
+            />
+            <span
+              class="text-xs sm:text-lg font-bold text-brand-gold group-hover:text-black transition truncate"
+              style="max-width: calc(100vw - 280px)"
+              >EZ Way Mortgage Corporation</span
+            >
+          </a>
+          <!-- NMLS Info debajo del logo -->
+          <div class="text-xs text-gray-600 ml-12 sm:ml-20 mt-1">
+            <span class="font-medium">NMLS #2679112</span>
+            <span class="mx-1 hidden md:inline">•</span>
+            <span class="hidden md:inline">Licensed Mortgage Brokerage</span>
+          </div>
+        </div>
+
+        <button
+          id="nav-toggle"
+          class="md:hidden text-2xl text-blue-600 focus:outline-none relative z-50"
+          aria-label="Abrir menú de navegación"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8 transition-transform duration-300 hamburger-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 8h16M4 16h16"
+              class="hamburger-line"
+            />
+          </svg>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <nav
+          class="hidden md:flex md:space-x-8 text-lg font-bold md:items-center"
+          data-nav
+        >
+          <a
+            href="index.html"
+            data-link="home"
+            class="hover:text-black transition"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            data-link="about"
+            class="hover:text-black transition"
+            >About</a
+          >
+          <a
+            href="services.html"
+            data-link="programs"
+            class="hover:text-black transition"
+            >Programs</a
+          >
+          <a
+            href="index.html#how-it-works"
+            data-link="process"
+            class="hover:text-black transition"
+            >Process</a
+          >
+          <a
+            href="contact.html"
+            data-link="contact"
+            class="bg-brand-gold text-white font-semibold px-5 py-2 rounded hover:bg-black transition"
+            >Get Pre-Approved</a
+          >
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <nav id="nav-menu" class="nav-menu-mobile mobile-menu-hidden md:hidden">
+          <div class="flex flex-col p-4 space-y-2" data-nav-mobile>
+            <a
+              href="index.html"
+              data-link="home"
+              class="px-4 py-3 block hover:bg-black/5 rounded transition"
+              >Home</a
+            >
+            <a
+              href="about.html"
+              data-link="about"
+              class="px-4 py-3 block hover:bg-black/5 rounded transition"
+              >About</a
+            >
+            <a
+              href="services.html"
+              data-link="programs"
+              class="px-4 py-3 block hover:bg-black/5 rounded transition"
+              >Programs</a
+            >
+            <a
+              href="index.html#how-it-works"
+              data-link="process"
+              class="px-4 py-3 block hover:bg-black/5 rounded transition"
+              >Process</a
+            >
+            <a
+              href="contact.html"
+              data-link="contact"
+              class="bg-brand-gold text-white font-semibold px-4 py-3 rounded hover:bg-black transition text-center mx-4 mt-2"
+              >Get Pre-Approved</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-28 pb-16">
+      <!-- Sección del Formulario -->
+      <section
+        id="form-section"
+        class="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12 form-section visible-section"
+        data-aos="fade-up"
+      >
+        <h2 class="text-3xl font-bold text-brand-blue mb-2 text-center">
+          Start Your Pre-Approval
+        </h2>
+        <p class="text-gray-600 mb-8 text-center max-w-2xl mx-auto">
+          Complete the secure form below and a licensed mortgage professional
+          will follow up the same day.
+        </p>
+        <div
+          class="rounded-lg p-6 mb-8 bg-gradient-to-r from-[#0f3a63]/5 to-[#0f3a63]/10 border border-brand-gold/30"
+        >
+          <strong class="block mb-2 text-brand-blue tracking-wide"
+            >Quick Steps</strong
+          >
+          <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
+            <li>Fill all required fields accurately.</li>
+            <li>We review income, assets and credit profile.</li>
+            <li>Receive customized loan scenarios & rate ranges.</li>
+            <li>Schedule a call or proceed to full application.</li>
+          </ul>
+        </div>
+        <!-- Contact Form -->
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/movlryja"
+          method="POST"
+          class="flex-1 space-y-4"
+          data-aos="fade-right"
+        >
+          <div class="flex gap-4">
+            <div class="flex-1">
+              <label for="name" class="block font-semibold mb-1"
+                >Full Name*</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full border rounded px-3 py-2"
+              />
+            </div>
+            <div class="flex-1">
+              <label for="email" class="block font-semibold mb-1"
+                >Email Address*</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full border rounded px-3 py-2"
+              />
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="flex-1">
+              <label for="phone" class="block font-semibold mb-1"
+                >Phone Number*</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                class="w-full border rounded px-3 py-2"
+              />
+            </div>
+            <div class="flex-1">
+              <label for="company" class="block font-semibold mb-1"
+                >Company Name*</label
+              >
+              <input
+                type="text"
+                id="company"
+                name="company"
+                required
+                class="w-full border rounded px-3 py-2"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="website" class="block font-semibold mb-1"
+              >Company Website (optional)</label
+            >
+            <input
+              type="url"
+              id="website"
+              name="website"
+              class="w-full border rounded px-3 py-2"
+            />
+          </div>
+          <div>
+            <label for="service" class="block font-semibold mb-1"
+              >Loan Purpose*</label
+            >
+            <select
+              id="service"
+              name="loan_purpose"
+              required
+              class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-brand-gold/60 focus:border-brand-gold"
+            >
+              <option value="">-- Select purpose --</option>
+              <option value="purchase_primary">
+                Purchase - Primary Residence
+              </option>
+              <option value="purchase_investment">
+                Purchase - Investment / Second Home
+              </option>
+              <option value="refinance_rate_term">
+                Refinance - Rate & Term
+              </option>
+              <option value="refinance_cash_out">Refinance - Cash Out</option>
+              <option value="heloc_equity">HELOC / Home Equity</option>
+              <option value="other">Other / Not Sure Yet</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="block font-semibold mb-1"
+              >Message*</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="4"
+              class="w-full border rounded px-3 py-2"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            id="submit-btn"
+            class="btn-gold-primary w-full font-semibold px-6 py-3 rounded-md hover:scale-[1.02] transition"
+          >
+            Submit
+          </button>
+        </form>
+      </section>
+
+      <!-- Sección de Calendly -->
+      <section
+        id="calendly-section"
+        class="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12 mt-8 calendly-section hidden-section"
+      >
+        <h2 class="text-3xl font-bold text-brand-blue mb-4 text-center">
+          Schedule a Call
+        </h2>
+        <p class="text-gray-600 mb-6 text-center">
+          Pick a time that fits you. We'll confirm details and prepare tailored
+          options.
+        </p>
+
+        <!-- Calendly inline widget -->
+        <div class="calendly-inline-widget" data-url="#"></div>
+
+        <!-- Botón para volver al formulario -->
+        <div class="text-center mt-6">
+          <button
+            id="back-to-form"
+            class="bg-gray-500 text-white font-semibold px-6 py-2 rounded-md hover:bg-gray-600 transition"
+          >
+            <button
+              id="back-to-form"
+              type="button"
+              class="btn-gold-outline px-6 py-2 rounded font-semibold text-sm"
+            >
+              Back to Form
+            </button>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0f3a63] text-gray-200 px-4 sm:px-6 py-12 border-t-4 border-[#b68c2f]">
+      <div
+        class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-5 gap-10 text-sm"
+      >
+        <div
+          class="flex flex-col items-center md:items-start text-center md:text-left"
+        >
+          <div class="mb-6 flex flex-col items-center gap-5">
+            <a
+              href="index.html"
+              aria-label="Go to homepage"
+              class="flex items-center gap-4 group"
+            >
+              <img
+                src="assets/logoEZ.png"
+                alt="EZ Way Mortgage Logo"
+                class="h-14 w-auto group-hover:opacity-90 transition"
+                loading="lazy"
+              />
+              <img
+                src="assets/HE2.PNG"
+                alt="Housing Equality"
+                class="h-20 w-auto group-hover:opacity-90 transition"
+                loading="lazy"
+              />
+            </a>
+            <p class="text-gray-300 text-sm leading-snug max-w-xs">
+              Licensed Mortgage Brokerage • Equal Housing Opportunity
+            </p>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Quick Links</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html" class="hover:underline text-gray-200"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="about.html" class="hover:underline text-gray-200"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >Programs</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="hover:underline text-gray-200"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Loan Programs</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >Conventional (Purchase)</a
+              >
+            </li>
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >FHA / VA / USDA</a
+              >
+            </li>
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >Jumbo Loans</a
+              >
+            </li>
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >Refinance Options</a
+              >
+            </li>
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >HELOC & Equity</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Contact</h4>
+          <ul class="space-y-2">
+            <li>
+              Email:
+              <a
+                href="mailto:Luis@ezwaymortgages.com"
+                class="hover:underline text-gray-200"
+                >Luis@ezwaymortgages.com</a
+              >
+            </li>
+            <li>
+              Phone:
+              <a href="tel:7322774547" class="hover:underline text-gray-200"
+                >732-277-4547</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Follow Us</h4>
+          <div class="flex justify-center space-x-6 mb-4">
+            <a
+              href="https://www.instagram.com/ezwaymortgage?utm_source=qr&igsh=MTY5ZXM3M3R2Z2txeg=="
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-brand-gold hover:text-yellow-300 transition-colors duration-300 bg-[#0f3a63] p-3 rounded-full hover:bg-brand-gold border-2 border-brand-gold hover:border-yellow-300 social-link"
+              aria-label="Instagram"
+              onclick="window.open(this.href, '_blank'); return false;"
+            >
+              <img
+                src="assets/instagram.png.avif"
+                alt="Instagram"
+                class="h-6 w-6 hover:scale-110 transition-transform duration-300"
+                loading="lazy"
+                style="pointer-events: none;"
+              />
+            </a>
+          </div>
+          <div class="mt-6 text-center">
+            <a
+              href="contact.html"
+              class="inline-block btn-gold-primary font-semibold px-5 py-2 rounded transition"
+              >Get Pre-Approved</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="text-center text-gray-400 text-sm mt-8 space-y-1">
+        <div>&copy; 2025 EZ Way Mortgage Corporation. All rights reserved.</div>
+        <div>NMLS # 2679112 | Loan Originator NMLS # 226951</div>
+        <div class="text-xs max-w-2xl mx-auto leading-snug">
+          EZ Way Mortgage Corporation is a Mortgage Broker licensed by the NJ
+          Department of Banking and Insurance. This is not a commitment to lend.
+          All loans subject to credit approval, underwriting guidelines and
+          program availability. Equal Housing Opportunity.
+        </div>
+        <div class="text-xs italic">
+          EZ Way Mortgage Corporation es un corredor hipotecario autorizado por
+          el Departamento de Banca y Seguros de NJ.
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      /* Ocultar chat (Tawk.to) temporalmente */
+      iframe[src*="tawk.to"],
+      [id*="tawk"] {
+        display: none !important;
+        visibility: hidden !important;
+      }
+    </style>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/689be045609b391925b4cb51/1j2ge83q3";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <!-- Calendly Widget Script -->
+    <script
+      type="text/javascript"
+      src="https://assets.calendly.com/assets/external/widget.js"
+      async
+    ></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Track page view
+        gtag("event", "page_view", {
+          page_title: "Contact Us - EZ Way Mortgage",
+          page_location: window.location.href,
+        });
+
+        // Highlight active nav
+        (function () {
+          function highlight() {
+            const path =
+              window.location.pathname.split("/").pop() || "index.html";
+            const hash = window.location.hash;
+            const map = {
+              "index.html": "home",
+              "about.html": "about",
+              "services.html": "programs",
+              "contact.html": "contact",
+            };
+            let key = map[path] || "home";
+            if (path === "index.html" && hash.includes("how-it-works"))
+              key = "process";
+            const links = document.querySelectorAll(
+              "[data-nav] [data-link], [data-nav-mobile] [data-link]"
+            );
+            links.forEach((a) =>
+              a.classList.remove("text-brand-gold", "font-extrabold")
+            );
+            document.querySelectorAll(`[data-link="${key}"]`).forEach((a) => {
+              if (!a.classList.contains("bg-brand-gold"))
+                a.classList.add("text-brand-gold", "font-extrabold");
+            });
+          }
+          highlight();
+          window.addEventListener("hashchange", highlight);
+        })();
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+        const hamburgerIcon = navToggle?.querySelector("svg");
+
+        if (navToggle && navMenu) {
+          navToggle.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const isHidden = navMenu.classList.contains("mobile-menu-hidden");
+
+            if (isHidden) {
+              navMenu.classList.remove("mobile-menu-hidden");
+              navMenu.classList.add("mobile-menu-visible");
+              hamburgerIcon?.classList.add("active");
+            } else {
+              navMenu.classList.remove("mobile-menu-visible");
+              navMenu.classList.add("mobile-menu-hidden");
+              hamburgerIcon?.classList.remove("active");
+            }
+          });
+
+          // Close menu when clicking on links
+          const navLinks = navMenu.querySelectorAll("a");
+          navLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+              navMenu.classList.remove("mobile-menu-visible");
+              navMenu.classList.add("mobile-menu-hidden");
+              hamburgerIcon?.classList.remove("active");
+            });
+          });
+
+          // Close menu when clicking outside
+          document.addEventListener("click", (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+              navMenu.classList.remove("mobile-menu-visible");
+              navMenu.classList.add("mobile-menu-hidden");
+              hamburgerIcon?.classList.remove("active");
+            }
+          });
+
+          // Close menu on window resize to desktop
+          window.addEventListener("resize", () => {
+            if (window.innerWidth >= 768) {
+              navMenu.classList.remove("mobile-menu-visible");
+              navMenu.classList.add("mobile-menu-hidden");
+            }
+          });
+        }
+
+        // Sticky navbar
+        let ticking = false;
+        function updateNavbar() {
+          const nav = document.getElementById("navbar");
+          if (nav) {
+            if (window.scrollY > 10) {
+              nav.classList.add("sticky-nav-active");
+            } else {
+              nav.classList.remove("sticky-nav-active");
+            }
+          }
+          ticking = false;
+        }
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              requestAnimationFrame(updateNavbar);
+              ticking = true;
+            }
+          },
+          { passive: true }
+        );
+
+        // Form tracking
+        const form = document.getElementById("contact-form");
+        const formFields = form.querySelectorAll("input, select, textarea");
+
+        // Track form field interactions
+        formFields.forEach((field) => {
+          field.addEventListener("focus", () => {
+            trackFormProgress("field_focus", field.name);
+          });
+
+          field.addEventListener("blur", () => {
+            if (field.value.trim() !== "") {
+              trackFormProgress("field_complete", field.name);
+            }
+          });
+        });
+
+        // Track service selection
+        document.getElementById("service").addEventListener("change", (e) => {
+          if (e.target.value) {
+            trackEngagement("service_selected", e.target.value);
+          }
+        });
+
+        // Form and Calendly logic
+        const formSection = document.getElementById("form-section");
+        const calendlySection = document.getElementById("calendly-section");
+        const backToFormBtn = document.getElementById("back-to-form");
+        const submitBtn = document.getElementById("submit-btn");
+
+        // Función para mostrar Calendly
+        function showCalendly() {
+          // Track conversion when showing calendar
+          const selectedService = document.getElementById("service").value;
+          trackConversion("form_submitted", selectedService);
+
+          formSection.classList.add("hidden-section");
+          formSection.classList.remove("visible-section");
+
+          setTimeout(() => {
+            formSection.style.display = "none";
+            calendlySection.style.display = "block";
+
+            setTimeout(() => {
+              calendlySection.classList.add("visible-section");
+              calendlySection.classList.remove("hidden-section");
+
+              // Track calendar view
+              trackEngagement("calendar_viewed", "consultation_booking");
+
+              // Scroll suave a la sección de Calendly
+              calendlySection.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }, 50);
+          }, 300);
+        }
+
+        // Función para volver al formulario
+        function showForm() {
+          trackEngagement("back_to_form_clicked", "form_navigation");
+
+          calendlySection.classList.add("hidden-section");
+          calendlySection.classList.remove("visible-section");
+
+          setTimeout(() => {
+            calendlySection.style.display = "none";
+            formSection.style.display = "block";
+
+            setTimeout(() => {
+              formSection.classList.add("visible-section");
+              formSection.classList.remove("hidden-section");
+
+              // Scroll suave a la sección del formulario
+              formSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }, 50);
+          }, 300);
+        }
+
+        // Manejo del envío del formulario
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Track form submission attempt
+          trackFormProgress("form_submitted", "contact_form");
+
+          // Cambiar el botón a estado de carga
+          submitBtn.innerHTML = "Submitting...";
+          submitBtn.disabled = true;
+
+          // Enviar datos en segundo plano
+          fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+          })
+            .then((response) => {
+              // Track successful submission
+              trackConversion(
+                "form_success",
+                document.getElementById("service").value
+              );
+              // Mostrar Calendly después del envío exitoso
+              showCalendly();
+            })
+            .catch((error) => {
+              console.log("Error:", error);
+              // Track form error
+              trackEngagement("form_error", "submission_failed");
+              // Incluso si hay error, mostrar Calendly
+              showCalendly();
+            })
+            .finally(() => {
+              // Restaurar el botón
+              submitBtn.innerHTML = "Submit";
+              submitBtn.disabled = false;
+            });
+        });
+
+        // Botón para volver al formulario
+        backToFormBtn.addEventListener("click", showForm);
+
+        // Track navigation clicks
+        document.querySelectorAll("nav a").forEach((link) => {
+          link.addEventListener("click", () => {
+            trackEngagement("navigation_click", link.textContent.trim());
+          });
+        });
+
+        // Track Calendly interactions (si está disponible)
+        window.addEventListener("message", function (e) {
+          if (e.data.event && e.data.event.indexOf("calendly") === 0) {
+            if (e.data.event === "calendly.event_scheduled") {
+              trackConversion("consultation_scheduled", "calendly_booking");
+            } else if (e.data.event === "calendly.date_and_time_selected") {
+              trackEngagement("calendar_time_selected", "booking_progress");
+            }
+          }
+        });
+      });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+    </script>
+  </body>
+</html>
+<!-- Dynamic chat suppression (defense-in-depth) -->
+<script>
+  (function () {
+    function purgeChat() {
+      const selectors = [
+        'iframe[src*="tawk.to"]',
+        'script[src*="tawk.to"]',
+        'link[href*="tawk.to"]',
+        'div[id*="tawk"]',
+        'div[class*="tawk"]',
+      ];
+      selectors.forEach((sel) =>
+        document.querySelectorAll(sel).forEach((n) => n.remove())
+      );
+    }
+    purgeChat();
+    const mo = new MutationObserver(purgeChat);
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+    setInterval(purgeChat, 4000);
+  })();
+</script>
+<script>
+  (function () {
+    const blocked = [/tawk\.to/i];
+    const origCreate = Document.prototype.createElement;
+    Document.prototype.createElement = function (tag) {
+      const el = origCreate.call(this, tag);
+      if (/script|iframe/i.test(tag)) {
+        Object.defineProperty(el, "src", {
+          set(v) {
+            if (v && blocked.some((r) => r.test(v))) {
+              console.debug("Blocked chat script", v);
+            } else {
+              el.setAttribute("src", v);
+            }
+          },
+          get() {
+            return el.getAttribute("src");
+          },
+        });
+      }
+      return el;
+    };
+    ["appendChild", "insertBefore"].forEach((fn) => {
+      const o = Node.prototype[fn];
+      Node.prototype[fn] = function (n) {
+        try {
+          const s = n && n.getAttribute && n.getAttribute("src");
+          if (s && blocked.some((r) => r.test(s))) {
+            console.debug("Prevented insertion", s);
+            return n;
+          }
+        } catch (e) {}
+        return o.apply(this, arguments);
+      };
+    });
+    const style = document.createElement("style");
+    style.textContent =
+      '[id*="tawk"],[class*="tawk"],iframe[src*="tawk.to"]{display:none!important;visibility:hidden!important;opacity:0!important;}';
+    document.documentElement.appendChild(style);
+  })();
+</script>
