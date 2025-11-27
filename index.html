@@ -111,7 +111,7 @@
 
       #loading-screen.fade-out {
         opacity: 0 !important;
-        transition: opacity 0.3s ease-out !important;
+        transition: opacity 0.6s ease-out !important;
       }
 
       #loading-screen.hidden {
@@ -127,12 +127,14 @@
         align-items: center !important;
         justify-content: center !important;
         margin-bottom: 1rem !important;
+        animation: gentlePulse 2s ease-in-out infinite !important;
       }
 
       .logo-text {
         font-size: 1.5rem !important;
         font-weight: 600 !important;
         margin-bottom: 1rem !important;
+        animation: fadeInOut 3s ease-in-out infinite !important;
       }
 
       .spinner {
@@ -142,6 +144,28 @@
         border-top: 3px solid white !important;
         border-radius: 50% !important;
         animation: spin 1s linear infinite !important;
+      }
+
+      @keyframes gentlePulse {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      @keyframes fadeInOut {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.7;
+        }
       }
 
       @keyframes spin {
@@ -1412,8 +1436,8 @@
         body.classList.add("loading");
         body.classList.remove("loaded");
 
-        // Loading ultra rápido - 200ms
-        const loadingDelay = 200;
+        // Loading con timing profesional - 1.5 segundos
+        const loadingDelay = 1500;
 
         setTimeout(() => {
           sessionStorage.setItem("yva_loading_shown", "true");
@@ -1421,6 +1445,7 @@
           if (loadingScreen) {
             loadingScreen.classList.add("fade-out");
 
+            // Fade out más suave y profesional
             setTimeout(() => {
               loadingScreen.style.display = "none";
               if (mainContent) {
@@ -1429,8 +1454,8 @@
               body.classList.remove("loading");
               body.classList.add("loaded");
               loadingComplete = true;
-              console.log("Página cargada");
-            }, 100);
+              console.log("Página cargada con timing profesional");
+            }, 400);
           }
         }, loadingDelay);
       }
