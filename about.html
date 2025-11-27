@@ -96,6 +96,83 @@
         image-rendering: auto;
         image-rendering: optimizeQuality;
       }
+
+      /* Optimización para mobile */
+      @media (max-width: 767px) {
+        /* Reducir altura de imágenes en mobile para mejor performance */
+        figure.h-48 {
+          height: 12rem; /* h-48 */
+        }
+
+        /* Simplificar animaciones en mobile */
+        [data-aos] {
+          animation-duration: 0.2s !important;
+        }
+
+        .bg-white.rounded-2xl {
+          padding: 1.5rem !important;
+        }
+
+        /* Header responsive fixes */
+        header {
+          height: auto !important;
+          min-height: 70px !important;
+        }
+
+        .nav-logo-container {
+          max-width: calc(100vw - 100px) !important;
+          overflow: hidden !important;
+        }
+
+        /* NMLS info mobile adjustments */
+        .nmls-info-mobile {
+          font-size: 9px !important;
+          margin-left: 40px !important;
+          white-space: nowrap !important;
+          overflow: hidden !important;
+          text-overflow: ellipsis !important;
+          max-width: calc(100vw - 280px) !important;
+          position: relative !important;
+          z-index: 5 !important;
+          margin-top: 2px !important;
+        }
+
+        /* Logo y texto responsive */
+        .logo-responsive {
+          font-size: 12px !important;
+          max-width: calc(100vw - 260px) !important;
+        }
+      }
+
+      /* Para pantallas extra pequeñas */
+      @media (max-width: 480px) {
+        .nmls-info-mobile {
+          margin-left: 35px !important;
+          font-size: 8px !important;
+          max-width: calc(100vw - 200px) !important;
+          margin-top: 3px !important;
+        }
+
+        .nav-logo-container {
+          max-width: calc(100vw - 160px) !important;
+        }
+
+        .logo-responsive {
+          font-size: 11px !important;
+          max-width: calc(100vw - 180px) !important;
+        }
+      }
+
+      /* Para pantallas de menos de 360px */
+      @media (max-width: 360px) {
+        .nmls-info-mobile {
+          display: none !important;
+        }
+
+        .nav-logo-container {
+          max-width: calc(100vw - 70px) !important;
+        }
+      }
     </style>
 
     <!-- Google tag (gtag.js) - AQUÍ DENTRO DEL HEAD -->
@@ -148,10 +225,7 @@
       <div
         class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-full relative"
       >
-        <div
-          class="flex flex-col min-w-0 flex-1"
-          style="max-width: calc(100vw - 100px)"
-        >
+        <div class="flex flex-col min-w-0 flex-1 nav-logo-container">
           <a href="index.html" class="flex items-center gap-2 sm:gap-3 group">
             <img
               src="assets/logoEZ.png"
@@ -159,13 +233,14 @@
               class="h-10 sm:h-14 w-auto flex-shrink-0"
             />
             <span
-              class="text-xs sm:text-lg font-bold text-brand-gold group-hover:text-black transition truncate"
-              style="max-width: calc(100vw - 280px)"
+              class="text-xs sm:text-lg font-bold text-brand-gold group-hover:text-black transition truncate logo-responsive"
               >EZ Way Mortgage Corporation</span
             >
           </a>
           <!-- NMLS Info debajo del logo -->
-          <div class="text-xs text-gray-600 ml-12 sm:ml-20 mt-1">
+          <div
+            class="text-xs text-gray-600 ml-12 sm:ml-20 mt-1 nmls-info-mobile"
+          >
             <span class="font-medium">NMLS #2679112</span>
             <span class="mx-1 hidden md:inline">•</span>
             <span class="hidden md:inline">Licensed Mortgage Brokerage</span>
@@ -315,7 +390,7 @@
           class="bg-white rounded-2xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-12"
           data-aos="fade-right"
         >
-          <div class="hidden md:block md:w-1/3">
+          <div class="w-full md:w-1/3">
             <figure class="h-48 w-full rounded-xl overflow-hidden shadow-lg">
               <img
                 src="assets/ourhistory.jpg"
@@ -325,7 +400,7 @@
               />
             </figure>
           </div>
-          <div class="md:w-1/2">
+          <div class="w-full md:w-1/2">
             <h2 class="text-2xl font-bold text-brand-blue mb-4">Our Story</h2>
             <p class="text-gray-700">
               EZ Way Mortgage was founded with a simple idea: getting a mortgage
@@ -342,7 +417,7 @@
           class="bg-white rounded-2xl shadow-lg p-8 flex flex-col md:flex-row-reverse items-center gap-12"
           data-aos="fade-left"
         >
-          <div class="hidden md:block md:w-1/3">
+          <div class="w-full md:w-1/3">
             <figure class="h-48 w-full rounded-xl overflow-hidden shadow-lg">
               <img
                 src="assets/ourmission.jpg"
@@ -352,7 +427,7 @@
               />
             </figure>
           </div>
-          <div class="md:w-1/2">
+          <div class="w-full md:w-1/2">
             <h2 class="text-2xl font-bold text-brand-blue mb-4">Our Mission</h2>
             <p class="text-gray-700">
               Empower every borrower with clarity, confidence and competitive
@@ -366,7 +441,7 @@
           class="bg-white rounded-2xl shadow-lg p-8 flex flex-col md:flex-row-reverse items-center gap-12"
           data-aos="fade-right"
         >
-          <div class="md:w-1/2 text-right">
+          <div class="w-full md:w-1/2 text-left md:text-right">
             <h2 class="text-2xl font-bold text-brand-blue mb-4">Our Values</h2>
             <p class="text-gray-700">
               Transparency, compliance, responsiveness and client education. We
@@ -375,7 +450,7 @@
               proactive communication.
             </p>
           </div>
-          <div class="hidden md:block md:w-1/3">
+          <div class="w-full md:w-1/3">
             <figure class="h-48 w-full rounded-xl overflow-hidden shadow-lg">
               <img
                 src="assets/ourvalues.jpg"
