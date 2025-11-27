@@ -57,7 +57,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Hoja de estilos personalizada con paleta azul / dorado / blanco -->
     <link rel="stylesheet" href="css/styles.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- AOS CSS - DESHABILITADO PARA MEJOR PERFORMANCE -->
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
     <noscript>
       <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
@@ -243,7 +244,7 @@
       }
 
       .hero-section {
-        padding-top: 4rem !important;
+        padding-top: 2rem !important;
         margin-top: 0 !important;
         background: linear-gradient(
             120deg,
@@ -254,9 +255,17 @@
           url("assets/1.jpg") !important;
         background-size: cover !important;
         background-position: center !important;
-        background-attachment: fixed !important;
+        /* Remover background-attachment: fixed en mobile para mejor performance */
+        background-attachment: scroll !important;
         position: relative;
         overflow: hidden;
+      }
+
+      @media (min-width: 768px) {
+        .hero-section {
+          padding-top: 4rem !important;
+          background-attachment: fixed !important;
+        }
       }
       .hero-section:after {
         content: "";
@@ -787,10 +796,7 @@
       <main class="pt-24">
         <!-- Hero Section con imagen de fondo -->
         <section
-          class="hero-section text-white py-16 sm:py-24 px-4 sm:px-6 md:px-20 relative overflow-hidden min-h-screen flex items-center"
-          data-aos="fade-down"
-          data-aos-duration="600"
-          data-aos-once="true"
+          class="hero-section text-white py-8 sm:py-16 md:py-24 px-4 sm:px-6 md:px-20 relative overflow-hidden min-h-screen flex items-center"
         >
           <!-- Overlay decorativo adicional -->
           <div
@@ -833,11 +839,7 @@
         </section>
 
         <!-- Problem / Solution: From Confusion to Confidence -->
-        <section
-          class="py-12 sm:py-16 px-4 sm:px-6 md:px-20 bg-white"
-          data-aos="fade-up"
-          data-aos-once="true"
-        >
+        <section class="py-12 sm:py-16 px-4 sm:px-6 md:px-20 bg-white">
           <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
             <div>
               <h2 class="text-2xl sm:text-3xl font-bold text-brand-blue mb-2">
@@ -873,19 +875,12 @@
         <!-- Services Overview -->
         <section
           id="services"
-          class="py-16 sm:py-20 bg-white px-4 sm:px-6 md:px-20"
-          data-aos="fade-up"
-          data-aos-duration="500"
-          data-aos-once="true"
+          class="py-12 sm:py-16 bg-white px-4 sm:px-6 md:px-20"
         >
           <h2 class="text-2xl font-bold text-center mb-8">What We Offer</h2>
           <div class="service-grid max-w-6xl mx-auto">
             <div
               class="group text-center transition-all duration-300 transform hover:scale-105 bg-white p-6 rounded-lg shadow-md relative overflow-hidden"
-              data-aos="zoom-in"
-              data-aos-delay="50"
-              data-aos-duration="400"
-              data-aos-once="true"
             >
               <div
                 class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 flex items-center justify-center rounded-full bg-gradient-to-br from-[#0f3a63] to-black shadow-inner"
@@ -921,10 +916,6 @@
 
             <div
               class="group text-center transition-all duration-300 transform hover:scale-105 bg-white p-6 rounded-lg shadow-md relative overflow-hidden"
-              data-aos="zoom-in"
-              data-aos-delay="100"
-              data-aos-duration="400"
-              data-aos-once="true"
             >
               <div
                 class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 flex items-center justify-center rounded-full bg-gradient-to-br from-[#0f3a63] to-black shadow-inner"
@@ -961,10 +952,6 @@
 
             <div
               class="group text-center transition-all duration-300 transform hover:scale-105 bg-white p-6 rounded-lg shadow-md relative overflow-hidden"
-              data-aos="zoom-in"
-              data-aos-delay="150"
-              data-aos-duration="400"
-              data-aos-once="true"
             >
               <div
                 class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 flex items-center justify-center rounded-full bg-gradient-to-br from-[#0f3a63] to-black shadow-inner"
@@ -1001,10 +988,6 @@
 
             <div
               class="group text-center transition-all duration-300 transform hover:scale-105 bg-white p-6 rounded-lg shadow-md relative overflow-hidden"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-              data-aos-duration="400"
-              data-aos-once="true"
             >
               <div
                 class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 flex items-center justify-center rounded-full bg-gradient-to-br from-[#0f3a63] to-black shadow-inner"
@@ -1047,8 +1030,6 @@
         <!-- Mortgages for Life’s Big Moments -->
         <section
           class="py-16 sm:py-20 px-4 sm:px-6 md:px-20 bg-gray-50 border-y border-[#b68c2f22]"
-          data-aos="fade-up"
-          data-aos-once="true"
         >
           <div class="max-w-6xl mx-auto">
             <h2 class="text-2xl sm:text-3xl font-bold text-brand-blue mb-2">
@@ -1087,9 +1068,6 @@
         <!-- Testimonials Carousel -->
         <section
           class="py-16 sm:py-20 px-4 sm:px-6 md:px-20 bg-gray-50 border-y border-[#b68c2f22]"
-          data-aos="fade-up"
-          data-aos-duration="500"
-          data-aos-once="true"
         >
           <h2
             class="text-2xl sm:text-3xl font-bold text-center text-brand-blue mb-2"
@@ -1168,9 +1146,6 @@
         <section
           id="how-it-works"
           class="py-16 sm:py-20 px-4 sm:px-6 md:px-20 bg-white text-center"
-          data-aos="fade-left"
-          data-aos-duration="500"
-          data-aos-once="true"
         >
           <h2 class="text-2xl sm:text-3xl font-bold text-brand-blue mb-2">
             How It Works
@@ -1179,32 +1154,17 @@
           <div
             class="max-w-4xl mx-auto grid sm:grid-cols-3 gap-10 text-gray-700"
           >
-            <div
-              data-aos="flip-up"
-              data-aos-delay="50"
-              data-aos-duration="300"
-              data-aos-once="true"
-            >
+            <div>
               <div class="text-4xl mb-2">📝</div>
               <h3 class="font-semibold text-lg">Pre-Qualify</h3>
               <p class="text-sm">Share your goals & basic info.</p>
             </div>
-            <div
-              data-aos="flip-up"
-              data-aos-delay="100"
-              data-aos-duration="300"
-              data-aos-once="true"
-            >
+            <div>
               <div class="text-4xl mb-2">🤝</div>
               <h3 class="font-semibold text-lg">Compare Options</h3>
               <p class="text-sm">We review rates and programs.</p>
             </div>
-            <div
-              data-aos="flip-up"
-              data-aos-delay="150"
-              data-aos-duration="300"
-              data-aos-once="true"
-            >
+            <div>
               <div class="text-4xl mb-2">🚀</div>
               <h3 class="font-semibold text-lg">Close Confidently</h3>
               <p class="text-sm">We guide you through funding.</p>
@@ -1216,19 +1176,11 @@
         <section
           id="about"
           class="bg-blue-50 py-16 sm:py-20 px-4 sm:px-6 md:px-20"
-          data-aos="fade-up"
-          data-aos-duration="500"
-          data-aos-once="true"
         >
           <div
             class="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12"
           >
-            <div
-              class="md:w-1/2 flex items-center justify-center"
-              data-aos="fade-right"
-              data-aos-duration="400"
-              data-aos-once="true"
-            >
+            <div class="md:w-1/2 flex items-center justify-center">
               <figure
                 class="relative w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden shadow-lg"
               >
@@ -1241,58 +1193,29 @@
                 />
               </figure>
             </div>
-            <div
-              class="md:w-1/2"
-              data-aos="fade-left"
-              data-aos-duration="500"
-              data-aos-once="true"
-            >
+            <div class="md:w-1/2">
               <h2 class="text-2xl sm:text-3xl font-bold text-brand-blue mb-2">
                 Why Choose Us?
               </h2>
               <div class="gold-accent-bar w-24 mb-6"></div>
               <ul class="space-y-4 text-base sm:text-lg text-gray-700">
-                <li
-                  class="flex items-start gap-3"
-                  data-aos="fade-up"
-                  data-aos-delay="50"
-                  data-aos-duration="300"
-                  data-aos-once="true"
-                >
+                <li class="flex items-start gap-3">
                   <span class="text-green-600 text-xl mt-1">✔️</span>
                   <span
                     >Transparent rates and fee breakdowns—no surprises.</span
                   >
                 </li>
-                <li
-                  class="flex items-start gap-3"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                  data-aos-duration="300"
-                  data-aos-once="true"
-                >
+                <li class="flex items-start gap-3">
                   <span class="text-green-600 text-xl mt-1">✔️</span>
                   <span
                     >Personal guidance from licensed mortgage specialists.</span
                   >
                 </li>
-                <li
-                  class="flex items-start gap-3"
-                  data-aos="fade-up"
-                  data-aos-delay="150"
-                  data-aos-duration="300"
-                  data-aos-once="true"
-                >
+                <li class="flex items-start gap-3">
                   <span class="text-green-600 text-xl mt-1">✔️</span>
                   <span>Fast pre-approvals and consistent follow-up.</span>
                 </li>
-                <li
-                  class="flex items-start gap-3"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                  data-aos-duration="300"
-                  data-aos-once="true"
-                >
+                <li class="flex items-start gap-3">
                   <span class="text-green-600 text-xl mt-1">✔️</span>
                   <span>Compliance-focused, client-first process.</span>
                 </li>
@@ -1302,12 +1225,7 @@
         </section>
 
         <!-- CTA: Book a Call -->
-        <section
-          class="bg-white py-16 px-4 sm:px-6 md:px-20"
-          data-aos="fade-up"
-          data-aos-duration="500"
-          data-aos-once="true"
-        >
+        <section class="bg-white py-16 px-4 sm:px-6 md:px-20">
           <div
             class="max-w-3xl mx-auto bg-gray-50 p-6 sm:p-10 rounded-2xl text-center shadow-md"
           >
@@ -1566,16 +1484,10 @@
           body.classList.add("loaded");
           loadingComplete = true;
 
-          // Inicializar AOS inmediatamente
-          if (typeof AOS !== "undefined") {
-            AOS.init({
-              duration: 400,
-              offset: 0,
-              delay: 25,
-              once: true,
-              mirror: false,
-            });
-          }
+          // AOS COMPLETAMENTE DESHABILITADO para máximo performance
+          console.log(
+            "AOS deshabilitado en toda la página para mejor performance"
+          );
 
           return; // Salir de la función
         }
@@ -1593,17 +1505,21 @@
         body.classList.add("loading");
         body.classList.remove("loaded");
 
-        // Timer de 3 segundos para mostrar contenido
+        // Timer mucho más corto - solo 500ms en mobile, 800ms desktop
+        const loadingDelay = window.innerWidth < 768 ? 500 : 800;
+
         setTimeout(() => {
           console.log("Mostrando contenido por primera vez...");
 
           // Marcar que ya se mostró la pantalla de carga
           sessionStorage.setItem("yva_loading_shown", "true");
 
-          // Fade out del loading screen
+          // Fade out del loading screen más rápido
           if (loadingScreen) {
             loadingScreen.classList.add("fade-out");
 
+            // Fade muy rápido
+            const fadeDelay = 200;
             setTimeout(() => {
               loadingScreen.classList.add("hidden");
               loadingScreen.style.display = "none";
@@ -1616,21 +1532,15 @@
               body.classList.add("loaded");
               loadingComplete = true;
 
-              // Inicializar AOS
-              if (typeof AOS !== "undefined") {
-                AOS.init({
-                  duration: 400,
-                  offset: 0,
-                  delay: 25,
-                  once: true,
-                  mirror: false,
-                });
-              }
+              // AOS COMPLETAMENTE DESHABILITADO para máximo performance
+              console.log(
+                "AOS deshabilitado en toda la página para mejor performance"
+              );
 
               console.log("Página completamente cargada");
-            }, 800);
+            }, fadeDelay);
           }
-        }, 3000);
+        }, loadingDelay);
       }
 
       // Inicializar inmediatamente
@@ -1802,11 +1712,13 @@
               "#testimonial-slider .testimonial"
             );
             if (testimonials.length > 0) {
+              // Slider más lento en mobile para evitar lag
+              const interval = window.innerWidth < 768 ? 6000 : 4000;
               setInterval(() => {
                 if (!isScrolling && isPageVisible) {
                   changeSlide((current + 1) % testimonials.length);
                 }
-              }, 4000);
+              }, interval);
             }
           }
         }, 4000); // Esperar 4 segundos después de DOMContentLoaded
@@ -1925,8 +1837,12 @@
     </script>
     <!--End of Tawk.to Script-->
 
-    <!-- AOS JavaScript -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- AOS JavaScript - DESHABILITADO PARA MEJOR PERFORMANCE -->
+    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+    <script>
+      // AOS completamente deshabilitado para mejor performance
+      console.log("AOS deshabilitado para optimizar performance en mobile");
+    </script>
     <script>
       // Ocultación dinámica adicional del chat (redundante con CSS por seguridad)
       (function () {
