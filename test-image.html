@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test Calculadora Image</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: #f0f0f0;
+        font-family: Arial, sans-serif;
+      }
+      .test-container {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .test-button {
+        width: 72px;
+        height: 72px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #0b0b0b 0%, #1a1a1a 60%),
+          linear-gradient(135deg, #b68c2f, #ffd166);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px auto;
+        cursor: pointer;
+      }
+      .test-button img {
+        width: 36px !important;
+        height: 36px !important;
+        filter: brightness(0) invert(1) !important;
+        display: block !important;
+      }
+      .image-test {
+        margin: 20px;
+        text-align: center;
+      }
+      .image-test img {
+        max-width: 100px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test-container">
+      <h1>Test Calculadora.png</h1>
+
+      <div class="image-test">
+        <h3>Original Image:</h3>
+        <img src="assets/Calculadora.png" alt="Original" />
+      </div>
+
+      <div class="image-test">
+        <h3>With Filter (white):</h3>
+        <img
+          src="assets/Calculadora.png"
+          alt="Filtered"
+          style="
+            filter: brightness(0) invert(1);
+            background: #333;
+            padding: 20px;
+          "
+        />
+      </div>
+
+      <div class="image-test">
+        <h3>In Button (like floating button):</h3>
+        <div class="test-button">
+          <img src="assets/Calculadora.png" alt="Button" />
+        </div>
+      </div>
+
+      <p>If you see the images above, the path is correct!</p>
+    </div>
+  </body>
+</html>
