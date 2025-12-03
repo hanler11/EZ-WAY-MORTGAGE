@@ -10,6 +10,23 @@ body {
   margin: 0;
   background: #f7f7f7;
 }
+html,
+body {
+  overflow-x: hidden; /* Evita desplazamiento lateral en todo el sitio */
+}
+.u-hidden {
+  display: none !important;
+}
+.navbar-title-container {
+  max-width: calc(100vw - 280px);
+  min-width: 0;
+}
+.nowrap-visible {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: unset;
+  max-width: 100%;
+}
 .section {
   padding: 60px 0;
 }
@@ -822,8 +839,12 @@ footer {
   overflow: hidden;
 }
 #loan-btn img {
-  width: 44px !important;
-  height: 44px !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100% !important;
+  height: 100% !important;
   border-radius: 50% !important;
   object-fit: cover !important;
   display: block !important;
@@ -849,6 +870,8 @@ footer {
   /* Sombra externa dorada; borde negro solo abajo via ::after */
   box-shadow: 0 8px 32px rgba(182, 140, 47, 0.3);
   position: relative; /* Para pseudo-elemento del borde interno */
+  overscroll-behavior-x: none; /* No arrastre lateral */
+  touch-action: pan-y; /* Solo vertical */
 }
 .lhp-calculator-embedded::after {
   content: "";
@@ -868,6 +891,7 @@ footer {
   height: 1100px;
   transform: none;
   border-radius: 8px;
+  display: block; /* evitar inline-gap y saltos */
 }
 
 /* Calculator menu */
@@ -948,6 +972,7 @@ footer {
 
 /* LHP Calculator Modal */
 #lhp-calculator {
+  display: none; /* hidden by default, toggled via JS */
   position: fixed;
   inset: 1vh 8vw;
   z-index: 2002;
@@ -958,6 +983,8 @@ footer {
     0 2px 8px rgba(16, 24, 40, 0.06);
   overflow: hidden;
   animation: modalIn 260ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  overscroll-behavior-x: none;
+  touch-action: pan-y;
 }
 
 .lhp-header {
@@ -1007,6 +1034,8 @@ footer {
   background: linear-gradient(135deg, #1a1a1a 0%, #0b0b0b 100%);
   padding: 8px;
   border-radius: 16px;
+  overscroll-behavior-x: none;
+  touch-action: pan-y;
 }
 
 /* En móvil, ajustar el contenido cuando el header está visible */
@@ -1014,6 +1043,14 @@ footer {
   .lhp-content {
     padding: 0 8px 8px 8px;
     border-radius: 0 0 16px 16px;
+  }
+}
+
+/* Reducir efectos pesados en móviles para suavizar desplazamiento */
+@media (max-width: 640px) {
+  .lhp-calculator-embedded {
+    padding-top: 12px;
+    box-shadow: 0 4px 14px rgba(182, 140, 47, 0.22);
   }
 }
 
@@ -1028,6 +1065,8 @@ footer {
   border-radius: 8px;
   border: 2px solid #b68c2f;
   padding: 12px 8px; /* Espacio equilibrado */
+  overscroll-behavior-x: none;
+  touch-action: pan-y;
 }
 
 #lhp-calculator-content iframe {
@@ -1037,6 +1076,7 @@ footer {
   transform: none;
   border-radius: 6px;
   background: #ffffff;
+  display: block;
 }
 
 @media (min-width: 992px) {

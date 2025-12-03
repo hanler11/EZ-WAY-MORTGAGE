@@ -46,11 +46,12 @@
         // Initialize calculator iframe if not already done
         if (!modalCalculatorInitialized && lhpContent) {
           modalCalculatorInitialized = true;
-          renderMortgageIframe(lhpContent);
+          renderMortgageIframe(lhpContent, {}, { loading: "lazy" });
         }
       };
 
-      function renderMortgageIframe(container, defaults = {}) {
+      function renderMortgageIframe(container, defaults = {}, options = {}) {
+        const loadingAttr = options.loading || "lazy";
         // Remove any previous loading indicator
         const loading = container.querySelector(".calculator-loading");
         if (loading) loading.remove();
@@ -72,7 +73,7 @@
         container.innerHTML = `
           <div class="calculator-frame-wrapper" style="width:100%;max-width:100%;">
             <iframe src="${src}" title="Mortgage Calculator"
-              style="width:100%;border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              style="width:100%;border:0;display:block;" loading="${loadingAttr}" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <div style="font-family: Arial; height: 36px; padding: 0 8px; box-sizing: border-box; text-align: right; background: #f6f9f9; border: 1px solid #ccc; color: #868686; line-height: 34px; font-size: 12px;">
               <a style="color:#868686;" href="https://www.mortgagecalculator.org/free-tools/javascript-mortgage-calculator.php" target="_blank" rel="noopener noreferrer">Javascript Mortgage Calculator</a> by MortgageCalculator.org
             </div>
@@ -115,7 +116,34 @@
         );
         if (!embeddedContainer) return;
 
-        renderMortgageIframe(embeddedContainer);
+        // Skeleton mientras espera intersección
+        embeddedContainer.innerHTML = `
+          <div class="calculator-loading">
+            <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-brand-gold mb-4"></div>
+            <p>Loading calculator...</p>
+          </div>`;
+
+        if ("IntersectionObserver" in window) {
+          const io = new IntersectionObserver(
+            (entries, obs) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  renderMortgageIframe(
+                    embeddedContainer,
+                    {},
+                    { loading: "eager" }
+                  );
+                  obs.disconnect();
+                }
+              });
+            },
+            { root: null, rootMargin: "200px 0px", threshold: 0.01 }
+          );
+          io.observe(embeddedContainer);
+        } else {
+          // Fallback sin IO
+          renderMortgageIframe(embeddedContainer, {}, { loading: "eager" });
+        }
       }
     } catch (e) {
       console.debug("loan calc init error", e);

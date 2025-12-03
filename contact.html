@@ -272,8 +272,7 @@
         <!-- Logo y Navegación -->
         <div class="flex items-center justify-between w-full h-20">
           <div
-            class="flex flex-col min-w-0 flex-1"
-            style="max-width: calc(100vw - 280px)"
+            class="flex flex-col min-w-0 flex-1 navbar-title-container"
           >
             <a href="index.html" class="flex items-center gap-2 sm:gap-3 group flex-shrink-0">
             <img
@@ -282,8 +281,7 @@
               class="h-10 sm:h-14 w-auto flex-shrink-0"
             />
             <span
-              class="text-xs sm:text-lg font-bold text-brand-gold group-hover:text-black transition"
-              style="white-space: nowrap; overflow: visible; text-overflow: unset; max-width: 100%"
+              class="text-xs sm:text-lg font-bold text-brand-gold group-hover:text-black transition nowrap-visible"
               >EZ Way Mortgage Corporation</span>
           </a>
           <!-- NMLS Info debajo del logo -->
@@ -433,7 +431,7 @@
           <!-- Web3Forms recipient override -->
           <input type="hidden" name="email_to" value="Sofia@ezwaymortgages.com" />
           <!-- Optional bot check -->
-          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+          <input type="checkbox" name="botcheck" class="hidden u-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" title="Leave this field empty" />
           <div class="flex gap-4">
             <div class="flex-1">
               <label for="name" class="block font-semibold mb-1"
@@ -586,6 +584,16 @@
                 >HELOC & Equity</a
               >
             </li>
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >No Income Verification (DSCR)</a
+              >
+            </li>
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >Credit & Pre-Approval Coaching</a
+              >
+            </li>
           </ul>
         </div>
         <div>
@@ -623,7 +631,6 @@
                 alt="Instagram"
                 class="h-6 w-6 hover:scale-110 transition-transform duration-300"
                 loading="lazy"
-                style="pointer-events: none;"
               />
             </a>
           </div>
@@ -899,12 +906,10 @@
       title="Loan calculator"
       aria-label="Open loan calculator"
       onclick="openLHPCalculator()"
-      style="position: fixed; right: 20px; bottom: 20px; z-index: 2000; width: 72px; height: 72px; border-radius: 50%; background: #000000; border: 2px solid #b68c2f; padding: 0; margin: 0; overflow: hidden; cursor: pointer; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(182, 140, 47, 0.3);"
     >
       <img 
         src="assets/Calculator.png?v=3" 
         alt="Calculator" 
-        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 72px; height: 72px; border-radius: 50%; object-fit: cover;"
       />
     </button>
 
@@ -947,7 +952,6 @@
       id="lhp-calculator"
       role="dialog"
       aria-label="Professional loan calculator"
-      style="display: none"
     >
       <div class="lhp-header">
         <strong>Professional Loan Calculator</strong>
