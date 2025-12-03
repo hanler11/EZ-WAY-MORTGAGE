@@ -216,14 +216,7 @@
         pointer-events: auto;
       }
 
-      /* Estilos para Calendly */
-      #calendly-section {
-        display: none;
-      }
-      .calendly-inline-widget {
-        min-width: 320px;
-        height: 600px;
-      }
+      /* (Calendly removido) */
     </style>
 
     <!-- Google tag (gtag.js) - COLOCADO CORRECTAMENTE AL FINAL DEL HEAD -->
@@ -282,20 +275,19 @@
             class="flex flex-col min-w-0 flex-1"
             style="max-width: calc(100vw - 280px)"
           >
-            <a href="index.html" class="flex items-center gap-2 sm:gap-3 group">
+            <a href="index.html" class="flex items-center gap-2 sm:gap-3 group flex-shrink-0">
             <img
               src="assets/logoEZ.png"
               alt="EZ Way Mortgage Logo"
               class="h-10 sm:h-14 w-auto flex-shrink-0"
             />
             <span
-              class="text-xs sm:text-lg font-bold text-brand-gold group-hover:text-black transition truncate"
-              style="max-width: calc(100vw - 280px)"
-              >EZ Way Mortgage Corporation</span
-            >
+              class="text-xs sm:text-lg font-bold text-brand-gold group-hover:text-black transition"
+              style="white-space: nowrap; overflow: visible; text-overflow: unset; max-width: 100%"
+              >EZ Way Mortgage Corporation</span>
           </a>
           <!-- NMLS Info debajo del logo -->
-          <div class="text-xs text-gray-600 ml-12 sm:ml-20 mt-1">
+          <div class="text-xs text-gray-600 ml-4 sm:ml-6 mt-1">
             <span class="font-medium">NMLS #2679112</span>
             <span class="mx-1 hidden md:inline">•</span>
             <span class="hidden md:inline">Licensed Mortgage Brokerage</span>
@@ -429,11 +421,19 @@
         <!-- Contact Form -->
         <form
           id="contact-form"
-          action="https://formspree.io/f/movlryja"
+          action="https://api.web3forms.com/submit"
           method="POST"
           class="flex-1 space-y-4"
           data-aos="fade-right"
         >
+          <!-- Web3Forms required fields -->
+          <input type="hidden" name="access_key" value="a90bbc50-1602-4b33-867a-8a3c5cac4501" />
+          <input type="hidden" name="subject" value="New contact form submission - EZ Way Mortgage" />
+          <input type="hidden" name="from_website" value="https://ezwaymortgages.com/contact.html" />
+          <!-- Web3Forms recipient override -->
+          <input type="hidden" name="email_to" value="Sofia@ezwaymortgages.com" />
+          <!-- Optional bot check -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
           <div class="flex gap-4">
             <div class="flex-1">
               <label for="name" class="block font-semibold mb-1"
@@ -473,85 +473,17 @@
                 class="w-full border rounded px-3 py-2"
               />
             </div>
-            <div class="flex-1">
-              <label for="company" class="block font-semibold mb-1"
-                >Company Name*</label
-              >
-              <input
-                type="text"
-                id="company"
-                name="company"
-                required
-                class="w-full border rounded px-3 py-2"
-              />
-            </div>
+            
           </div>
-          <div>
-            <label for="website" class="block font-semibold mb-1"
-              >Company Website (optional)</label
-            >
-            <input
-              type="url"
-              id="website"
-              name="website"
-              class="w-full border rounded px-3 py-2"
-            />
-          </div>
-          <div>
-            <label for="service" class="block font-semibold mb-1"
-              >Loan Purpose*</label
-            >
-            <select
-              id="service"
-              name="loan_purpose"
-              required
-              class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-brand-gold/60 focus:border-brand-gold"
-            >
-              <option value="">-- Select purpose --</option>
-              <option value="purchase_primary">
-                Purchase - Primary Residence
-              </option>
-              <option value="purchase_investment">
-                Purchase - Investment / Second Home
-              </option>
-              <option value="refinance_rate_term">
-                Refinance - Rate & Term
-              </option>
-              <option value="refinance_cash_out">Refinance - Cash Out</option>
-              <option value="heloc_equity">HELOC / Home Equity</option>
-              <option value="other">Other / Not Sure Yet</option>
-            </select>
-          </div>
-          <div>
-            <label for="program" class="block font-semibold mb-1"
-              >Program / Service Interested In*</label
-            >
-            <select
-              id="program"
-              name="program_interest"
-              required
-              class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-brand-gold/60 focus:border-brand-gold"
-            >
-              <option value="">-- Select program --</option>
-              <option value="conventional_purchase">Home Purchase (Conventional)</option>
-              <option value="fha">FHA Loans</option>
-              <option value="va">VA Loans</option>
-              <option value="usda">USDA Rural Housing</option>
-              <option value="jumbo">Jumbo Loans</option>
-              <option value="rate_term_refinance">Rate & Term Refinance</option>
-              <option value="cash_out_refinance">Cash-Out Refinance</option>
-              <option value="heloc_home_equity">HELOC & Home Equity</option>
-              <option value="credit_coaching">Credit & Pre-Approval Coaching</option>
-            </select>
-          </div>
+          
+          
           <div>
             <label for="message" class="block font-semibold mb-1"
-              >Message*</label
+              >Message</label
             >
             <textarea
               id="message"
               name="message"
-              required
               rows="4"
               class="w-full border rounded px-3 py-2"
             ></textarea>
@@ -566,38 +498,7 @@
         </form>
       </section>
 
-      <!-- Sección de Calendly -->
-      <section
-        id="calendly-section"
-        class="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12 mt-8 calendly-section hidden-section"
-      >
-        <h2 class="text-3xl font-bold text-brand-blue mb-4 text-center">
-          Schedule a Call
-        </h2>
-        <p class="text-gray-600 mb-6 text-center">
-          Pick a time that fits you. We'll confirm details and prepare tailored
-          options.
-        </p>
-
-        <!-- Calendly inline widget -->
-        <div class="calendly-inline-widget" data-url="#"></div>
-
-        <!-- Botón para volver al formulario -->
-        <div class="text-center mt-6">
-          <button
-            id="back-to-form"
-            class="bg-gray-500 text-white font-semibold px-6 py-2 rounded-md hover:bg-gray-600 transition"
-          >
-            <button
-              id="back-to-form"
-              type="button"
-              class="btn-gold-outline px-6 py-2 rounded font-semibold text-sm"
-            >
-              Back to Form
-            </button>
-          </button>
-        </div>
-      </section>
+      <!-- (Calendly removido) -->
     </main>
 
     <!-- Footer -->
@@ -775,12 +676,7 @@
     </script>
     <!--End of Tawk.to Script-->
 
-    <!-- Calendly Widget Script -->
-    <script
-      type="text/javascript"
-      src="https://assets.calendly.com/assets/external/widget.js"
-      async
-    ></script>
+    <!-- (Calendly script removido) -->
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -913,70 +809,27 @@
           });
         });
 
-        // Track service selection
-        document.getElementById("service").addEventListener("change", (e) => {
-          if (e.target.value) {
-            trackEngagement("service_selected", e.target.value);
-          }
-        });
+        // (Loan Purpose removido) — omitimos el seguimiento de selección de servicio
 
         // Form and Calendly logic
-        const formSection = document.getElementById("form-section");
-        const calendlySection = document.getElementById("calendly-section");
-        const backToFormBtn = document.getElementById("back-to-form");
-        const submitBtn = document.getElementById("submit-btn");
+  const formSection = document.getElementById("form-section");
+  const submitBtn = document.getElementById("submit-btn");
 
-        // Función para mostrar Calendly
-        function showCalendly() {
-          // Track conversion when showing calendar
-          const selectedService = document.getElementById("service").value;
-          trackConversion("form_submitted", selectedService);
+        // (Calendly removido) Mostrar mensaje de éxito sencillo
+        function showSuccess() {
+          try {
+            trackConversion("form_success", "contact_form");
+          } catch (e) {}
+          // Limpiar el formulario pero mantenerlo visible
+          try {
+            form.reset();
+          } catch (e) {}
 
-          formSection.classList.add("hidden-section");
-          formSection.classList.remove("visible-section");
-
-          setTimeout(() => {
-            formSection.style.display = "none";
-            calendlySection.style.display = "block";
-
-            setTimeout(() => {
-              calendlySection.classList.add("visible-section");
-              calendlySection.classList.remove("hidden-section");
-
-              // Track calendar view
-              trackEngagement("calendar_viewed", "consultation_booking");
-
-              // Scroll suave a la sección de Calendly
-              calendlySection.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }, 50);
-          }, 300);
-        }
-
-        // Función para volver al formulario
-        function showForm() {
-          trackEngagement("back_to_form_clicked", "form_navigation");
-
-          calendlySection.classList.add("hidden-section");
-          calendlySection.classList.remove("visible-section");
-
-          setTimeout(() => {
-            calendlySection.style.display = "none";
-            formSection.style.display = "block";
-
-            setTimeout(() => {
-              formSection.classList.add("visible-section");
-              formSection.classList.remove("hidden-section");
-
-              // Scroll suave a la sección del formulario
-              formSection.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }, 50);
-          }, 300);
+          const msg = document.createElement("div");
+          msg.className = "mt-6 p-4 rounded bg-green-50 border border-green-300 text-green-800";
+          msg.textContent = "¡Gracias! Tu información ha sido enviada. Nos pondremos en contacto pronto.";
+          formSection.appendChild(msg);
+          formSection.scrollIntoView({ behavior: "smooth", block: "start" });
         }
 
         // Manejo del envío del formulario
@@ -995,21 +848,25 @@
             method: "POST",
             body: new FormData(form),
           })
-            .then((response) => {
-              // Track successful submission
-              trackConversion(
-                "form_success",
-                document.getElementById("service").value
-              );
-              // Mostrar Calendly después del envío exitoso
-              showCalendly();
+            .then(async (response) => {
+              const data = await response.json().catch(() => ({ success: response.ok }));
+              if (response.ok && data?.success !== false) {
+                // Track successful submission
+                trackConversion("form_success", "contact_form");
+                // Mostrar mensaje de éxito
+                showSuccess();
+              } else {
+                console.log("Web3Forms error:", data);
+                trackEngagement("form_error", "submission_failed");
+                // Mostrar mensaje genérico pero mantener experiencia
+                showSuccess();
+              }
             })
             .catch((error) => {
               console.log("Error:", error);
               // Track form error
               trackEngagement("form_error", "submission_failed");
-              // Incluso si hay error, mostrar Calendly
-              showCalendly();
+              showSuccess();
             })
             .finally(() => {
               // Restaurar el botón
@@ -1018,8 +875,7 @@
             });
         });
 
-        // Botón para volver al formulario
-        backToFormBtn.addEventListener("click", showForm);
+  // (Calendly removido)
 
         // Track navigation clicks
         document.querySelectorAll("nav a").forEach((link) => {
@@ -1028,16 +884,7 @@
           });
         });
 
-        // Track Calendly interactions (si está disponible)
-        window.addEventListener("message", function (e) {
-          if (e.data.event && e.data.event.indexOf("calendly") === 0) {
-            if (e.data.event === "calendly.event_scheduled") {
-              trackConversion("consultation_scheduled", "calendly_booking");
-            } else if (e.data.event === "calendly.date_and_time_selected") {
-              trackEngagement("calendar_time_selected", "booking_progress");
-            }
-          }
-        });
+        // (Calendly events removidos)
       });
     </script>
 

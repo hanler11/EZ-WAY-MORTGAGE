@@ -1,5 +1,5 @@
 // ============================================
-// LOAN CALCULATOR - LHP INTEGRATION
+// LOAN CALCULATOR - EMBED (MortgageCalculator.org)
 // ============================================
 
 (function () {
@@ -10,8 +10,8 @@
       // Auto-load embedded calculator on page
       initEmbeddedCalculator();
 
-      // LHP Calculator Integration for Modal
-      let lhpCalculatorInitialized = false;
+      // Modal embed initialization flag
+      let modalCalculatorInitialized = false;
 
       window.openLHPCalculator = function () {
         const lhpModal = document.getElementById("lhp-calculator");
@@ -43,85 +43,41 @@
         document.documentElement.style.overflow = "hidden";
         document.body.style.overflow = "hidden";
 
-        // Initialize LHP calculator if not already done
-        if (!lhpCalculatorInitialized && lhpContent) {
-          lhpCalculatorInitialized = true;
-
-          // Load jQuery if not already loaded
-          if (typeof jQuery === "undefined") {
-            const jQueryScript = document.createElement("script");
-            jQueryScript.src = "https://code.jquery.com/jquery-3.6.0.min.js";
-            jQueryScript.onload = function () {
-              loadLHPCalculator(lhpContent);
-            };
-            document.head.appendChild(jQueryScript);
-          } else {
-            loadLHPCalculator(lhpContent);
-          }
+        // Initialize calculator iframe if not already done
+        if (!modalCalculatorInitialized && lhpContent) {
+          modalCalculatorInitialized = true;
+          renderMortgageIframe(lhpContent);
         }
       };
 
-      function loadLHPCalculator(container) {
-        // Load LHP calculator script
-        const lhpScript = document.createElement("script");
-        lhpScript.src =
-          "https://lhp-cdn.s3.us-east-2.amazonaws.com/calculator-js/index.js";
-        lhpScript.onload = function () {
-          try {
-            window.lhpCalculator
-              .mount("lhp-calculator-content", {
-                page: "/",
-                calculatorDefaults:
-                  '[{"id":4,"user_id":813,"calculator":"conventional","config_json":{"description":"Calculate your Monthly Payment – Select your loan type, use sliders to input loan parameters.  Share results.","property_price":"350000","property_tax":"1.2","down_payment":"3","annual_insurance_rate":"0.5","mortgage_term":"30","interest_rate_30":"6.5","enabled":"1"}}]',
-                cssVars: {
-                  "--lhp-primary-color": "#b68c2f",
-                  "--lhp-primary-hover": "#ffd166",
-                  "--lhp-secondary-color": "#0b0b0b",
-                  "--lhp-text-color": "#1a1a1a",
-                  "--lhp-background":
-                    "linear-gradient(135deg, #ffd166 0%, #b68c2f 100%)",
-                  "--lhp-border-color": "#b68c2f",
-                  "--lhp-shadow": "0 8px 32px rgba(182, 140, 47, 0.3)",
-                },
-                defaultOptions: {},
-                defaultLimits: {},
-              })
-              .then((client) => {
-                // Remove loading indicator
-                const loading = container.querySelector(".calculator-loading");
-                if (loading) loading.remove();
+      function renderMortgageIframe(container, defaults = {}) {
+        // Remove any previous loading indicator
+        const loading = container.querySelector(".calculator-loading");
+        if (loading) loading.remove();
 
-                // Handle events
-                client.on("saved", (event) => {
-                  console.log("LHP Calculator result saved:", event);
-                });
+        const params = new URLSearchParams({
+          homevalue: String(defaults.homevalue || 400000),
+          downpayment: String(defaults.downpayment || 80000),
+          loanamount: String(defaults.loanamount || 320000),
+          interestrate: String(defaults.interestrate || 6.5),
+          loanterm: String(defaults.loanterm || 30),
+          propertytax: String(defaults.propertytax || 3000),
+          pmi: String(defaults.pmi || 0.5),
+          homeinsurance: String(defaults.homeinsurance || 1500),
+          monthlyhoa: String(defaults.monthlyhoa || 0),
+        });
 
-                client.on("resized", (event) => {
-                  if (event.eventData && event.eventData.height) {
-                    const iframe = container.querySelector("iframe");
-                    if (iframe) {
-                      iframe.style.height = event.eventData.height + "px";
-                    }
-                  }
-                });
-              })
-              .catch((error) => {
-                console.error("Error loading LHP calculator:", error);
-                container.innerHTML =
-                  '<div style="text-align: center; padding: 40px; color: #e57373;"><h3>Error loading calculator</h3><p>Please try again later.</p></div>';
-              });
-          } catch (error) {
-            console.error("Error initializing LHP calculator:", error);
-            container.innerHTML =
-              '<div style="text-align: center; padding: 40px; color: #e57373;"><h3>Error loading calculator</h3><p>Please try again later.</p></div>';
-          }
-        };
-        lhpScript.onerror = function () {
-          console.error("Failed to load LHP calculator script");
-          container.innerHTML =
-            '<div style="text-align: center; padding: 40px; color: #e57373;"><h3>Error loading calculator</h3><p>Please try again later.</p></div>';
-        };
-        document.head.appendChild(lhpScript);
+        const src = `https://www.mortgagecalculator.org/webmasters/?${params.toString()}`;
+
+        container.innerHTML = `
+          <div class="calculator-frame-wrapper" style="width:100%;max-width:100%;">
+            <iframe src="${src}" title="Mortgage Calculator"
+              style="width:100%;border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div style="font-family: Arial; height: 36px; padding: 0 8px; box-sizing: border-box; text-align: right; background: #f6f9f9; border: 1px solid #ccc; color: #868686; line-height: 34px; font-size: 12px;">
+              <a style="color:#868686;" href="https://www.mortgagecalculator.org/free-tools/javascript-mortgage-calculator.php" target="_blank" rel="noopener noreferrer">Javascript Mortgage Calculator</a> by MortgageCalculator.org
+            </div>
+          </div>
+        `;
       }
 
       window.closeLHPCalculator = function () {
@@ -159,79 +115,7 @@
         );
         if (!embeddedContainer) return;
 
-        // Load jQuery if needed
-        if (typeof jQuery === "undefined") {
-          const jQueryScript = document.createElement("script");
-          jQueryScript.src = "https://code.jquery.com/jquery-3.6.0.min.js";
-          jQueryScript.onload = function () {
-            loadEmbeddedLHPCalculator(embeddedContainer);
-          };
-          document.head.appendChild(jQueryScript);
-        } else {
-          loadEmbeddedLHPCalculator(embeddedContainer);
-        }
-      }
-
-      function loadEmbeddedLHPCalculator(container) {
-        const lhpScript = document.createElement("script");
-        lhpScript.src =
-          "https://lhp-cdn.s3.us-east-2.amazonaws.com/calculator-js/index.js";
-        lhpScript.onload = function () {
-          try {
-            window.lhpCalculator
-              .mount("lhp-calculator-embedded", {
-                page: "/",
-                calculatorDefaults:
-                  '[{"id":4,"user_id":813,"calculator":"conventional","config_json":{"description":"Calculate your Monthly Payment – Select your loan type, use sliders to input loan parameters.  Share results.","property_price":"350000","property_tax":"1.2","down_payment":"3","annual_insurance_rate":"0.5","mortgage_term":"30","interest_rate_30":"6.5","enabled":"1"}}]',
-                cssVars: {
-                  "--lhp-primary-color": "#b68c2f",
-                  "--lhp-primary-hover": "#ffd166",
-                  "--lhp-secondary-color": "#0b0b0b",
-                  "--lhp-text-color": "#1a1a1a",
-                  "--lhp-background":
-                    "linear-gradient(135deg, #ffd166 0%, #b68c2f 100%)",
-                  "--lhp-border-color": "#b68c2f",
-                  "--lhp-shadow": "0 8px 32px rgba(182, 140, 47, 0.3)",
-                },
-                defaultOptions: {},
-                defaultLimits: {},
-              })
-              .then((client) => {
-                // Remove loading indicator
-                const loading = container.querySelector(".calculator-loading");
-                if (loading) loading.remove();
-
-                // Handle events
-                client.on("saved", (event) => {
-                  console.log("LHP Calculator result saved:", event);
-                });
-
-                client.on("resized", (event) => {
-                  if (event.eventData && event.eventData.height) {
-                    const iframe = container.querySelector("iframe");
-                    if (iframe) {
-                      iframe.style.height = event.eventData.height + "px";
-                    }
-                  }
-                });
-              })
-              .catch((error) => {
-                console.error("Error loading embedded LHP calculator:", error);
-                container.innerHTML =
-                  '<div style="text-align: center; padding: 40px; color: #e57373;"><h3>Error loading calculator</h3><p>Please try again later or contact us for assistance.</p></div>';
-              });
-          } catch (error) {
-            console.error("Error initializing embedded LHP calculator:", error);
-            container.innerHTML =
-              '<div style="text-align: center; padding: 40px; color: #e57373;"><h3>Error loading calculator</h3><p>Please try again later or contact us for assistance.</p></div>';
-          }
-        };
-        lhpScript.onerror = function () {
-          console.error("Failed to load LHP calculator script");
-          container.innerHTML =
-            '<div style="text-align: center; padding: 40px; color: #e57373;"><h3>Error loading calculator</h3><p>Please try again later or contact us for assistance.</p></div>';
-        };
-        document.head.appendChild(lhpScript);
+        renderMortgageIframe(embeddedContainer);
       }
     } catch (e) {
       console.debug("loan calc init error", e);

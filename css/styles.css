@@ -835,23 +835,38 @@ footer {
 
 /* Embedded calculator styling */
 .lhp-calculator-embedded {
-  height: 900px;
+  height: 1100px;
   width: 100%;
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Anclar arriba para que no se corte el encabezado */
+  padding-top: 20px; /* Un poco más de respiro para asegurar que no se corte arriba */
+  padding-bottom: 6px; /* Bordecito negro visible abajo */
   background: linear-gradient(135deg, #0b0b0b 0%, #1a1a1a 100%);
   border-radius: 12px;
   border: 2px solid #b68c2f;
+  /* Sombra externa dorada; borde negro solo abajo via ::after */
   box-shadow: 0 8px 32px rgba(182, 140, 47, 0.3);
+  position: relative; /* Para pseudo-elemento del borde interno */
+}
+.lhp-calculator-embedded::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 2px; /* dentro del padding para que quede visible */
+  height: 3px; /* bordecito negro inferior visible */
+  background: #0b0b0b; /* bordecito negro interno */
+  border-radius: 2px;
+  opacity: 0.95;
+  pointer-events: none;
 }
 .lhp-calculator-embedded iframe {
   width: 100%;
   border: none;
-  height: 900px;
-  transform: scale(0.95);
-  transform-origin: center center;
+  height: 1100px;
+  transform: none;
   border-radius: 8px;
 }
 
@@ -1008,17 +1023,17 @@ footer {
   overflow: auto;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start; /* Anclar arriba */
   background: linear-gradient(135deg, #0b0b0b 0%, #1a1a1a 100%);
   border-radius: 8px;
   border: 2px solid #b68c2f;
-  padding: 8px;
+  padding: 12px 8px; /* Espacio equilibrado */
 }
 
 #lhp-calculator-content iframe {
   width: 100%;
   border: none;
-  height: 2800px;
+  height: 100%; /* Fill modal content area on desktop */
   transform: none;
   border-radius: 6px;
   background: #ffffff;
@@ -1027,12 +1042,20 @@ footer {
 @media (min-width: 992px) {
   #lhp-calculator-content {
     height: 100%;
-    overflow: auto;
+    overflow: hidden; /* Evitar scroll interno en desktop */
+    display: flex;
+    align-items: flex-start; /* Anclar arriba en desktop */
+    justify-content: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 
   #lhp-calculator-content iframe {
-    height: 3000px;
+    /* Ajusta dinámicamente para encajar en la ventana sin recortar */
+    height: calc(100vh - 8vh); /* margen para bordes y padding */
+    max-height: 1500px; /* límite superior razonable */
     transform: none;
+    transform-origin: center top;
   }
 }
 
@@ -1042,7 +1065,7 @@ footer {
 
 .lhp-calculator-embedded iframe,
 #lhp-calculator-content iframe {
-  background: #ffffff;
+  /* height set in their respective blocks to avoid conflicts */
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(182, 140, 47, 0.2);
 }
@@ -1056,7 +1079,7 @@ footer {
 
 .calculator-loading::after {
   content: "...";
-  animation: dots 1.5s steps(4, end) infinite;
+  height: 1100px;
 }
 
 @keyframes dots {
@@ -1571,13 +1594,13 @@ body {
     bottom: 84px;
     width: auto;
   }
+  /* Keep floating button compact on mobile */
   #loan-btn {
     right: 14px;
     bottom: 14px;
-  }
-  #a11y-btn {
-    right: 14px;
-    bottom: 92px;
+    width: 64px;
+    height: 64px;
+    transform: none;
   }
 }
 
@@ -3037,6 +3060,18 @@ iframe[id*="tawk"] {
 /* ================================================
    RESPONSIVE STYLES FOR CALCULATORS
    ================================================ */
+
+/* Desktop large screens: recortar un poco más el alto para eliminar blanco extra */
+@media (min-width: 1280px) {
+  .lhp-calculator-embedded {
+    height: 1060px;
+    padding-top: 20px;
+    padding-bottom: 6px;
+  }
+  .lhp-calculator-embedded iframe {
+    height: 1060px;
+  }
+}
 
 /* Tablet Styles */
 @media (max-width: 1024px) {
