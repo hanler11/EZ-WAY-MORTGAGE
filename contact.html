@@ -416,84 +416,35 @@
             <li>Schedule a call or proceed to full application.</li>
           </ul>
         </div>
-        <!-- Contact Form -->
-        <form
-          id="contact-form"
-          action="https://api.web3forms.com/submit"
-          method="POST"
-          class="flex-1 space-y-4"
-          data-aos="fade-right"
-        >
-          <!-- Web3Forms required fields -->
-          <input type="hidden" name="access_key" value="a90bbc50-1602-4b33-867a-8a3c5cac4501" />
-          <input type="hidden" name="subject" value="New contact form submission - EZ Way Mortgage" />
-          <input type="hidden" name="from_website" value="https://ezwaymortgages.com/contact.html" />
-          <!-- Web3Forms recipient override -->
-          <input type="hidden" name="email_to" value="Sofia@ezwaymortgages.com" />
-          <!-- Optional bot check -->
-          <input type="checkbox" name="botcheck" class="hidden u-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" title="Leave this field empty" />
+        <!-- Contact Form (Google Apps Script) -->
+  <form id="contactForm" method="POST" action="https://script.google.com/macros/s/AKfycbxOnDjUy_a0zma3awobQztpAtdx-Rb_73QAr2iedKSKSS4eHKIgMZeUsLwXB03NeQ_q/exec" class="flex-1 space-y-4" data-aos="fade-right">
           <div class="flex gap-4">
             <div class="flex-1">
-              <label for="name" class="block font-semibold mb-1"
-                >Full Name*</label
-              >
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                class="w-full border rounded px-3 py-2"
-              />
+              <label for="name" class="block font-semibold mb-1">Full Name*</label>
+              <input type="text" id="name" name="name" required class="w-full border rounded px-3 py-2" placeholder="Your Name" />
             </div>
             <div class="flex-1">
-              <label for="email" class="block font-semibold mb-1"
-                >Email Address*</label
-              >
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                class="w-full border rounded px-3 py-2"
-              />
+              <label for="email" class="block font-semibold mb-1">Email Address*</label>
+              <input type="email" id="email" name="email" required class="w-full border rounded px-3 py-2" placeholder="Email Address" />
             </div>
           </div>
           <div class="flex gap-4">
             <div class="flex-1">
-              <label for="phone" class="block font-semibold mb-1"
-                >Phone Number*</label
-              >
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                class="w-full border rounded px-3 py-2"
-              />
+              <label for="phone" class="block font-semibold mb-1">Phone Number*</label>
+              <input type="text" id="phone" name="phone" required class="w-full border rounded px-3 py-2" placeholder="Phone Number (e.g., 732-277-4547)" />
             </div>
-            
           </div>
-          
-          
           <div>
-            <label for="message" class="block font-semibold mb-1"
-              >Message</label
-            >
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              class="w-full border rounded px-3 py-2"
-            ></textarea>
+            <label for="message" class="block font-semibold mb-1">Message</label>
+            <textarea id="message" name="message" rows="4" class="w-full border rounded px-3 py-2" placeholder="Message (optional)"></textarea>
           </div>
-          <button
-            type="submit"
-            id="submit-btn"
-            class="btn-gold-primary w-full font-semibold px-6 py-3 rounded-md hover:scale-[1.02] transition"
-          >
-            Submit
-          </button>
+          <!-- Campos ocultos para encabezados del email y destinatario -->
+          <input type="hidden" id="to" name="to" value="Sofia@ezwaymortgages.com" />
+          <input type="hidden" id="email_header" name="email_header" value="" />
+          <input type="hidden" id="email_message_header" name="email_message_header" value="" />
+          <button type="submit" id="submit-btn" class="btn-gold-primary w-full font-semibold px-6 py-3 rounded-md hover:scale-[1.02] transition">Send Message</button>
         </form>
+  <p id="formStatus" class="text-center text-sm mt-4" role="status" aria-live="polite"></p>
       </section>
 
       <!-- (Calendly removido) -->
@@ -800,8 +751,8 @@
         );
 
         // Form tracking
-        const form = document.getElementById("contact-form");
-        const formFields = form.querySelectorAll("input, select, textarea");
+  const form = document.getElementById("contactForm");
+  const formFields = form ? form.querySelectorAll("input, select, textarea") : [];
 
         // Track form field interactions
         formFields.forEach((field) => {
@@ -819,8 +770,9 @@
         // (Loan Purpose removido) — omitimos el seguimiento de selección de servicio
 
         // Form and Calendly logic
-  const formSection = document.getElementById("form-section");
-  const submitBtn = document.getElementById("submit-btn");
+    const formSection = document.getElementById("form-section");
+    const submitBtn = document.getElementById("submit-btn");
+    const formStatus = document.getElementById("formStatus");
 
         // (Calendly removido) Mostrar mensaje de éxito sencillo
         function showSuccess() {
@@ -833,51 +785,65 @@
           } catch (e) {}
 
           const msg = document.createElement("div");
-          msg.className = "mt-6 p-4 rounded bg-green-50 border border-green-300 text-green-800";
-          msg.textContent = "¡Gracias! Tu información ha sido enviada. Nos pondremos en contacto pronto.";
+          msg.className = "mt-6 p-4 rounded bg-gray-50 border border-gray-300 text-black";
+          msg.textContent = "Thank you! Your information has been sent. We'll contact you shortly.";
           formSection.appendChild(msg);
           formSection.scrollIntoView({ behavior: "smooth", block: "start" });
         }
 
-        // Manejo del envío del formulario
+        // Manejo del envío del formulario (Apps Script con respuesta de texto)
         form.addEventListener("submit", function (e) {
           e.preventDefault();
 
-          // Track form submission attempt
-          trackFormProgress("form_submitted", "contact_form");
+          // Track intento de envío
+          try { trackFormProgress("form_submitted", "contact_form"); } catch (e) {}
 
-          // Cambiar el botón a estado de carga
+          // Estado de carga del botón
           submitBtn.innerHTML = "Submitting...";
           submitBtn.disabled = true;
 
-          // Enviar datos en segundo plano
-          fetch(form.action, {
+          const formData = new FormData(form);
+
+          // Poblar encabezados solicitados con URL fija
+          const fixedUrl = 'https://ezwaymortgages.com/index.html';
+          const header = `nuevo formulario enviado desde tu web ${fixedUrl}`;
+          const messageHeader = `nuevo mensaje enviado desde tu web: ${fixedUrl}`;
+          const hiddenHeader = form.querySelector('#email_header');
+          const hiddenMsgHeader = form.querySelector('#email_message_header');
+          if (hiddenHeader) hiddenHeader.value = header;
+          if (hiddenMsgHeader) hiddenMsgHeader.value = messageHeader;
+          formData.set('email_header', header);
+          formData.set('email_message_header', messageHeader);
+
+          // (Revertido) No se agregan campos extra; se envía como antes
+
+          // Enviar únicamente al Apps Script
+          fetch(form.action + "?ts=" + Date.now(), {
             method: "POST",
-            body: new FormData(form),
+            mode: "no-cors",
+            body: formData,
           })
-            .then(async (response) => {
-              const data = await response.json().catch(() => ({ success: response.ok }));
-              if (response.ok && data?.success !== false) {
-                // Track successful submission
-                trackConversion("form_success", "contact_form");
-                // Mostrar mensaje de éxito
-                showSuccess();
-              } else {
-                console.log("Web3Forms error:", data);
-                trackEngagement("form_error", "submission_failed");
-                // Mostrar mensaje genérico pero mantener experiencia
-                showSuccess();
+            .then(() => {
+              // Respuesta opaca: asumimos éxito
+              try { trackConversion("form_success", "contact_form"); } catch (e) {}
+              if (formStatus) {
+                formStatus.innerText = "Message sent successfully ✔️";
+                formStatus.className = "text-black text-center text-sm mt-4";
               }
+              try { form.reset(); } catch (e) {}
+              formSection.scrollIntoView({ behavior: "smooth", block: "start" });
             })
             .catch((error) => {
-              console.log("Error:", error);
-              // Track form error
-              trackEngagement("form_error", "submission_failed");
-              showSuccess();
+              console.log("Apps Script error:", error);
+              try { trackEngagement("form_error", "submission_failed"); } catch (e) {}
+              if (formStatus) {
+                formStatus.innerText = "Hubo un error al enviar ❌";
+                formStatus.className = "text-red-700 text-center text-sm mt-4";
+              }
             })
             .finally(() => {
               // Restaurar el botón
-              submitBtn.innerHTML = "Submit";
+              submitBtn.innerHTML = "Send Message";
               submitBtn.disabled = false;
             });
         });
