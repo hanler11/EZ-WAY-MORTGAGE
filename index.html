@@ -35,6 +35,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Hoja de estilos personalizada con paleta azul / dorado / blanco -->
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/homepage-contact.css" />
+    <script src="js/homepage-contact.js" defer></script>
 
     <!-- Accessibility Widget - accessiBe -->
     <script>
@@ -698,6 +700,12 @@
     </script>
   </head>
   <body class="font-sans text-gray-800 loading">
+    <noscript>
+      <style>
+        #loading-screen { display: none !important; }
+        body.loading #main-content { display: block; filter: none; }
+      </style>
+    </noscript>
     <!-- PANTALLA DE CARGA SIMPLIFICADA -->
     <div id="loading-screen">
       <div class="logo-circle">
@@ -797,7 +805,7 @@
                 >Process</a
               >
               <a
-                href="contact.html"
+                href="#contact"
                 data-link="contact"
                 class="bg-brand-gold text-white font-semibold px-5 py-2 rounded hover:bg-black transition"
                 >Get Pre-Approved</a
@@ -837,7 +845,7 @@
             >Process</a
           >
           <a
-            href="contact.html"
+            href="#contact"
             data-link="contact"
             class="bg-brand-gold text-white font-semibold px-4 py-3 rounded hover:bg-black transition text-center mx-4 mt-2"
             >Get Pre-Approved</a
@@ -871,7 +879,7 @@
                 class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
               >
                 <a
-                  href="contact.html"
+                  href="#contact"
                   onclick="trackConversion('hero_cta_click', 'book_free_call')"
                   class="btn-gold-primary font-semibold px-6 py-3 rounded-lg shadow-md hover:scale-[1.02] text-center"
                   >Get Pre-Approved</a
@@ -1264,12 +1272,13 @@
           </div>
         </section>
 
-        <!-- CTA: Book a Call -->
-        <section class="bg-white py-16 px-4 sm:px-6 md:px-20">
+        <!-- Homepage contact: uses the existing contact.html submission route. -->
+        <section id="contact" class="bg-white py-16 px-4 sm:px-6 md:px-20" aria-labelledby="homepage-contact-heading">
           <div
             class="max-w-3xl mx-auto bg-gray-50 p-6 sm:p-10 rounded-2xl text-center shadow-md"
           >
             <h2
+              id="homepage-contact-heading"
               class="text-xl sm:text-2xl md:text-3xl font-bold text-brand-blue mb-2"
             >
               Ready to Start Your Mortgage Journey?
@@ -1279,12 +1288,45 @@
               Get a fast pre-approval or speak with a licensed loan originator
               today.
             </p>
-            <a
-              href="contact.html"
-              onclick="trackConversion('consultation_click', 'home_page_cta')"
-              class="inline-block btn-gold-primary font-semibold px-6 py-3 rounded-md transition"
-              >Start Now</a
+            <p id="homepage-contact-help" class="homepage-contact-help">
+              Tell us how to reach you. Fields marked required must be completed.
+              Please do not include Social Security numbers or financial account details.
+            </p>
+            <form
+              id="homepage-contact-form"
+              method="POST"
+              action="https://script.google.com/macros/s/AKfycbxOnDjUy_a0zma3awobQztpAtdx-Rb_73QAr2iedKSKSS4eHKIgMZeUsLwXB03NeQ_q/exec"
+              aria-labelledby="homepage-contact-heading"
+              aria-describedby="homepage-contact-help homepage-contact-result-help"
             >
+              <div class="homepage-contact-fields">
+                <div>
+                  <label for="homepage-name">Full name (required)</label>
+                  <input id="homepage-name" name="name" type="text" autocomplete="name" required maxlength="120" />
+                </div>
+                <div>
+                  <label for="homepage-email">Email address (required)</label>
+                  <input id="homepage-email" name="email" type="email" autocomplete="email" required maxlength="254" />
+                </div>
+                <div class="homepage-contact-wide">
+                  <label for="homepage-phone">Phone number (required)</label>
+                  <input id="homepage-phone" name="phone" type="tel" autocomplete="tel" required maxlength="40" />
+                </div>
+                <div class="homepage-contact-wide">
+                  <label for="homepage-message">Message (optional)</label>
+                  <textarea id="homepage-message" name="message" rows="4" maxlength="3000"></textarea>
+                </div>
+              </div>
+              <input type="hidden" name="to" value="Sofia@ezwaymortgages.com" />
+              <input type="hidden" name="email_header" value="nuevo formulario enviado desde tu web https://ezwaymortgages.com/index.html" />
+              <input type="hidden" name="email_message_header" value="nuevo mensaje enviado desde tu web: https://ezwaymortgages.com/index.html" />
+              <p id="homepage-contact-result-help" class="homepage-contact-help">
+                After sending, check the result on the next page. If there is an error,
+                return here to try again or call <a href="tel:7322774547">732-277-4547</a>.
+              </p>
+              <button id="homepage-contact-submit" type="submit">Send my message</button>
+              <p id="homepage-contact-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            </form>
           </div>
         </section>
 
@@ -1352,7 +1394,7 @@
               <li><a href="index.html" class="footer-link">Home</a></li>
               <li><a href="about.html" class="footer-link">About</a></li>
               <li><a href="services.html" class="footer-link">Programs</a></li>
-              <li><a href="contact.html" class="footer-link">Contact</a></li>
+              <li><a href="#contact" class="footer-link">Contact</a></li>
             </ul>
           </div>
           <div>
@@ -1405,12 +1447,12 @@
             <h4 class="text-white font-semibold mb-3 tracking-wide">Connect</h4>
             <div class="space-y-3">
               <a
-                href="contact.html"
+                href="#contact"
                 class="w-full inline-block btn-gold-primary text-center"
                 >Get Pre-Approved</a
               >
               <a
-                href="contact.html"
+                href="#contact"
                 class="w-full inline-block btn-gold-outline text-center"
                 >Schedule Call</a
               >
@@ -1691,7 +1733,7 @@
         });
 
         // Track CTA button clicks (protegido)
-        document.querySelectorAll('a[href="contact.html"]').forEach((link) => {
+        document.querySelectorAll('a[href="#contact"]').forEach((link) => {
           link.addEventListener("click", () => {
             try {
               if (typeof trackConversion === "function") {
