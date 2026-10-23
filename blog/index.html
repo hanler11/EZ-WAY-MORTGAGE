@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mortgage Resources for New Jersey Buyers | EZ Way Mortgage</title>
+    <meta
+      name="description"
+      content="Practical mortgage guidance for New Jersey buyers, homeowners, and investors from EZ Way Mortgage. Get clear answers and get pre-approved."
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --brand-blue: #0f3a63;
+        --brand-gold: #b68c2f;
+        --ink: #1f2937;
+        --muted: #526273;
+        --surface: #f5f8fb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        color: var(--ink);
+        background: #fff;
+        font-family: "Poppins", Arial, sans-serif;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .site-header {
+        background: #fff;
+        border-bottom: 1px solid #e5e7eb;
+        box-shadow: 0 4px 18px rgba(15, 58, 99, 0.08);
+      }
+
+      .nav-wrap {
+        align-items: center;
+        display: flex;
+        gap: 1.5rem;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1120px;
+        padding: 1rem 1.25rem;
+      }
+
+      .brand {
+        align-items: center;
+        color: var(--brand-gold);
+        display: inline-flex;
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        font-weight: 800;
+        gap: 0.65rem;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+      }
+
+      .brand img {
+        height: 3rem;
+        object-fit: contain;
+        width: auto;
+      }
+
+      .desktop-nav {
+        align-items: center;
+        display: flex;
+        gap: 1.25rem;
+      }
+
+      .desktop-nav a {
+        color: var(--brand-blue);
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .desktop-nav a:hover,
+      .desktop-nav a:focus-visible {
+        color: var(--brand-gold);
+      }
+
+      .desktop-nav .nav-cta {
+        background: var(--brand-gold);
+        border-radius: 0.4rem;
+        color: #fff;
+        padding: 0.65rem 1rem;
+      }
+
+      .desktop-nav .nav-cta:hover,
+      .desktop-nav .nav-cta:focus-visible {
+        background: var(--brand-blue);
+        color: #fff;
+      }
+
+      main {
+        background: linear-gradient(180deg, #f5f8fb 0, #fff 65%);
+        min-height: calc(100vh - 12rem);
+        padding: 4.5rem 1.25rem 5rem;
+      }
+
+      .resource-page {
+        margin: 0 auto;
+        max-width: 850px;
+        text-align: center;
+      }
+
+      h1 {
+        color: var(--brand-blue);
+        font-size: clamp(2rem, 5vw, 3.4rem);
+        line-height: 1.15;
+        margin: 0 auto 1.25rem;
+        max-width: 780px;
+      }
+
+      .intro {
+        color: var(--muted);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        margin: 0 auto;
+        max-width: 720px;
+      }
+
+      .empty-state {
+        background: #fff;
+        border: 1px solid #dce5ee;
+        border-radius: 1rem;
+        box-shadow: 0 10px 28px rgba(15, 58, 99, 0.08);
+        margin: 3rem auto 0;
+        max-width: 680px;
+        padding: 2rem 1.5rem;
+      }
+
+      .empty-state p {
+        color: var(--muted);
+        margin: 0 0 1.5rem;
+      }
+
+      .cta {
+        background: var(--brand-gold);
+        border-radius: 0.45rem;
+        color: #fff;
+        display: inline-block;
+        font-weight: 600;
+        padding: 0.8rem 1.4rem;
+        text-decoration: none;
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+
+      .cta:hover,
+      .cta:focus-visible {
+        background: var(--brand-blue);
+        transform: translateY(-1px);
+      }
+
+      .site-footer {
+        background: var(--brand-blue);
+        color: #fff;
+        padding: 1.5rem 1.25rem;
+        text-align: center;
+      }
+
+      .site-footer p {
+        font-size: 0.85rem;
+        margin: 0.25rem auto;
+        max-width: 900px;
+      }
+
+      .site-footer a {
+        color: #fff;
+        text-decoration: underline;
+      }
+
+      @media (max-width: 720px) {
+        .nav-wrap {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .desktop-nav {
+          flex-wrap: wrap;
+          gap: 0.75rem 1rem;
+          width: 100%;
+        }
+
+        .desktop-nav .nav-cta {
+          margin-left: auto;
+        }
+
+        main {
+          padding-top: 3.5rem;
+        }
+      }
+
+      @media (max-width: 430px) {
+        .brand img {
+          height: 2.5rem;
+        }
+
+        .desktop-nav {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .desktop-nav .nav-cta {
+          margin-left: 0;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="../index.html">
+          <img src="../assets/logoEZ.png" alt="EZ Way Mortgage Logo" />
+          <span>EZ Way Mortgage Corporation</span>
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="../index.html">Home</a>
+          <a href="../about.html">About</a>
+          <a href="../services.html">Programs</a>
+          <a href="../index.html#how-it-works">Process</a>
+          <a class="nav-cta" href="https://ezwaymortgages.com/contact.html">Get Pre-Approved</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="resource-page">
+        <h1>Mortgage Resources for New Jersey Homebuyers</h1>
+        <p class="intro">Clear, practical mortgage guidance for New Jersey homebuyers, homeowners, and real estate investors. Explore EZ Way Mortgage resources and take your next step with confidence.</p>
+        <div class="empty-state">
+          <p>New mortgage guides are coming soon. For personalized guidance today, contact EZ Way Mortgage to get pre-approved.</p>
+          <a class="cta" href="https://ezwaymortgages.com/contact.html">Get Pre-Approved</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>EZ Way Mortgage Corporation | Licensed Mortgage Brokerage | NMLS #2679112</p>
+      <p><a href="../contact.html">Contact EZ Way Mortgage</a></p>
+    </footer>
+  </body>
+</html>
