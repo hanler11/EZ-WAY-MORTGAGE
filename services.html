@@ -261,6 +261,75 @@
         "Google Analytics initialized with IDs: G-GR54EXMBTD, AW-17604243227"
       );
     </script>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "FinancialService",
+            "@id": "https://ezwaymortgages.com/#organization",
+            "name": "EZ Way Mortgage Corporation",
+            "url": "https://ezwaymortgages.com/index.html",
+            "logo": "https://ezwaymortgages.com/assets/logoEZ.png",
+            "description": "Licensed mortgage brokerage helping New Jersey borrowers compare purchase, refinance, home-equity, and investment-property loan programs.",
+            "telephone": "+1-732-277-4547",
+            "email": "luis@ezwaymortgages.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "272 High St. Suite #7",
+              "addressLocality": "Perth Amboy",
+              "addressRegion": "NJ",
+              "postalCode": "08861",
+              "addressCountry": "US"
+            },
+            "identifier": {
+              "@type": "PropertyValue",
+              "propertyID": "NMLS",
+              "value": "2679112"
+            },
+            "founder": {
+              "@type": "Person",
+              "name": "Luis Herrera",
+              "jobTitle": "Founder and licensed mortgage broker",
+              "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "NMLS",
+                "value": "226951"
+              }
+            }
+          },
+          {
+            "@type": "Service",
+            "@id": "https://ezwaymortgages.com/services.html#mortgage-programs",
+            "name": "Mortgage Loan Programs",
+            "serviceType": "Mortgage loan programs",
+            "provider": {
+              "@id": "https://ezwaymortgages.com/#organization"
+            },
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "New Jersey"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Mortgage Programs",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home Purchase" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "FHA Loans" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "VA Loans" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "USDA Rural Housing" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Jumbo Loans" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Rate & Term Refinance" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cash-Out Refinance" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "HELOC & Home Equity" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Credit & Pre-Approval Coaching" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "No Income Verification (DSCR)" } }
+              ]
+            }
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body class="font-sans text-gray-800 bg-gray-50">
