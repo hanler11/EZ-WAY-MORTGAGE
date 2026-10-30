@@ -826,12 +826,8 @@
             .then(() => {
               // Respuesta opaca: asumimos éxito
               try { trackConversion("form_success", "contact_form"); } catch (e) {}
-              if (formStatus) {
-                formStatus.innerText = "Message sent successfully ✔️";
-                formStatus.className = "text-black text-center text-sm mt-4";
-              }
               try { form.reset(); } catch (e) {}
-              formSection.scrollIntoView({ behavior: "smooth", block: "start" });
+              window.location.href = "https://ezwaymortgages.com/thank-you.html";
             })
             .catch((error) => {
               console.log("Apps Script error:", error);

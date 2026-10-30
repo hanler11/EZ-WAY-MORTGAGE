@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,follow" />
+    <title>Thank You | EZ Way Mortgages</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --brand-blue: #0f3a63;
+        --brand-gold: #b68c2f;
+        --ink: #17202a;
+        --muted: #5b6773;
+        --surface: #f5f7f9;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-height: 100%;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        color: var(--ink);
+        background: var(--surface);
+        font-family: "Poppins", sans-serif;
+      }
+
+      header {
+        background: var(--brand-blue);
+        border-bottom: 5px solid var(--brand-gold);
+      }
+
+      .header-inner,
+      main,
+      footer {
+        width: min(100% - 2rem, 72rem);
+        margin: 0 auto;
+      }
+
+      .header-inner {
+        padding: 1.25rem 0;
+      }
+
+      .brand {
+        color: #fff;
+        font-size: 1.25rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+      }
+
+      main {
+        flex: 1;
+        display: grid;
+        place-items: center;
+        padding: 4rem 0;
+      }
+
+      .confirmation {
+        width: min(100%, 46rem);
+        padding: clamp(2rem, 5vw, 4rem);
+        background: #fff;
+        border-top: 6px solid var(--brand-gold);
+        border-radius: 1rem;
+        box-shadow: 0 8px 28px rgba(15, 58, 99, 0.12);
+        text-align: center;
+      }
+
+      h1,
+      h2 {
+        color: var(--brand-blue);
+      }
+
+      h1 {
+        margin: 0 0 1rem;
+        font-size: clamp(1.8rem, 4vw, 2.75rem);
+        line-height: 1.2;
+      }
+
+      h2 {
+        margin: 2rem 0 0.75rem;
+        font-size: clamp(1.25rem, 3vw, 1.6rem);
+      }
+
+      p {
+        margin: 0 auto 1rem;
+        max-width: 40rem;
+        line-height: 1.7;
+      }
+
+      .disclosure {
+        margin-top: 1.5rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 2rem;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 0.75rem 1.25rem;
+        border: 2px solid var(--brand-blue);
+        border-radius: 0.4rem;
+        color: var(--brand-blue);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        border-color: var(--brand-gold);
+        background: var(--brand-gold);
+        color: #fff;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        text-decoration: underline;
+      }
+
+      footer {
+        padding: 1.5rem 0 2rem;
+        color: var(--muted);
+        font-size: 0.8rem;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      @media (max-width: 520px) {
+        main {
+          padding: 2rem 0;
+        }
+
+        .actions {
+          flex-direction: column;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <a class="brand" href="https://ezwaymortgages.com/index.html">EZ Way Mortgages</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="confirmation" aria-labelledby="confirmation-heading">
+        <h1 id="confirmation-heading">Thank you for contacting EZ Way Mortgages</h1>
+        <p>Your information has been sent successfully. A licensed mortgage professional will follow up the same day.</p>
+
+        <h2>What happens next</h2>
+        <p>We will review your message and follow up with clear guidance about your home financing options.</p>
+        <p class="disclosure">This confirms receipt of your inquiry. It is not a commitment to lend. Loans are subject to credit approval, underwriting guidelines, and program availability.</p>
+
+        <nav class="actions" aria-label="Confirmation page links">
+          <a class="button" href="https://ezwaymortgages.com/contact.html">Return to Contact</a>
+          <a class="button primary" href="https://ezwaymortgages.com/services.html">Explore Mortgage Programs</a>
+        </nav>
+      </section>
+    </main>
+
+    <footer>
+      EZ Way Mortgage Corporation | Company NMLS #2679112 | Luis Herrera, Founder and licensed mortgage broker, NMLS #226951 | Equal Housing Opportunity
+    </footer>
+  </body>
+</html>
