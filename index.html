@@ -269,13 +269,32 @@
       .hero-section {
         padding-top: 2rem;
         background: linear-gradient(
-            rgba(15, 58, 99, 0.8),
-            rgba(182, 140, 47, 0.7)
-          ),
-          url("assets/1.jpg");
-        background-size: cover;
-        background-position: center;
+          rgba(15, 58, 99, 0.8),
+          rgba(182, 140, 47, 0.7)
+        );
         background-attachment: scroll;
+      }
+
+      .hero-background-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .hero-background-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          rgba(15, 58, 99, 0.8),
+          rgba(182, 140, 47, 0.7)
+        );
+        z-index: 1;
+        pointer-events: none;
       }
 
       @media (min-width: 768px) {
@@ -850,6 +869,14 @@
         <section
           class="hero-section text-white py-8 sm:py-16 md:py-24 px-4 sm:px-6 md:px-20 relative overflow-hidden min-h-screen flex items-center"
         >
+          <img
+            src="assets/1.jpg"
+            alt="Two-story brick home with a front porch and attached garage"
+            class="hero-background-image"
+          />
+
+          <div class="hero-background-overlay"></div>
+
           <!-- Overlay decorativo adicional -->
           <div
             class="absolute inset-0 bg-gradient-to-r from-brand-blue/60 via-transparent to-brand-gold/20 pointer-events-none"
@@ -2000,7 +2027,7 @@
       onclick="openLHPCalculator()"
       class="loan-btn"
     >
-      <img src="assets/Calculator.png?v=3" alt="Calculator" class="calc-icon" />
+      <img src="assets/Calculator.png?v=3" alt="Mortgage payment calculator icon" class="calc-icon" />
     </div>
 
     <!-- LHP Professional Calculator Modal -->
