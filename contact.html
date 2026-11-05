@@ -400,8 +400,7 @@
           Start Your Pre-Approval
         </h2>
         <p class="text-gray-600 mb-8 text-center max-w-2xl mx-auto">
-          Complete the secure form below and a licensed mortgage professional
-          will follow up the same day.
+          Use this form to request mortgage guidance. Required fields are marked “required.” Enter your full name, email address, and phone number. Your message is optional. A licensed mortgage professional will follow up the same day.
         </p>
         <div
           class="rounded-lg p-6 mb-8 bg-gradient-to-r from-[#0f3a63]/5 to-[#0f3a63]/10 border border-brand-gold/30"
@@ -417,26 +416,33 @@
           </ul>
         </div>
         <!-- Contact Form (Google Apps Script) -->
-  <form id="contactForm" method="POST" action="https://script.google.com/macros/s/AKfycbxOnDjUy_a0zma3awobQztpAtdx-Rb_73QAr2iedKSKSS4eHKIgMZeUsLwXB03NeQ_q/exec" class="flex-1 space-y-4" data-aos="fade-right">
+  <form id="contactForm" method="POST" action="https://script.google.com/macros/s/AKfycbxOnDjUy_a0zma3awobQztpAtdx-Rb_73QAr2iedKSKSS4eHKIgMZeUsLwXB03NeQ_q/exec" class="flex-1 space-y-4" data-aos="fade-right" novalidate>
           <div class="flex gap-4">
             <div class="flex-1">
-              <label for="name" class="block font-semibold mb-1">Full Name*</label>
-              <input type="text" id="name" name="name" required class="w-full border rounded px-3 py-2" placeholder="Your Name" />
+              <label for="name" class="block font-semibold mb-1">Full Name (required)</label>
+              <input type="text" id="name" name="name" required autocomplete="name" aria-describedby="name-help name-error" aria-errormessage="name-error" class="w-full border rounded px-3 py-2" />
+              <p id="name-help" class="mt-1 text-sm text-gray-600">Enter your first and last name.</p>
+              <p id="name-error" class="mt-1 text-sm text-red-700" role="alert" hidden></p>
             </div>
             <div class="flex-1">
-              <label for="email" class="block font-semibold mb-1">Email Address*</label>
-              <input type="email" id="email" name="email" required class="w-full border rounded px-3 py-2" placeholder="Email Address" />
+              <label for="email" class="block font-semibold mb-1">Email Address (required)</label>
+              <input type="email" id="email" name="email" required autocomplete="email" aria-describedby="email-help email-error" aria-errormessage="email-error" class="w-full border rounded px-3 py-2" />
+              <p id="email-help" class="mt-1 text-sm text-gray-600">Enter an email address you check.</p>
+              <p id="email-error" class="mt-1 text-sm text-red-700" role="alert" hidden></p>
             </div>
           </div>
           <div class="flex gap-4">
             <div class="flex-1">
-              <label for="phone" class="block font-semibold mb-1">Phone Number*</label>
-              <input type="text" id="phone" name="phone" required class="w-full border rounded px-3 py-2" placeholder="Phone Number (e.g., 732-277-4547)" />
+              <label for="phone" class="block font-semibold mb-1">Phone Number (required)</label>
+              <input type="tel" id="phone" name="phone" required inputmode="tel" autocomplete="tel" aria-describedby="phone-help phone-error" aria-errormessage="phone-error" class="w-full border rounded px-3 py-2" />
+              <p id="phone-help" class="mt-1 text-sm text-gray-600">Enter a phone number where we can reach you.</p>
+              <p id="phone-error" class="mt-1 text-sm text-red-700" role="alert" hidden></p>
             </div>
           </div>
           <div>
-            <label for="message" class="block font-semibold mb-1">Message</label>
-            <textarea id="message" name="message" rows="4" class="w-full border rounded px-3 py-2" placeholder="Message (optional)"></textarea>
+            <label for="message" class="block font-semibold mb-1">Message (optional)</label>
+            <textarea id="message" name="message" rows="4" aria-describedby="message-help" class="w-full border rounded px-3 py-2"></textarea>
+            <p id="message-help" class="mt-1 text-sm text-gray-600">Tell us how we can help. This field is optional.</p>
           </div>
           <!-- Campos ocultos para encabezados del email y destinatario -->
           <input type="hidden" id="to" name="to" value="Sofia@ezwaymortgages.com" />
@@ -773,6 +779,65 @@
     const formSection = document.getElementById("form-section");
     const submitBtn = document.getElementById("submit-btn");
     const formStatus = document.getElementById("formStatus");
+    const validationFields = [
+      {
+        field: document.getElementById("name"),
+        error: document.getElementById("name-error"),
+        validate: (value) => value.trim() ? "" : "Please enter your full name.",
+      },
+      {
+        field: document.getElementById("email"),
+        error: document.getElementById("email-error"),
+        validate: (value) => {
+          const trimmed = value.trim();
+          if (!trimmed) return "Please enter your email address.";
+          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)
+            ? ""
+            : "Please enter a valid email address, such as name@example.com.";
+        },
+      },
+      {
+        field: document.getElementById("phone"),
+        error: document.getElementById("phone-error"),
+        validate: (value) => {
+          const trimmed = value.trim();
+          if (!trimmed) return "Please enter your phone number.";
+          const digits = trimmed.replace(/\D/g, "");
+          return /^[0-9+().\-\s]+$/.test(trimmed) && digits.length >= 7
+            ? ""
+            : "Please enter a valid phone number.";
+        },
+      },
+    ];
+
+    function setFieldError(validationField, message) {
+      const { field, error } = validationField;
+      if (message) {
+        field.setAttribute("aria-invalid", "true");
+        error.textContent = message;
+        error.hidden = false;
+      } else {
+        field.removeAttribute("aria-invalid");
+        error.textContent = "";
+        error.hidden = true;
+      }
+    }
+
+    function validateForm() {
+      const invalidFields = [];
+      validationFields.forEach((validationField) => {
+        const message = validationField.validate(validationField.field.value);
+        setFieldError(validationField, message);
+        if (message) invalidFields.push(validationField);
+      });
+      return invalidFields;
+    }
+
+    validationFields.forEach((validationField) => {
+      validationField.field.addEventListener("input", () => {
+        setFieldError(validationField, validationField.validate(validationField.field.value));
+      });
+    });
 
         // (Calendly removido) Mostrar mensaje de éxito sencillo
         function showSuccess() {
@@ -794,6 +859,12 @@
         // Manejo del envío del formulario (Apps Script con respuesta de texto)
         form.addEventListener("submit", function (e) {
           e.preventDefault();
+
+          const invalidFields = validateForm();
+          if (invalidFields.length) {
+            invalidFields[0].field.focus();
+            return;
+          }
 
           // Track intento de envío
           try { trackFormProgress("form_submitted", "contact_form"); } catch (e) {}
@@ -827,7 +898,7 @@
               // Respuesta opaca: asumimos éxito
               try { trackConversion("form_success", "contact_form"); } catch (e) {}
               if (formStatus) {
-                formStatus.innerText = "Message sent successfully ✔️";
+                formStatus.textContent = "Message sent successfully. We’ll contact you shortly.";
                 formStatus.className = "text-black text-center text-sm mt-4";
               }
               try { form.reset(); } catch (e) {}
@@ -837,7 +908,7 @@
               console.log("Apps Script error:", error);
               try { trackEngagement("form_error", "submission_failed"); } catch (e) {}
               if (formStatus) {
-                formStatus.innerText = "Hubo un error al enviar ❌";
+                formStatus.textContent = "We couldn’t send your message. Please check the highlighted fields and try again. If the problem continues, call 732-277-4547.";
                 formStatus.className = "text-red-700 text-center text-sm mt-4";
               }
             })
