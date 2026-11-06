@@ -51,7 +51,6 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/styles.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <noscript>
       <link
@@ -398,7 +397,7 @@
       class="pt-28 pb-20 bg-gradient-to-b from-white via-[#f8fafc] to-white"
     >
       <div class="max-w-6xl mx-auto px-4">
-        <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+        <div class="text-center max-w-3xl mx-auto">
           <span
             class="inline-block text-xs tracking-wider uppercase font-semibold text-brand-gold bg-brand-blue/5 px-3 py-1 rounded-full mb-4"
             >Loan Programs</span
@@ -429,8 +428,6 @@
         <!-- Grid de Programas -->
         <section
           class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto place-items-center sm:place-items-stretch"
-          data-aos="fade-up"
-          data-aos-delay="50"
         >
           <!-- Purchase / Conventional -->
           <div
@@ -819,8 +816,6 @@
         <!-- CTA final -->
         <section
           class="mt-20 text-center"
-          data-aos="fade-up"
-          data-aos-delay="100"
         >
           <div class="gold-accent-bar mx-auto mb-6"></div>
           <h2 class="text-3xl md:text-4xl font-extrabold text-brand-blue mb-4">
@@ -1011,14 +1006,6 @@
         </p>
       </div>
     </footer>
-    <style>
-      /* Ocultar chat temporalmente (Tawk.to) */
-      iframe[src*="tawk.to"],
-      [id*="tawk"] {
-        display: none !important;
-        visibility: hidden !important;
-      }
-    </style>
     <script>
       (function () {
         function highlight() {
@@ -1241,93 +1228,6 @@
       });
     </script>
 
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-      var Tawk_API = Tawk_API || {},
-        Tawk_LoadStart = new Date();
-      (function () {
-        var s1 = document.createElement("script"),
-          s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = "https://embed.tawk.to/689be045609b391925b4cb51/1j2ge83q3";
-        s1.charset = "UTF-8";
-        s1.setAttribute("crossorigin", "*");
-        s0.parentNode.insertBefore(s1, s0);
-      })();
-    </script>
-    <!--End of Tawk.to Script-->
-
-    <!-- Dynamic chat suppression (defense-in-depth) -->
-    <script>
-      (function () {
-        function purgeChat() {
-          const selectors = [
-            'iframe[src*="tawk.to"]',
-            'script[src*="tawk.to"]',
-            'link[href*="tawk.to"]',
-            'div[id*="tawk"]',
-            'div[class*="tawk"]',
-          ];
-          selectors.forEach((sel) =>
-            document.querySelectorAll(sel).forEach((n) => n.remove())
-          );
-        }
-        purgeChat();
-        const mo = new MutationObserver(purgeChat);
-        mo.observe(document.documentElement, {
-          childList: true,
-          subtree: true,
-        });
-        setInterval(purgeChat, 4000);
-      })();
-    </script>
-    <script>
-      (function () {
-        const blocked = [/tawk\.to/i];
-        const origCreate = Document.prototype.createElement;
-        Document.prototype.createElement = function (tag) {
-          const el = origCreate.call(this, tag);
-          if (/script|iframe/i.test(tag)) {
-            Object.defineProperty(el, "src", {
-              set(v) {
-                if (v && blocked.some((r) => r.test(v))) {
-                  console.debug("Blocked script", v);
-                } else {
-                  el.setAttribute("src", v);
-                }
-              },
-              get() {
-                return el.getAttribute("src");
-              },
-            });
-          }
-          return el;
-        };
-        ["appendChild", "insertBefore"].forEach((fn) => {
-          const o = Node.prototype[fn];
-          Node.prototype[fn] = function (n) {
-            try {
-              const s = n && n.getAttribute && n.getAttribute("src");
-              if (s && blocked.some((r) => r.test(s))) {
-                console.debug("Prevented insertion", s);
-                return n;
-              }
-            } catch (e) {}
-            return o.apply(this, arguments);
-          };
-        });
-        const style = document.createElement("style");
-        style.textContent =
-          '[id*="tawk"],[class*="tawk"],iframe[src*="tawk.to"]{display:none!important;visibility:hidden!important;opacity:0!important;}';
-        document.documentElement.appendChild(style);
-      })();
-    </script>
-
-    <!-- AOS JavaScript -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({ duration: 1000, once: true });
-    </script>
     <script>
       document.getElementById("year-services").textContent =
         new Date().getFullYear();
