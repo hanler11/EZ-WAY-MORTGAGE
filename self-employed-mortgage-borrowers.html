@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mortgage for Self-Employed Borrowers | EZ Way</title>
+    <meta name="description" content="Learn what self-employed borrowers can organize before a mortgage conversation. EZ Way explains income records, questions, and next steps." />
+    <link rel="canonical" href="https://ezwaymortgages.com/self-employed-mortgage-borrowers.html" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Poppins", "sans-serif"] },
+            colors: {
+              "brand-blue": "#0f3a63",
+              "brand-gold": "#b68c2f",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .sticky-nav-active {
+        background-color: white;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        scroll-padding-top: 80px;
+      }
+
+      /* Mobile menu optimization */
+      .mobile-menu-hidden {
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+      }
+
+      .mobile-menu-visible {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      .nav-menu-mobile {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        z-index: 10001;
+        max-height: 100vh;
+        overflow-y: auto;
+      }
+
+      .hamburger-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .hamburger-icon.active {
+        transform: rotate(90deg);
+      }
+
+      /* Ocultar navbar cuando calculadora está abierta */
+      .navbar-hidden {
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* Estilos para header de calculadora en responsive */
+      .lhp-header {
+        display: none;
+      }
+
+      /* Mostrar header con botón de cierre solo en mobile */
+      @media (max-width: 768px) {
+        .lhp-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: #b68c2f;
+          color: white;
+          padding: 12px 16px;
+          font-weight: 600;
+          position: sticky;
+          top: 0;
+          z-index: 10;
+          border-radius: 16px 16px 0 0;
+        }
+
+        .lhp-header .calc-close {
+          background: rgba(255, 255, 255, 0.2);
+          border: none;
+          color: white;
+          font-size: 18px;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+        }
+
+        .lhp-header .calc-close:hover {
+          background: rgba(255, 255, 255, 0.3);
+          transform: scale(1.1);
+        }
+
+        .lhp-content {
+          padding: 0 8px 8px 8px;
+          border-radius: 0 0 16px 16px;
+        }
+      }
+
+      /* Optimización de imágenes */
+      img {
+        -webkit-optimize-contrast: auto;
+        image-rendering: auto;
+        image-rendering: optimizeQuality;
+      }
+
+      /* Optimización para mobile */
+      @media (max-width: 767px) {
+        /* Reducir altura de imágenes en mobile para mejor performance */
+        figure.h-48 {
+          height: 12rem; /* h-48 */
+        }
+
+        /* Simplificar animaciones en mobile */
+        [data-aos] {
+          animation-duration: 0.2s !important;
+        }
+
+        .bg-white.rounded-2xl {
+          padding: 1.5rem !important;
+        }
+
+        /* Header responsive fixes */
+        header {
+          height: auto !important;
+          min-height: 70px !important;
+        }
+
+        .nav-logo-container {
+          max-width: calc(100vw - 100px) !important;
+          overflow: hidden !important;
+        }
+
+        /* NMLS info mobile adjustments */
+        .nmls-info-mobile {
+          font-size: 9px !important;
+          margin-left: 40px !important;
+          white-space: nowrap !important;
+          overflow: hidden !important;
+          text-overflow: ellipsis !important;
+          max-width: calc(100vw - 280px) !important;
+          position: relative !important;
+          z-index: 5 !important;
+          margin-top: 2px !important;
+        }
+
+        /* Logo y texto responsive */
+        .logo-responsive {
+          font-size: 12px !important;
+          max-width: calc(100vw - 260px) !important;
+        }
+      }
+
+      /* Para pantallas extra pequeñas */
+      @media (max-width: 480px) {
+        .nmls-info-mobile {
+          margin-left: 35px !important;
+          font-size: 8px !important;
+          max-width: calc(100vw - 200px) !important;
+          margin-top: 3px !important;
+        }
+
+        .nav-logo-container {
+          max-width: calc(100vw - 160px) !important;
+        }
+
+        .logo-responsive {
+          font-size: 11px !important;
+          max-width: calc(100vw - 180px) !important;
+        }
+      }
+
+      /* Para pantallas de menos de 360px */
+      @media (max-width: 360px) {
+        .nmls-info-mobile {
+          display: none !important;
+        }
+
+        .nav-logo-container {
+          max-width: calc(100vw - 70px) !important;
+        }
+      }
+    </style>
+
+    <!-- Google tag (gtag.js) - AQUÍ DENTRO DEL HEAD -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GR54EXMBTD"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      // Google Analytics 4 (para análisis web)
+      gtag("config", "G-GR54EXMBTD");
+
+      // Google Ads (para conversiones de anuncios)
+      gtag("config", "AW-17604243227");
+
+      // Enhanced ecommerce and conversion tracking
+      function trackConversion(action, service = "") {
+        gtag("event", action, {
+          event_category: "conversion",
+          event_label: service,
+          value: 1,
+        });
+        console.log("Conversion tracked:", action, service);
+      }
+
+      function trackEngagement(action, element = "") {
+        gtag("event", action, {
+          event_category: "engagement",
+          event_label: element,
+        });
+      }
+
+      // Debugging - eliminar en producción
+      console.log(
+        "Google Analytics initialized with IDs: G-GR54EXMBTD, AW-17604243227"
+      );
+    </script>
+  </head>
+<body class="font-sans text-gray-800 bg-gray-50">
+    <!-- Navbar unificada -->
+    <header
+      id="navbar"
+      class="fixed top-0 left-0 w-full z-50 transition-all bg-white shadow h-20"
+    >
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-full relative"
+      >
+        <div class="flex flex-col min-w-0 flex-1 nav-logo-container">
+          <a href="index.html" class="flex items-center gap-2 sm:gap-3 group">
+            <img
+              src="assets/logoEZ.png"
+              alt="EZ Way Mortgage Logo"
+              class="h-10 sm:h-14 w-auto flex-shrink-0"
+            />
+            <span
+              class="text-xs sm:text-lg font-bold text-brand-gold group-hover:text-black transition truncate logo-responsive"
+              >EZ Way Mortgage Corporation</span
+            >
+          </a>
+          <!-- NMLS Info debajo del logo -->
+          <div
+            class="text-xs text-gray-600 ml-12 sm:ml-20 mt-1 nmls-info-mobile"
+          >
+            <span class="font-medium">NMLS #2679112</span>
+            <span class="mx-1 hidden md:inline">•</span>
+            <span class="hidden md:inline">Licensed Mortgage Brokerage</span>
+          </div>
+        </div>
+        <button
+          id="nav-toggle"
+          class="md:hidden text-2xl text-brand-gold focus:outline-none relative z-50"
+          aria-label="Abrir menú de navegación"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8 transition-transform duration-300 hamburger-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 8h16M4 16h16"
+              class="hamburger-line"
+            />
+          </svg>
+        </button>
+        <nav
+          class="hidden md:flex md:space-x-8 text-lg font-bold md:items-center"
+          data-nav
+        >
+          <a
+            href="index.html"
+            data-link="home"
+            class="hover:text-black transition"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            data-link="about"
+            class="hover:text-black transition"
+            >About</a
+          >
+          <a
+            href="services.html"
+            data-link="programs"
+            class="hover:text-black transition"
+            >Programs</a
+          >
+          <a
+            href="index.html#how-it-works"
+            data-link="process"
+            class="hover:text-black transition"
+            >Process</a
+          >
+          <a
+            href="contact.html"
+            data-link="contact"
+            class="bg-brand-gold text-white font-semibold px-5 py-2 rounded hover:bg-black transition"
+            >Get Pre-Approved</a
+          >
+        </nav>
+        <nav id="nav-menu" class="nav-menu-mobile mobile-menu-hidden md:hidden">
+          <div class="flex flex-col p-4 space-y-2" data-nav-mobile>
+            <a
+              href="index.html"
+              data-link="home"
+              class="px-4 py-3 block hover:bg-black/5 rounded transition"
+              >Home</a
+            >
+            <a
+              href="about.html"
+              data-link="about"
+              class="px-4 py-3 block hover:bg-black/5 rounded transition"
+              >About</a
+            >
+            <a
+              href="services.html"
+              data-link="programs"
+              class="px-4 py-3 block hover:bg-black/5 rounded transition"
+              >Programs</a
+            >
+            <a
+              href="index.html#how-it-works"
+              data-link="process"
+              class="px-4 py-3 block hover:bg-black/5 rounded transition"
+              >Process</a
+            >
+            <a
+              href="contact.html"
+              data-link="contact"
+              class="bg-brand-gold text-white font-semibold px-4 py-3 rounded hover:bg-black transition text-center mx-4 mt-2"
+              >Get Pre-Approved</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="pt-28 pb-16">
+      <section class="py-16 px-6 md:px-20" aria-labelledby="page-title">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h1 id="page-title" class="text-4xl md:text-5xl font-bold text-brand-blue mb-3">
+              Mortgage for Self-Employed Borrowers
+            </h1>
+            <div class="gold-accent-bar mx-auto w-32 mb-5 h-1 bg-gradient-to-r from-brand-gold to-yellow-300"></div>
+          </div>
+
+          <div class="space-y-10 text-gray-700 leading-relaxed">
+            <section aria-labelledby="page-title">
+              <p class="mb-4">If you work for yourself, own a business, freelance, or receive income through a partnership, preparing for a mortgage conversation may feel different from preparing as a salaried employee. This guide to mortgage for self employed borrowers explains the records and questions you can organize before you contact a mortgage professional. It does not predict approval. A lender reviews the complete application, documentation, credit profile, underwriting guidelines, and available loan program.</p>
+              <p data-mega-cta="primary" class="rounded-lg bg-[#fff9eb] border-l-4 border-brand-gold px-5 py-4"><strong>Ready to talk through your situation?</strong> Use the <a href="contact.html" class="text-brand-blue underline font-semibold">Get Pre-Approved</a> form for same-day follow-up, or call <a href="tel:7322774547" class="text-brand-blue underline font-semibold">732-277-4547</a>.</p>
+            </section>
+
+            <section aria-labelledby="work-heading">
+              <h2 id="work-heading" class="text-2xl md:text-3xl font-bold text-brand-blue mb-4">Start with a clear picture of your work and income</h2>
+              <p class="mb-4">Before an initial conversation, write down how your business or self-employed work operates. Note when you started, what services or products you provide, how you are paid, and whether your income changes during the year. If you own part of a business or receive income from more than one source, make a simple list of each source and the records connected to it.</p>
+              <p>This preparation helps you explain your situation clearly. It also gives the mortgage professional a better starting point for discussing which documents may be relevant. Do not assume that one document or one year of income will determine the outcome. The lender and loan program set the documentation and review requirements.</p>
+            </section>
+
+            <section aria-labelledby="documents-heading">
+              <h2 id="documents-heading" class="text-2xl md:text-3xl font-bold text-brand-blue mb-4">Documents to organize</h2>
+              <p class="mb-4">The exact list depends on your situation, the lender, and the loan program. You may be asked for some of the following categories:</p>
+              <ul class="list-disc pl-6 space-y-2 mb-4">
+                <li>Personal and business tax returns for the periods requested by the lender.</li>
+                <li>Year-to-date profit-and-loss information and, when requested, a balance sheet.</li>
+                <li>Forms such as 1099s or other records that show how income was received.</li>
+                <li>Business bank statements and personal asset statements, when requested for the application.</li>
+                <li>Business formation, ownership, professional license, or contract records that help explain the business.</li>
+                <li>Identification and any other documents requested by the lender or underwriter.</li>
+              </ul>
+              <p>Keep records readable and consistent. If a document is not available, mention that early instead of guessing or leaving out an important part of your situation. A mortgage professional can explain what the next document request means.</p>
+            </section>
+
+            <section aria-labelledby="changes-heading">
+              <h2 id="changes-heading" class="text-2xl md:text-3xl font-bold text-brand-blue mb-4">Explain changes before they become questions</h2>
+              <p>Tell the mortgage professional about recent changes that may help explain your records, such as a new business structure, a change in ownership, a new contract, a period of lower income, or a move between industries. You can also ask how business expenses, debts, deposits, and income from multiple sources may be reviewed. Clear context does not replace documentation, but it can make the conversation more useful.</p>
+            </section>
+
+            <section aria-labelledby="questions-heading">
+              <h2 id="questions-heading" class="text-2xl md:text-3xl font-bold text-brand-blue mb-4">Questions to ask about your mortgage options</h2>
+              <ul class="list-disc pl-6 space-y-2 mb-4">
+                <li>Which income and business records should I organize first?</li>
+                <li>Which parts of my self-employed income may need additional explanation?</li>
+                <li>What questions should I ask about the loan programs that may fit my goals?</li>
+                <li>How will the lender communicate requests for updated or additional documents?</li>
+                <li>What information should I bring to the next conversation?</li>
+              </ul>
+              <p>These questions help you understand the process without making assumptions about qualification. Loan decisions are made under the lender's underwriting guidelines and are subject to credit approval and program availability.</p>
+            </section>
+
+            <section aria-labelledby="help-heading">
+              <h2 id="help-heading" class="text-2xl md:text-3xl font-bold text-brand-blue mb-4">How EZ Way Mortgages can help</h2>
+              <p>EZ Way Mortgage Corporation is a licensed New Jersey mortgage brokerage. We work for the borrower, not the banks, and explain the process in plain English. We can help you organize the conversation, compare options from dozens of lenders, and understand what information may be needed for your situation. Visit our <a href="services.html" class="text-brand-blue underline font-semibold">Mortgage Programs</a> page to review the types of financing we discuss, then use the <a href="contact.html" class="text-brand-blue underline font-semibold">Contact</a> page to start a situation-specific conversation.</p>
+            </section>
+
+            <section aria-labelledby="closing-cta-heading" class="rounded-lg bg-[#fff9eb] border-l-4 border-brand-gold px-5 py-5">
+              <h2 id="closing-cta-heading" class="text-2xl font-bold text-brand-blue mb-3">Start your next conversation with clarity</h2>
+              <p data-mega-cta="secondary">Use the <a href="contact.html" class="text-brand-blue underline font-semibold">Get Pre-Approved</a> form for same-day follow-up from a licensed mortgage professional, or call <a href="tel:7322774547" class="text-brand-blue underline font-semibold">732-277-4547</a>. Bring your questions and the records you have available. The first conversation is a chance to understand the next step.</p>
+            </section>
+
+            <section aria-labelledby="disclosures-heading" class="border-t border-gray-200 pt-8">
+              <h2 id="disclosures-heading" class="text-2xl md:text-3xl font-bold text-brand-blue mb-4">Important lending disclosures</h2>
+              <p>EZ Way Mortgage Corporation is a Mortgage Broker licensed by the NJ Department of Banking and Insurance. NMLS #2679112. Luis Herrera, Founder and licensed mortgage broker, individual NMLS #226951. This is not a commitment to lend. All loans are subject to credit approval, underwriting guidelines, and program availability. Equal Housing Opportunity.</p>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="bg-[#0f3a63] text-gray-200 px-4 sm:px-6 py-12 border-t-4 border-brand-gold"
+    >
+      <div
+        class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-5 gap-10 text-sm"
+      >
+        <div
+          class="flex flex-col items-center md:items-start text-center md:text-left"
+        >
+          <div class="mb-6 flex flex-col items-center gap-5">
+            <a
+              href="index.html"
+              aria-label="Go to homepage"
+              class="flex items-center gap-4 group"
+            >
+              <img
+                src="assets/logoEZ.png"
+                alt="EZ Way Mortgage Logo"
+                class="h-14 w-auto group-hover:opacity-90 transition"
+                loading="lazy"
+              />
+              <img
+                src="assets/HE2.PNG"
+                alt="Housing Equality"
+                class="h-20 w-auto group-hover:opacity-90 transition"
+                loading="lazy"
+              />
+            </a>
+            <p class="text-gray-200 text-center text-sm leading-snug max-w-xs">
+              Licensed Mortgage Brokerage • Equal Housing Opportunity
+            </p>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Quick Links</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html" class="hover:underline text-gray-200"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="about.html" class="hover:underline text-gray-200"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >Programs</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="hover:underline text-gray-200"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Loan Programs</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >Conventional (Purchase)</a
+              >
+            </li>
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >FHA / VA / USDA</a
+              >
+            </li>
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >Jumbo Loans</a
+              >
+            </li>
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >Refinance Options</a
+              >
+            </li>
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >HELOC & Equity</a
+              >
+            </li>
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >No Income Verification (DSCR)</a
+              >
+            </li>
+            <li>
+              <a href="services.html" class="hover:underline text-gray-200"
+                >Credit & Pre-Approval Coaching</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Contact</h4>
+          <ul class="space-y-2">
+            <li>
+              Email:
+              <a
+                href="mailto:Luis@ezwaymortgages.com"
+                class="hover:underline text-gray-200"
+                >Luis@ezwaymortgages.com</a
+              >
+            </li>
+            <li>
+              Phone:
+              <a href="tel:7322774547" class="hover:underline text-gray-200"
+                >732-277-4547</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Follow Us</h4>
+          <div class="flex justify-center space-x-6 mb-4">
+            <a
+              href="https://www.instagram.com/ezwaymortgage?utm_source=qr&igsh=MTY5ZXM3M3R2Z2txeg=="
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-brand-gold hover:text-yellow-300 transition-colors duration-300 bg-[#0f3a63] p-3 rounded-full hover:bg-brand-gold border-2 border-brand-gold hover:border-yellow-300 social-link"
+              aria-label="Instagram"
+              onclick="window.open(this.href, '_blank'); return false;"
+            >
+              <img
+                src="assets/instagram.png.avif"
+                alt="Instagram"
+                class="h-6 w-6 hover:scale-110 transition-transform duration-300"
+                loading="lazy"
+                style="pointer-events: none"
+              />
+            </a>
+          </div>
+          <div class="mt-6 text-center">
+            <a
+              href="contact.html"
+              class="inline-block btn-gold-primary font-semibold px-5 py-2 rounded transition"
+              >Get Pre-Approved</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="text-center text-gray-400 text-sm mt-8 space-y-1">
+        <div>&copy; 2025 EZ Way Mortgage Corporation. All rights reserved.</div>
+        <div>NMLS # 2679112 | Loan Originator NMLS # 226951</div>
+        <div class="text-xs max-w-3xl mx-auto px-4 leading-snug">
+          EZ Way Mortgage Corporation is a Mortgage Broker licensed by the NJ
+          Department of Banking and Insurance. This is not a commitment to lend.
+          All loans subject to credit approval, underwriting guidelines and
+          program availability. Equal Housing Opportunity.
+        </div>
+        <div class="text-xs italic">
+          EZ Way Mortgage Corporation es un corredor hipotecario autorizado por
+          el Departamento de Banca y Seguros de NJ.
+        </div>
+        <div class="text-xs">
+          Office: 272 High St. Suite #7 Perth Amboy, NJ 08861 | Tel:
+          732-277-4547 | Email: Luis@ezwaymortgages.com
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+        const hamburgerIcon = navToggle && navToggle.querySelector("svg");
+        if (navToggle && navMenu) {
+          navToggle.addEventListener("click", function (event) {
+            event.preventDefault();
+            const hidden = navMenu.classList.contains("mobile-menu-hidden");
+            navMenu.classList.toggle("mobile-menu-hidden", !hidden);
+            navMenu.classList.toggle("mobile-menu-visible", hidden);
+            hamburgerIcon && hamburgerIcon.classList.toggle("active", hidden);
+          });
+          navMenu.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+              navMenu.classList.add("mobile-menu-hidden");
+              navMenu.classList.remove("mobile-menu-visible");
+              hamburgerIcon && hamburgerIcon.classList.remove("active");
+            });
+          });
+        }
+      });
+    </script>
+</body>
+</html>
