@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17604243227"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "AW-17604243227");
+
+      // Enhanced ecommerce and conversion tracking
+      function trackConversion(action, service = "") {
+        gtag("event", action, {
+          event_category: "conversion",
+          event_label: service,
+          value: 1,
+        });
+        console.log("Conversion tracked:", action, service);
+      }
+
+      function trackEngagement(action, element = "") {
+        gtag("event", action, {
+          event_category: "engagement",
+          event_label: element,
+        });
+      }
+
+      // Debugging - eliminar en producción
+      console.log("Google Analytics initialized with ID: AW-17604243227");
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Looking for a mortgage broker in Perth Amboy, New Jersey? EZ Way explains options, compares lender programs, and helps you take the next step." />
+    <link rel="canonical" href="https://ezwaymortgages.com/home-loans/" />
+    <title>Mortgage Broker Perth Amboy New Jersey | EZ Way</title>
+
+    <!-- Preload critical resources -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <!-- Removed preload of non-mortgage legacy image -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Poppins", "sans-serif"] },
+            colors: {
+              "brand-blue": "#0f3a63",
+              "brand-gold": "#b68c2f",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .sticky-nav-active {
+        background-color: white;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        scroll-padding-top: 80px;
+      }
+
+      /* Lazy loading optimization */
+      img[data-src] {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      img[data-loaded="true"] {
+        opacity: 1;
+      }
+
+      .lazy-container {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .lazy-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      /* Mobile menu styles */
+      .mobile-menu-hidden {
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+      }
+
+      .mobile-menu-visible {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      .nav-menu-mobile {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        z-index: 10001;
+        max-height: 100vh;
+        overflow-y: auto;
+      }
+
+      .hamburger-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .hamburger-icon.active {
+        transform: rotate(90deg);
+      }
+
+      /* Ocultar navbar cuando calculadora está abierta */
+      .navbar-hidden {
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* Estilos para header de calculadora en responsive */
+      .lhp-header {
+        display: none;
+      }
+
+      /* Mostrar header con botón de cierre solo en mobile */
+      @media (max-width: 768px) {
+        .lhp-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: #b68c2f;
+          color: white;
+          padding: 12px 16px;
+          font-weight: 600;
+          position: sticky;
+          top: 0;
+          z-index: 10;
+          border-radius: 16px 16px 0 0;
+        }
+
+        .lhp-header .calc-close {
+          background: rgba(255, 255, 255, 0.2);
+          border: none;
+          color: white;
+          font-size: 18px;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+        }
+
+        .lhp-header .calc-close:hover {
+          background: rgba(255, 255, 255, 0.3);
+          transform: scale(1.1);
+        }
+
+        .lhp-content {
+          padding: 0 8px 8px 8px;
+          border-radius: 0 0 16px 16px;
+        }
+      }
+
+      /* Service hover effects */
+      .service-card {
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+
+    <!-- Google Analytics - AMBOS IDs CORRECTOS AL FINAL DEL HEAD -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GR54EXMBTD"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      // Google Analytics 4 (para análisis web)
+      gtag("config", "G-GR54EXMBTD");
+
+      // Google Ads (para conversiones de anuncios)
+      gtag("config", "AW-17604243227");
+
+      // Enhanced ecommerce and conversion tracking
+      function trackConversion(action, service = "") {
+        gtag("event", action, {
+          event_category: "conversion",
+          event_label: service,
+          value: 1,
+        });
+        console.log("Conversion tracked:", action, service);
+      }
+
+      function trackEngagement(action, element = "") {
+        gtag("event", action, {
+          event_category: "engagement",
+          event_label: element,
+        });
+      }
+
+      console.log(
+        "Google Analytics initialized with IDs: G-GR54EXMBTD, AW-17604243227"
+      );
+    </script>
+  </head>
+
+  <body class="font-sans text-gray-800 bg-gray-50">
+    <!-- Responsive Navbar -->
+    <header
+      id="navbar"
+      class="fixed top-0 left-0 w-full z-50 transition-all bg-white shadow"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <!-- Logo y Navegación -->
+        <div class="flex items-center justify-between w-full h-20">
+          <div class="flex flex-col min-w-0 flex-1 nav-logo-container">
+            <a href="../index.html" class="flex items-center gap-2 sm:gap-3 group">
+              <img
+                src="../assets/logoEZ.png"
+                alt="EZ Way Mortgage Logo"
+                class="h-10 sm:h-14 w-auto flex-shrink-0"
+              />
+              <span
+                class="text-xs sm:text-lg font-bold text-brand-gold group-hover:text-black transition truncate logo-responsive"
+                >EZ Way Mortgage Corporation</span
+              >
+            </a>
+            <!-- NMLS Info debajo del logo - Responsive -->
+            <div
+              class="text-xs text-gray-600 ml-12 sm:ml-20 mt-1 nmls-info-mobile"
+            >
+              <span class="font-medium">NMLS #2679112</span>
+              <span class="mx-1 hidden md:inline nmls-hide-xs">•</span>
+              <span class="hidden md:inline nmls-hide-xs"
+                >Licensed Mortgage Brokerage</span
+              >
+            </div>
+          </div>
+
+          <button
+            id="nav-toggle"
+            class="md:hidden text-2xl text-brand-gold focus:outline-none relative z-50"
+            aria-label="Abrir menú de navegación"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8 transition-transform duration-300 hamburger-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 8h16M4 16h16"
+                class="hamburger-line"
+              />
+            </svg>
+          </button>
+
+          <!-- Desktop Navigation -->
+          <nav
+            class="hidden md:flex md:space-x-8 text-lg font-bold md:items-center"
+            data-nav
+          >
+            <a
+              href="../index.html"
+              data-link="home"
+              class="hover:text-black transition"
+              >Home</a
+            >
+            <a
+              href="../about.html"
+              data-link="about"
+              class="hover:text-black transition"
+              >About</a
+            >
+            <a
+              href="../services.html"
+              data-link="programs"
+              class="hover:text-black transition"
+              >Programs</a
+            >
+            <a
+              href="../index.html#how-it-works"
+              data-link="process"
+              class="hover:text-black transition"
+              >Process</a
+            >
+            <a
+              href="../contact.html"
+              data-link="contact"
+              class="bg-brand-gold text-white font-semibold px-5 py-2 rounded hover:bg-black transition"
+              >Get Pre-Approved</a
+            >
+          </nav>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav id="nav-menu" class="nav-menu-mobile mobile-menu-hidden md:hidden">
+        <div class="flex flex-col p-4 space-y-2" data-nav-mobile>
+          <a
+            href="../index.html"
+            data-link="home"
+            class="px-4 py-3 block hover:bg-black/5 rounded transition"
+            >Home</a
+          >
+          <a
+            href="../about.html"
+            data-link="about"
+            class="px-4 py-3 block hover:bg-black/5 rounded transition"
+            >About</a
+          >
+          <a
+            href="../services.html"
+            data-link="programs"
+            class="px-4 py-3 block hover:bg-black/5 rounded transition"
+            >Programs</a
+          >
+          <a
+            href="../index.html#how-it-works"
+            data-link="process"
+            class="px-4 py-3 block hover:bg-black/5 rounded transition"
+            >Process</a
+          >
+          <a
+            href="../contact.html"
+            data-link="contact"
+            class="bg-brand-gold text-white font-semibold px-4 py-3 rounded hover:bg-black transition text-center mx-4 mt-2"
+            >Get Pre-Approved</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main class="pt-28 pb-20 bg-gradient-to-b from-white via-[#f8fafc] to-white">
+      <div class="max-w-6xl mx-auto px-4">
+        <section class="text-center max-w-4xl mx-auto mb-12">
+          <span class="inline-block text-xs tracking-wider uppercase font-semibold text-brand-gold bg-brand-blue/5 px-3 py-1 rounded-full mb-4">Perth Amboy Mortgage Guidance</span>
+          <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue leading-tight mb-4">Mortgage Broker Perth Amboy New Jersey</h1>
+          <p class="text-lg text-gray-700 mb-8">Clear, plain-English guidance for New Jersey borrowers comparing mortgage options.</p>
+          <img src="../assets/whychooseus.jpg" alt="Mortgage guidance for Perth Amboy and New Jersey borrowers" class="w-full max-w-4xl mx-auto h-56 md:h-72 object-cover rounded-2xl shadow-lg" />
+        </section>
+
+        <section class="max-w-4xl mx-auto mb-12">
+          <div class="bg-white rounded-2xl shadow-lg border-t-4 border-brand-gold p-6 md:p-10">
+            <h2 class="text-3xl font-bold text-brand-blue mb-5">Mortgage guidance for Perth Amboy and New Jersey borrowers</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">If you are searching for a mortgage broker Perth Amboy New Jersey, EZ Way Mortgage Corporation can help you understand your next step. We are a licensed New Jersey mortgage brokerage based in Perth Amboy. Our role is to help you compare lender programs, understand the process, and move forward with a plan that fits your goals, timeline, and documentation.</p>
+            <p class="text-gray-700 leading-relaxed">You do not have to sort through mortgage terminology alone. We explain the choices in plain English, answer questions, and help you prepare for a clear conversation with a lender. Program availability, underwriting requirements, rates, and fees come from partner lenders and can change. Your personal terms depend on your application and the lender's review.</p>
+          </div>
+        </section>
+
+        <section class="max-w-5xl mx-auto mb-12">
+          <div class="bg-white rounded-2xl shadow-lg p-6 md:p-10">
+            <div class="md:flex md:items-center md:gap-10">
+              <div class="md:w-1/3 mb-6 md:mb-0"><img src="../assets/pl.jpg" alt="Purchase loan guidance" class="w-full h-48 object-cover rounded-xl" loading="lazy" /></div>
+              <div class="md:flex-1">
+                <h2 class="text-3xl font-bold text-brand-blue mb-5">Loan options to compare</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">Every borrower has a different situation. EZ Way can help you review options such as:</p>
+                <ul class="text-gray-700 leading-relaxed list-disc list-inside space-y-2 mb-4">
+                  <li><strong>Purchase loans:</strong> Conventional, FHA, VA, USDA Rural, and Jumbo programs for eligible first-time and repeat homebuyers.</li>
+                  <li><strong>Refinancing:</strong> Rate-and-term, cash-out, and FHA or VA streamline options when a refinance may support your goals.</li>
+                  <li><strong>Home equity:</strong> HELOC and home-equity options for eligible homeowners who want to understand how available programs work.</li>
+                  <li><strong>Investment property financing:</strong> DSCR and no-income-verification options for eligible real estate investors, subject to program rules.</li>
+                </ul>
+                <p class="text-gray-700 leading-relaxed">We can also discuss credit preparation, pre-approval coaching, loan-program guidance, and the documentation needed for underwriting. Reviewing an option does not guarantee qualification or approval.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="max-w-5xl mx-auto mb-12">
+          <div class="bg-white rounded-2xl shadow-lg p-6 md:p-10">
+            <div class="md:flex md:items-center md:gap-10 md:flex-row-reverse">
+              <div class="md:w-1/3 mb-6 md:mb-0"><img src="../assets/lp.jpg" alt="Loan program guidance" class="w-full h-48 object-cover rounded-xl" loading="lazy" /></div>
+              <div class="md:flex-1">
+                <h2 class="text-3xl font-bold text-brand-blue mb-5">How the EZ Way process works</h2>
+                <div class="space-y-5">
+                  <div><h3 class="text-xl font-bold text-brand-blue mb-1">1. Pre-Qualify</h3><p class="text-gray-700 leading-relaxed">Share your goals and basic information. We can work toward a same-day pre-approval when the required information and documentation are available.</p></div>
+                  <div><h3 class="text-xl font-bold text-brand-blue mb-1">2. Compare Options</h3><p class="text-gray-700 leading-relaxed">We shop dozens of lender programs and explain the differences that may matter to your situation. You can ask questions before choosing a path.</p></div>
+                  <div><h3 class="text-xl font-bold text-brand-blue mb-1">3. Close Confidently</h3><p class="text-gray-700 leading-relaxed">We support you through the mortgage process and help coordinate progress toward clear-to-close. We keep the conversation straightforward so you know what is needed at each stage.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="max-w-4xl mx-auto mb-12">
+          <div class="bg-white rounded-2xl shadow-lg border-t-4 border-brand-gold p-6 md:p-10">
+            <h2 class="text-3xl font-bold text-brand-blue mb-5">Why work with a mortgage broker?</h2>
+            <p class="text-gray-700 leading-relaxed">A mortgage broker works for the borrower rather than representing one bank's single set of programs. That can make it easier to compare potential paths, especially when your income, credit history, employment, or property type requires a closer look. EZ Way does not promise a particular approval, rate, fee, or closing timeline. We help you understand the available choices and the questions to ask.</p>
+          </div>
+        </section>
+
+        <section class="max-w-4xl mx-auto mb-12">
+          <div class="bg-white rounded-2xl shadow-lg p-6 md:p-10">
+            <h2 class="text-3xl font-bold text-brand-blue mb-6">Frequently asked questions</h2>
+            <div class="space-y-6">
+              <div><h3 class="text-xl font-bold text-brand-blue mb-2">What does a mortgage broker in Perth Amboy do?</h3><p class="text-gray-700 leading-relaxed">A mortgage broker helps borrowers compare loan programs from partner lenders, explains the differences in plain language, and organizes information for lender review. EZ Way works as a broker rather than a direct lender.</p></div>
+              <div><h3 class="text-xl font-bold text-brand-blue mb-2">What loan programs can EZ Way help me compare?</h3><p class="text-gray-700 leading-relaxed">Depending on eligibility and program availability, EZ Way can help you compare Conventional, FHA, VA, USDA Rural, and Jumbo purchase programs, refinance options, home-equity options, and investment-property programs.</p></div>
+              <div><h3 class="text-xl font-bold text-brand-blue mb-2">How does the EZ Way mortgage process work?</h3><p class="text-gray-700 leading-relaxed">The process is organized in three steps: Pre-Qualify, Compare Options, and Close Confidently. The information and documentation required depend on your situation and the lender's underwriting guidelines.</p></div>
+              <div><h3 class="text-xl font-bold text-brand-blue mb-2">Does contacting EZ Way guarantee approval or a rate?</h3><p class="text-gray-700 leading-relaxed">No. Contacting EZ Way is not a commitment to lend. All loans are subject to credit approval, underwriting guidelines, and program availability, and rates and fees come from partner lenders and can change.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="max-w-4xl mx-auto mb-12 text-center">
+          <div class="bg-brand-blue rounded-2xl shadow-lg p-8 md:p-10 text-white">
+            <h2 class="text-3xl font-bold mb-5">Take the next step</h2>
+            <p class="leading-relaxed mb-6">If you are ready to discuss your goals, contact EZ Way Mortgage Corporation. Tell us whether you are buying, refinancing, exploring home equity, or financing an investment property. We will help you identify the information needed for the next conversation.</p>
+            <div class="flex flex-wrap justify-center gap-4 mb-6"><a data-mega-cta="primary" href="../contact.html" class="btn-gold-primary">Get Pre-Approved</a><a data-mega-cta="secondary" href="../contact.html" class="btn-gold-outline">Start Now</a></div>
+            <p class="text-sm leading-relaxed">Learn more about <a class="underline" href="../about.html">EZ Way Mortgage Corporation</a>, review <a class="underline" href="../services.html">loan programs</a>, or use the <a class="underline" href="../contact.html">contact page</a> to send your questions.</p>
+          </div>
+        </section>
+
+        <section class="max-w-4xl mx-auto mb-12">
+          <div class="bg-white rounded-2xl shadow-lg p-6 md:p-10 text-gray-700 leading-relaxed">
+            <p class="mb-4">For general consumer information about mortgages and shopping for a licensed provider, see the <a class="text-brand-blue underline" href="https://www.nj.gov/dobi/division_consumers/finance/mortgage.htm" rel="noopener">New Jersey Department of Banking and Insurance mortgage information</a>.</p>
+            <p><strong>Licensing and disclosures:</strong> EZ Way Mortgage Corporation is a Mortgage Broker licensed by the NJ Department of Banking and Insurance. Company NMLS #2679112. Luis Herrera, Founder and licensed mortgage broker, individual NMLS #226951. This is not a commitment to lend. All loans are subject to credit approval, underwriting guidelines, and program availability. Equal Housing Opportunity. Office: 272 High St. Suite #7, Perth Amboy, NJ 08861. Phone: 732-277-4547.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-[#0f3a63] text-gray-200 px-4 sm:px-6 py-12 border-t-4 border-[#b68c2f]"
+    >
+      <div
+        class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-5 gap-10 text-sm"
+      >
+        <div
+          class="flex flex-col items-center md:items-start text-center md:text-left"
+        >
+          <div class="mb-6 flex flex-col items-center gap-5">
+            <a
+              href="../index.html"
+              aria-label="Go to homepage"
+              class="flex items-center gap-4 group"
+            >
+              <img
+                src="../assets/logoEZ.png"
+                alt="EZ Way Mortgage Logo"
+                class="h-14 w-auto group-hover:opacity-90 transition"
+                loading="lazy"
+              />
+              <img
+                src="../assets/HE2.PNG"
+                alt="Housing Equality"
+                class="h-20 w-auto group-hover:opacity-90 transition"
+                loading="lazy"
+              />
+            </a>
+            <p
+              class="text-gray-300 text-sm leading-relaxed max-w-xs text-center"
+            >
+              Licensed Mortgage Brokerage • Equal Housing Opportunity
+            </p>
+          </div>
+          <p class="mt-4 text-xs text-gray-400">
+            272 High St. Suite #7 Perth Amboy, NJ 08861
+          </p>
+          <p class="mt-1 text-xs text-gray-400">
+            Phone:
+            <a href="tel:7322774547" class="hover:text-brand-gold"
+              >732-277-4547</a
+            >
+          </p>
+          <p class="mt-1 text-xs text-gray-400">
+            Email:
+            <a
+              href="mailto:luis@ezwaymortgages.com"
+              class="hover:text-brand-gold"
+              >Luis@ezwaymortgages.com</a
+            >
+          </p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3 tracking-wide">Navigate</h4>
+          <ul class="space-y-2">
+            <li><a href="../index.html" class="footer-link">Home</a></li>
+            <li><a href="../about.html" class="footer-link">About</a></li>
+            <li><a href="../services.html" class="footer-link">Programs</a></li>
+            <li><a href="../contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3 tracking-wide">Programs</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="../services.html" class="footer-link"
+                >Purchase (Conventional)</a
+              >
+            </li>
+            <li>
+              <a href="../services.html" class="footer-link">FHA / VA / USDA</a>
+            </li>
+            <li><a href="../services.html" class="footer-link">Jumbo Loans</a></li>
+            <li>
+              <a href="../services.html" class="footer-link">Refinance Options</a>
+            </li>
+            <li>
+              <a href="../services.html" class="footer-link">HELOC & Equity</a>
+            </li>
+            <li>
+              <a href="../services.html" class="footer-link"
+                >No Income Verification (DSCR)</a
+              >
+            </li>
+            <li>
+              <a href="../services.html" class="footer-link"
+                >Credit & Pre-Approval Coaching</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3 tracking-wide">Why Us</h4>
+          <ul class="space-y-2">
+            <li class="text-gray-300 text-sm">Same-day pre-approvals</li>
+            <li class="text-gray-300 text-sm">Transparent rates & fees</li>
+            <li class="text-gray-300 text-sm">Bilingual support (EN/ES)</li>
+            <li class="text-gray-300 text-sm">Client-first strategy</li>
+            <li class="text-gray-300 text-sm">Trusted lender network</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3 tracking-wide">Connect</h4>
+          <div class="space-y-3">
+            <a
+              href="../contact.html"
+              class="w-full inline-block btn-gold-primary text-center"
+              >Get Pre-Approved</a
+            >
+            <a
+              href="../contact.html"
+              class="w-full inline-block btn-gold-outline text-center"
+              >Schedule Call</a
+            >
+          </div>
+          <div class="mt-4 flex justify-center space-x-4">
+            <a
+              href="https://www.instagram.com/ezwaymortgage?utm_source=qr&igsh=MTY5ZXM3M3R2Z2txeg=="
+              class="text-brand-gold hover:text-yellow-300 transition-colors duration-300 bg-[#0f3a63] p-3 rounded-full hover:bg-brand-gold border-2 border-brand-gold hover:border-yellow-300 social-link"
+              aria-label="Instagram"
+              onclick="window.open(this.href, '_blank'); return false;"
+            >
+              <img
+                src="../assets/instagram.png.avif"
+                alt="Instagram"
+                class="h-5 w-5 hover:scale-110 transition-transform duration-300"
+                loading="lazy"
+                style="pointer-events: none"
+              />
+            </a>
+          </div>
+          <div class="mt-6 text-xs text-gray-400 space-y-1">
+            <p>Company NMLS #2679112</p>
+            <p>Loan Originator NMLS #226951</p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-12 border-t border-white/10 pt-8 text-[11px] leading-relaxed text-gray-400 max-w-7xl mx-auto"
+      >
+        <p class="mb-3">
+          EZ Way Mortgage | Company NMLS #2679112 | Loan Originator NMLS
+          #226951. All loans subject to credit approval, underwriting
+          guidelines, and property conditions. Not a commitment to lend.
+          Programs, rates, terms and conditions subject to change without
+          notice. Equal Housing Lender.
+        </p>
+        <p class="mb-3">
+          EZ Way Mortgage | NMLS de la empresa #2679112 | NMLS del originador
+          #226951. Todos los préstamos sujetos a aprobación de crédito,
+          criterios de underwriting y condición de la propiedad. No es un
+          compromiso de prestar. Programas, tasas y términos sujetos a cambio
+          sin previo aviso. Prestamista de Igualdad de Vivienda.
+        </p>
+        <p class="text-gray-500">
+          &copy; <span id="year-home-loans"></span> EZ Way Mortgage. All Rights
+          Reserved.
+        </p>
+      </div>
+    </footer>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"What does a mortgage broker in Perth Amboy do?","acceptedAnswer":{"@type":"Answer","text":"A mortgage broker helps borrowers compare loan programs from partner lenders, explains the differences in plain language, and organizes information for lender review. EZ Way works as a broker rather than a direct lender."}},
+        {"@type":"Question","name":"What loan programs can EZ Way help me compare?","acceptedAnswer":{"@type":"Answer","text":"Depending on eligibility and program availability, EZ Way can help you compare Conventional, FHA, VA, USDA Rural, and Jumbo purchase programs, refinance options, home-equity options, and investment-property programs."}},
+        {"@type":"Question","name":"How does the EZ Way mortgage process work?","acceptedAnswer":{"@type":"Answer","text":"The process is organized in three steps: Pre-Qualify, Compare Options, and Close Confidently. The information and documentation required depend on your situation and the lender's underwriting guidelines."}},
+        {"@type":"Question","name":"Does contacting EZ Way guarantee approval or a rate?","acceptedAnswer":{"@type":"Answer","text":"No. Contacting EZ Way is not a commitment to lend. All loans are subject to credit approval, underwriting guidelines, and program availability, and rates and fees come from partner lenders and can change."}}
+      ]
+    }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+        const hamburgerIcon = navToggle && navToggle.querySelector("svg");
+        if (navToggle && navMenu) {
+          navToggle.addEventListener("click", function () {
+            const hidden = navMenu.classList.contains("mobile-menu-hidden");
+            navMenu.classList.toggle("mobile-menu-hidden", !hidden);
+            navMenu.classList.toggle("mobile-menu-visible", hidden);
+            if (hamburgerIcon) hamburgerIcon.classList.toggle("active", hidden);
+          });
+          navMenu.querySelectorAll("a").forEach(function (link) { link.addEventListener("click", function () { navMenu.classList.add("mobile-menu-hidden"); navMenu.classList.remove("mobile-menu-visible"); }); });
+        }
+        const year = document.getElementById("year-home-loans");
+        if (year) year.textContent = new Date().getFullYear();
+        if (window.AOS) AOS.init({ once: true, duration: 600 });
+      });
+    </script>
+  </body>
+</html>
