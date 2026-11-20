@@ -1,0 +1,48 @@
+/* Shared static blog presentation for EZ Way Mortgage */
+.blog-shell { max-width: 1120px; margin: 0 auto; padding: 110px 24px 72px; }
+.site-header { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid #e8edf3; box-shadow: 0 2px 12px rgba(15,58,99,.08); }
+.site-header-inner { max-width: 1200px; margin: 0 auto; min-height: 78px; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: #0f3a63; text-decoration: none; font-weight: 800; font-size: 1rem; }
+.brand img { width: 48px; height: 48px; object-fit: contain; }
+.site-nav { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; justify-content: flex-end; }
+.site-nav a, .site-footer a { color: #0f3a63; text-decoration: none; font-weight: 600; }
+.site-nav a:hover, .site-nav a.active, .site-footer a:hover { color: #b68c2f; }
+.site-nav .nav-cta { color: #fff; background: #b68c2f; padding: 11px 16px; border-radius: 6px; }
+.site-nav .nav-cta:hover { color: #fff; background: #0f3a63; }
+.blog-hero { background: linear-gradient(135deg, #0f3a63, #174f84); color: #fff; padding: 58px 24px; border-radius: 16px; margin-bottom: 36px; }
+.blog-hero h1 { margin: 0 0 12px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.12; }
+.blog-hero p { max-width: 720px; margin: 0; font-size: 1.1rem; line-height: 1.7; color: #f2f6fb; }
+.blog-card + .blog-card { margin-top: 22px; }
+.blog-card { display: grid; grid-template-columns: 280px 1fr; gap: 26px; background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; box-shadow: 0 8px 24px rgba(15,58,99,.08); }
+.blog-card img { width: 100%; height: 190px; object-fit: cover; border-radius: 10px; }
+.blog-card h2 { margin: 0 0 10px; color: #0f3a63; font-size: 1.6rem; }
+.blog-card p { line-height: 1.7; color: #394b5e; }
+.read-more { display: inline-block; margin-top: 16px; padding: 11px 16px; border-radius: 6px; background: #b68c2f; color: #fff !important; }
+.article-shell { max-width: 980px; margin: 0 auto; padding: 110px 24px 72px; }
+.article-hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 34px; align-items: center; background: #f0f4fa; border-radius: 16px; padding: 34px; margin-bottom: 30px; }
+.article-hero h1 { color: #0f3a63; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.12; margin: 0 0 16px; }
+.article-hero p { color: #40556b; line-height: 1.7; margin: 0; }
+.article-hero img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 12px; }
+.publish-date { display: inline-block; margin: 0 0 16px; color: #7b5d1e; font-weight: 700; }
+.article-body { background: #fff; color: #25374a; font-size: 1.08rem; line-height: 1.78; }
+.article-body h2 { color: #0f3a63; font-size: 1.9rem; line-height: 1.25; margin: 38px 0 14px; }
+.article-body h3 { color: #174f84; font-size: 1.4rem; line-height: 1.3; margin: 30px 0 10px; }
+.article-body p { margin: 0 0 18px; }
+.article-body ul { margin: 0 0 20px; padding-left: 26px; }
+.article-body li { margin: 8px 0; }
+.article-body a { color: #0b5ea8; text-decoration: underline; }
+.article-body table { width: 100%; border-collapse: collapse; margin: 0 0 22px; font-size: .95rem; line-height: 1.5; }
+.article-body th, .article-body td { border: 1px solid #d6e0eb; padding: 10px 12px; text-align: left; vertical-align: top; }
+.article-body th { background: #f0f4fa; color: #0f3a63; }
+.article-body ol { margin: 0 0 20px; padding-left: 26px; }
+.article-cta { margin-top: 38px; padding: 24px; border-radius: 12px; background: #0f3a63; color: #fff; }
+.article-cta h2 { color: #fff; margin: 0 0 8px; font-size: 1.5rem; }
+.article-cta p { margin: 0; line-height: 1.6; }
+.article-cta a { color: #ffd166; font-weight: 700; }
+.site-footer { background: #f0f4fa; color: #40556b; padding: 44px 24px 18px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 36px; }
+.footer-inner > div { display: flex; flex-direction: column; gap: 8px; }
+.footer-logo { width: 58px; height: 58px; object-fit: contain; margin-bottom: 6px; }
+.footer-inner h2 { margin: 0 0 6px; color: #0f3a63; font-size: 1rem; }
+.footer-bottom { max-width: 1200px; margin: 30px auto 0; padding-top: 14px; border-top: 1px solid #d6e0eb; font-size: .9rem; }
+@media (max-width: 760px) { .site-header-inner { align-items: flex-start; flex-direction: column; } .site-nav { gap: 12px 16px; justify-content: flex-start; } .site-nav a { font-size: .92rem; } .blog-shell, .article-shell { padding-top: 42px; } .blog-card, .article-hero, .footer-inner { grid-template-columns: 1fr; } .article-hero { padding: 24px; } }
